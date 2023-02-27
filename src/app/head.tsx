@@ -16,6 +16,8 @@ export default function Head() {
       <link rel='icon' type='image/png' sizes='16x16' href='/favicons/favicon-16x16.png' />
       <link rel='apple-touch-icon' sizes='180x180' href='/favicons/apple-touch-icon.png' />
       <link rel='manifest' href='/site.webmanifest' />
+      <meta name='msapplication-TileColor' content='#161515' />
+      <meta name='theme-color' content='#161515' />
     </>
   )
 }

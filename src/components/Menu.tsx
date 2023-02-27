@@ -20,7 +20,7 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
       {/* mobile menu  */}
       <div className={
     navbarCollapsed
-      ? 'md:hidden fixed right-0 top-0 z-10 w-full h-screen bg-primary-darkest/70 backdrop-blur-md'
+      ? 'md:hidden fixed right-0 top-0 z-50 w-full h-screen bg-primary-darkest/90 backdrop-blur-md'
       : ''
   }
       >
