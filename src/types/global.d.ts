@@ -11,3 +11,8 @@ export type SVG = {
   viewBox: string
   path: string
 }
+
+export type SkillType = {
+  name: string;
+  technologies: TechnologiesType[]
+}

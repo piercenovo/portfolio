@@ -1,4 +1,4 @@
-import { HeaderType, Section } from './global'
+import { HeaderType, Section, SkillType } from './global'
 
 export type HeaderSectionType = {
   navLinks: HeaderType[];
@@ -20,3 +20,7 @@ export type AboutSectionType = {
   paragraphs: string[];
   img: string;
 } & Section;
+
+export type SkillsSectionType = {
+  skills: SkillType[];
+ } & Section;
