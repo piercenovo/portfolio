@@ -248,5 +248,15 @@ export const skillsSection: SkillsSectionType = {
       ]
     }
   ]
+}
 
+// Contact Section
+export const contactSection = {
+  title: 'Sobre mí',
+  description: 'Actualmente me encuentro en búsqueda de nuevas oportunidades, cualquier oferta será bien recibida. Si simplemente deseas hacerme una pregunta o saludarme, no dudes en ponerte en contacto conmigo.',
+  contact: {
+    title: '¡Contáctame!',
+    name: 'Contactar',
+    link: 'mailto:piercenovoah@gmail.com'
+  }
 }
