@@ -1,5 +1,7 @@
-import { AboutSectionType, HeaderSectionType, HeroSectionType, SkillsSectionType } from '@/types/data'
+import { AboutSectionType, HeaderSectionType, HeroSectionType, SkillsSectionType, SocialsSectionType } from '@/types/data'
 import * as svgs from '@/data/svg'
+
+import { twitter, instagram, gitHubOutline, linkedIn } from '@/data/svg'
 
 // Header Section
 export const headerSection: HeaderSectionType = {
@@ -260,3 +262,39 @@ export const contactSection = {
     link: 'mailto:piercenovoah@gmail.com'
   }
 }
+
+// Socials Section
+export const socials: SocialsSectionType[] = [
+  {
+    name: 'GitHub',
+    href: 'https://github.com/piercenovo',
+    svg: gitHubOutline,
+    hover: {
+      fill: 'group-hover:fill-github'
+    }
+  },
+  {
+    name: 'Linkedin',
+    href: 'https://www.linkedin.com/in/piercenovoa',
+    svg: linkedIn,
+    hover: {
+      fill: 'group-hover:fill-linkedin'
+    }
+  },
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/piercenovodev',
+    svg: twitter,
+    hover: {
+      fill: 'group-hover:fill-twitter'
+    }
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/piercenovo.dev',
+    svg: instagram,
+    hover: {
+      fill: 'group-hover:fill-instagram'
+    }
+  }
+]

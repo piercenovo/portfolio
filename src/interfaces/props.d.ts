@@ -21,3 +21,8 @@ export interface SectionProps {
   number: string;
   children: JSX.Element;
 }
+
+export interface SideColumnProps {
+  orientation: 'left' | 'right'
+  children: JSX.Element
+}

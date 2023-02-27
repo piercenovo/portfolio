@@ -24,3 +24,12 @@ export type AboutSectionType = {
 export type SkillsSectionType = {
   skills: SkillType[];
  } & Section;
+
+export type SocialsSectionType = {
+  name: string;
+  href: string;
+  svg: SVG;
+  hover: {
+      fill: string;
+  };
+};
