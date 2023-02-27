@@ -1,4 +1,4 @@
-import { HeaderType } from './global'
+import { HeaderType, Section } from './global'
 
 export type HeaderSectionType = {
   navLinks: HeaderType[];
@@ -14,4 +14,9 @@ export type HeroSectionType = {
   subtitle2: string;
   tagline: string;
   description: string;
+} & Section;
+
+export type AboutSectionType = {
+  paragraphs: string[];
+  img: string;
 } & Section;

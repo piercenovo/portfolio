@@ -14,3 +14,10 @@ export interface SlideUpProps {
   children?: ReactNode
   // any props that come into the component
 }
+
+export interface SectionProps {
+  id: string;
+  title: string;
+  number: string;
+  children: JSX.Element;
+}
