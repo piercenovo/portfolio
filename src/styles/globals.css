@@ -14,6 +14,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  @apply bg-[url('/images/bg-body.svg')] w-full h-screen flex flex-col items-center bg-primary-darkest px-6 text-primary sm:px-0;
+}
+
 ::selection {
   background-color: #535c68;
   color: white;
