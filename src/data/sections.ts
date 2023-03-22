@@ -271,7 +271,7 @@ export const projectsSection: ProjectsSectionType = {
     {
       name: 'Linktree Clone',
       description: 'Es el clon de Linktree, una herramienta en línea que te permite crear una página de enlaces personalizada para centralizar todos tus perfiles y sitios web en un solo lugar.',
-      url: 'https://fylo-kv.netlify.app/',
+      url: 'https://linktr.piercenovo.dev/',
       repo: 'https://github.com/piercenovo/linktree-clone',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448718/Portfolio/linktree-clone_dvlxgw.png',
       year: 2023,
