@@ -1,4 +1,4 @@
-import { AboutSectionType, HeaderSectionType, HeroSectionType, SkillsSectionType, SocialsSectionType } from '@/types/data'
+import { AboutSectionType, HeaderSectionType, HeroSectionType, ProjectsSectionType, SkillsSectionType, SocialsSectionType } from '@/types/data'
 import * as svgs from '@/data/svg'
 
 import { twitter, instagram, gitHubOutline, linkedIn } from '@/data/svg'
@@ -13,6 +13,10 @@ export const headerSection: HeaderSectionType = {
     {
       section: 'skills',
       children: 'Habilidades'
+    },
+    {
+      section: 'projects',
+      children: 'Proyectos'
     },
     {
       section: 'contact',
@@ -248,6 +252,39 @@ export const skillsSection: SkillsSectionType = {
           }
         }
       ]
+    }
+  ]
+}
+
+export const projectsSection: ProjectsSectionType = {
+  title: 'Proyectos',
+  projects: [
+    {
+      name: 'PostIt',
+      description: 'Es una plataforma donde puedes conectarte fácilmente a través de tu cuenta de Google y subir tus publicaciones y comentarios en cuestión de segundos.',
+      url: 'https://postit.piercenovo.dev/',
+      repo: 'https://github.com/piercenovo/post-it-app',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448830/Portfolio/postit-app_uowdkx.png',
+      year: 2023,
+      tags: ['Next.js', 'Prisma', 'PostgreSQL']
+    },
+    {
+      name: 'Linktree Clone',
+      description: 'Es el clon de Linktree, una herramienta en línea que te permite crear una página de enlaces personalizada para centralizar todos tus perfiles y sitios web en un solo lugar.',
+      url: 'https://fylo-kv.netlify.app/',
+      repo: 'https://github.com/piercenovo/linktree-clone',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448718/Portfolio/linktree-clone_dvlxgw.png',
+      year: 2023,
+      tags: ['Next.js', 'Tailwind', 'TypeScript']
+    },
+    {
+      name: 'Brainconcent',
+      description: 'Es una aplicación móvil que está enfocada al entrenamiento de la concentración y las habilidades cognitivas de niños con TDAH, cuenta con un diseño llamativo e interactivo.',
+      url: 'https://apps.apple.com/pe/app/brainconcent/id1658845005?l=es',
+      repo: 'https://github.com/piercenovo/brainconcent-flutter',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448412/Portfolio/brainconcent_uw6ud8.png',
+      year: 2022,
+      tags: ['Flutter', 'Node.js', 'MongoDB']
     }
   ]
 }

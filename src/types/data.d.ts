@@ -25,6 +25,10 @@ export type SkillsSectionType = {
   skills: SkillType[];
  } & Section;
 
+export type ProjectsSectionType = {
+  projects: ProjectType[];
+} & Section;
+
 export type SocialsSectionType = {
   name: string;
   href: string;

@@ -16,3 +16,13 @@ export type SkillType = {
   name: string;
   technologies: TechnologiesType[]
 }
+
+export type ProjectType = {
+  name: string
+  description: string
+  url: string
+  repo: string
+  year: number
+  img: string
+  tags: string[]
+};
