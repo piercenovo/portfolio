@@ -26,11 +26,11 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
       >
         <div className={
       navbarCollapsed
-        ? 'fixed right-0 bottom-0 w-4/6 h-screen bg-primary-darker text-white duration-500 ease-in-out'
-        : 'fixed right-[-100%] top-0 h-screen duration-500 ease-in-out'
+        ? 'fixed right-0 top-0 w-4/6 h-full bg-primary-darker text-white duration-500 ease-in-out'
+        : 'fixed right-[-100%] top-0 h-full duration-500 ease-in-out'
     }
         >
-          <div className='bg-primary-darker'>
+          <div>
             <div
               onClick={onClick}
               className='flex w-full items-center cursor-pointer justify-end h-20 px-6'
@@ -39,7 +39,7 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
             </div>
           </div>
 
-          <div className='pt-20 pb-20 flex flex-col justify-center items-center bg-primary-darker h-fit gap-12 p-10'>
+          <div className='pt-20 flex flex-col justify-center items-center bg-primary-darker h-fit gap-12 p-10'>
             <ul>
               {navLinks.map(({ section, children }, i) => (
                 <a href={`#${section}`} key={section} onClick={onClick}>
