@@ -1,8 +1,8 @@
-import { About } from '@/components/About'
-import { Contact } from '@/components/Contact'
-import { Hero } from '@/components/Hero'
-import { Projects } from '@/components/Projects'
-import { Skills } from '@/components/Skills'
+import { About } from '@/sections/About'
+import { Contact } from '@/sections/Contact'
+import { Hero } from '@/sections/Hero'
+import { Projects } from '@/sections/Projects'
+import { Skills } from '@/sections/Skills'
 
 export const metadata = {
   title: 'Pierce Novoa | Portfolio',

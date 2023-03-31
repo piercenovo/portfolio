@@ -4,7 +4,7 @@ import { sfmono } from '@/app/font'
 import { skillsSection } from '@/data/sections'
 import { getId } from '@/utils/helper'
 import { useState } from 'react'
-import Section from './Section'
+import Section from '../components/Section'
 
 export function Skills() {
   const [activeSkill, setActiveSkill] = useState(0)
@@ -20,18 +20,18 @@ export function Skills() {
         <div className='relative'>
           <div className='flex text-base md:text-lg lg:text-xl font-medium'>
             {
-                    skills.map(({ name }, i) => (
-                      <button
-                        key={getId()}
-                        data-skill={name}
-                        data-skill-index={i}
-                        className={`flex-1 pb-3 pt-4 md:pt-5 md:pb-4 border-b-2 hover:text-secondary transition-transform ${i === activeSkill ? 'text-secondary border-secondary' : 'border-primary'}`}
-                        onClick={() => setActiveSkill(i)}
-                      >
-                        {name}
-                      </button>
-                    ))
-                }
+              skills.map(({ name }, i) => (
+                <button
+                  key={getId()}
+                  data-skill={name}
+                  data-skill-index={i}
+                  className={`flex-1 pb-3 pt-4 md:pt-5 md:pb-4 border-b-2 hover:text-secondary transition-transform ${i === activeSkill ? 'text-secondary border-secondary' : 'border-primary'}`}
+                  onClick={() => setActiveSkill(i)}
+                >
+                  {name}
+                </button>
+              ))
+            }
           </div>
         </div>
 

@@ -14,7 +14,14 @@ export type SVG = {
 
 export type SkillType = {
   name: string;
-  technologies: TechnologiesType[]
+  technologies: {
+    name: string;
+    svg: SVG;
+    hover: {
+        fill: string;
+        text: string;
+    };
+  }[]
 }
 
 export type ProjectType = {
@@ -24,5 +31,11 @@ export type ProjectType = {
   repo: string
   year: number
   img: string
-  tags: string[]
+  tags: {
+    name: string;
+    svg: SVG;
+    hover: {
+        fill: string;
+    };
+  }[]
 };

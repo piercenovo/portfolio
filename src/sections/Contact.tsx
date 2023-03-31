@@ -1,6 +1,6 @@
 import { contactSection } from '@/data/sections'
-import { Button } from './Button'
-import Section from './Section'
+import { Button } from '../components/Button'
+import Section from '../components/Section'
 
 export function Contact() {
   const { title, description, contact } = contactSection

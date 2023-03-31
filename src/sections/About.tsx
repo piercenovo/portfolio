@@ -1,7 +1,7 @@
 'use client'
 
-import { WordLink } from './WordLink'
-import Section from './Section'
+import { WordLink } from '../components/WordLink'
+import Section from '../components/Section'
 import Image from 'next/image'
 import { getId } from '@/utils/helper'
 import { aboutSection } from '@/data/sections'
@@ -35,6 +35,7 @@ export function About() {
           className='mx-auto flex max-w-lg flex-col gap-5 sm:max-w-prose md:max-w-xl lg:max-w-prose-lg xl:max-w-md xl:mt-1'
         >
           <Image
+            priority
             alt='Pierce Novoa'
             src={img}
             width='400'

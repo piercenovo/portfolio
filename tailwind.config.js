@@ -41,7 +41,7 @@ module.exports = {
         mongodb: '#47a248',
         mysql: '#E48E00',
         graphql: '#E535AB',
-        postgresql: '#2F6792',
+        postgresql: '#3178c6',
         jsonwebtokens: '#FB015B',
         figma: '#A259FF',
         excel: '#217346',
@@ -50,7 +50,8 @@ module.exports = {
         vercel: '#FFFFFF',
         vscode: '#22A6F1',
         docker: '#2496ED',
-        pnpm: '#F9AD00'
+        pnpm: '#F9AD00',
+        prisma: '#336791'
       },
       keyframes: {
         'fade-in': {

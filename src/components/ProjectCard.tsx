@@ -1,7 +1,6 @@
 import { sfmono } from '@/app/font'
 import { gitHubProject, linkProject } from '@/data/svg'
 import { ProjectType } from '@/types/global'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export function ProjectCard({
@@ -24,7 +23,7 @@ export function ProjectCard({
 
   return (
     <div
-      className='block group bg-primary-dark w-full max-w-[25rem]  shadow-xl rounded-md overflow-hidden transition-all duration-200 grayscale hover:grayscale-0 group'
+      className='block group bg-primary-dark w-full max-w-[25rem] hover:drop-shadow-white shadow-sm rounded-md overflow-hidden transition-all duration-200 grayscale hover:grayscale-0 group'
     >
       <div
         className='overflow-hidden h-[200px]'
@@ -34,18 +33,28 @@ export function ProjectCard({
           target='_blank'
           rel='noreferrer'
         >
-          <Image
+          <img
             src={img}
             alt={name}
-            width={300}
-            height={300}
             className='w-full h-full object-cover group-hover:scale-[1.05] transition duration-300 ease-in-out'
           />
         </a>
       </div>
-      <div className='p-4 py-3 flex flex-col gap-2 justify-center'>
+      <div className='p-4 py-3 flex flex-col gap-1 justify-center'>
         <div className={`${sfmono.className} flex justify-between items-center`}>
-          <p className='text-[0.82rem]'>{tags.join(' | ')}</p>
+          <div className='flex gap-4 items-center'>
+            {tags.map(({ name, svg, hover }) => (
+              <button key={name} data-tip={name} className='group flex flex-col items-center gap-1 relative before:z-10 before:absolute before:left-[15%] before:-bottom-2 before:-translate-x-[15%] before:translate-y-full before:rounded-lg before:bg-gray-800 before:px-3 before:py-2 before:text-white before:text-xs before:invisible before:content-[attr(data-tip)] hover:before:visible'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox={svg.viewBox}
+                  className={`${hover.fill} group-hover:drop-shadow-white w-6 transition-all duration-300`}
+                >
+                  <path d={svg.path} />
+                </svg>
+              </button>
+            ))}
+          </div>
           <div className='flex items-center space-x-1.5'>
             <a
               href={repo}
@@ -75,11 +84,11 @@ export function ProjectCard({
             </a>
           </div>
         </div>
-        <h4 className='flex justify-between capitalize font-medium text-lg xl:text-xl duration-200 group-hover:text-secondary'>
+        <div className='flex justify-between capitalize font-medium text-lg xl:text-xl duration-200 group-hover:text-secondary mt-3'>
           <span>{name}</span>
           <span className='mr-1'>{year}</span>
-        </h4>
-        <p className='mt-1 text-base md:text-lg'>
+        </div>
+        <p className='text-base md:text-lg'>
           {description}
         </p>
       </div>

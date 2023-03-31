@@ -2,8 +2,8 @@
 
 import { projectsSection } from '@/data/sections'
 import { getId } from '@/utils/helper'
-import { ProjectCard } from './ProjectCard'
-import Section from './Section'
+import { ProjectCard } from '../components/ProjectCard'
+import Section from '../components/Section'
 
 export function Projects() {
   const { projects, title } = projectsSection

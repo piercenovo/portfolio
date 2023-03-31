@@ -74,7 +74,7 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'TailwindCSS',
+          name: 'Tailwind',
           svg: svgs.tailwindCss,
           hover: {
             fill: 'group-hover:fill-tailwindcss',
@@ -183,6 +183,14 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
+          name: 'Prisma',
+          svg: svgs.prisma,
+          hover: {
+            fill: 'group-hover:fill-prisma',
+            text: 'group-hover:text-prisma'
+          }
+        },
+        {
           name: 'JSON Web Tokens',
           svg: svgs.JsonWebTokens,
           hover: {
@@ -264,18 +272,107 @@ export const projectsSection: ProjectsSectionType = {
       description: 'Es una plataforma donde puedes conectarte fácilmente a través de tu cuenta de Google y subir tus publicaciones y comentarios en cuestión de segundos.',
       url: 'https://postit.piercenovo.dev/',
       repo: 'https://github.com/piercenovo/post-it-app',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448830/Portfolio/postit-app_uowdkx.png',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/postit-app_xud2ni.png',
       year: 2023,
-      tags: ['Next.js', 'Prisma', 'PostgreSQL']
+      tags: [
+        {
+          name: 'Next.js',
+          svg: svgs.nextJs,
+          hover: {
+            fill: 'group-hover:fill-nextjs'
+          }
+        },
+        {
+          name: 'Tailwind',
+          svg: svgs.tailwindCss,
+          hover: {
+            fill: 'group-hover:fill-tailwindcss'
+          }
+        },
+        {
+          name: 'Prisma',
+          svg: svgs.prisma,
+          hover: {
+            fill: 'group-hover:fill-prisma'
+          }
+        },
+        {
+          name: 'PostgreSQL',
+          svg: svgs.postgreSql,
+          hover: {
+            fill: 'group-hover:fill-postgresql'
+          }
+        }
+      ]
     },
     {
       name: 'Linktree Clone',
       description: 'Es el clon de Linktree, una herramienta en línea que te permite crear una página de enlaces personalizada para centralizar todos tus perfiles y sitios web en un solo lugar.',
       url: 'https://linktr.piercenovo.dev/',
       repo: 'https://github.com/piercenovo/linktree-clone',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448718/Portfolio/linktree-clone_dvlxgw.png',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/linktree-app_al0u8n.png',
       year: 2023,
-      tags: ['Next.js', 'Tailwind', 'TypeScript']
+      tags: [
+        {
+          name: 'Next.js',
+          svg: svgs.nextJs,
+          hover: {
+            fill: 'group-hover:fill-nextjs'
+          }
+        },
+        {
+          name: 'Tailwind',
+          svg: svgs.tailwindCss,
+          hover: {
+            fill: 'group-hover:fill-tailwindcss'
+          }
+        },
+        {
+          name: 'TypeScript',
+          svg: svgs.typeScript,
+          hover: {
+            fill: 'group-hover:fill-typescript'
+          }
+        }
+      ]
+    },
+    {
+      name: 'Todo App',
+      description: 'Es una aplicación que permite gestionar listas de proyectos, y asignar tareas a cada proyecto en particular. Fue desarrollado en un sistema de tipo monorepo multipaquete.',
+      url: 'https://todo-graphql-production.up.railway.app/',
+      repo: 'https://github.com/piercenovo/todo-graphql',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/todo-app_ajlsir.png',
+      year: 2023,
+      tags: [
+        {
+          name: 'React.js',
+          svg: svgs.reactJs,
+          hover: {
+            fill: 'group-hover:fill-reactjs'
+          }
+        },
+        {
+          name: 'Tailwind',
+          svg: svgs.tailwindCss,
+          hover: {
+            fill: 'group-hover:fill-tailwindcss'
+          }
+        },
+        {
+          name: 'GraphQL',
+          svg: svgs.graphql,
+          hover: {
+            fill: 'group-hover:fill-graphql'
+          }
+        },
+        {
+          name: 'MongoDB',
+          svg: svgs.mongoDb,
+          hover: {
+            fill: 'group-hover:fill-mongodb'
+          }
+        }
+      ]
     },
     {
       name: 'Brainconcent',
@@ -284,7 +381,36 @@ export const projectsSection: ProjectsSectionType = {
       repo: 'https://github.com/piercenovo/brainconcent-flutter',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448412/Portfolio/brainconcent_uw6ud8.png',
       year: 2022,
-      tags: ['Flutter', 'Node.js', 'MongoDB']
+      tags: [
+        {
+          name: 'Flutter',
+          svg: svgs.flutter,
+          hover: {
+            fill: 'group-hover:fill-flutter'
+          }
+        },
+        {
+          name: 'Node.js',
+          svg: svgs.nodeJs,
+          hover: {
+            fill: 'group-hover:fill-nodejs'
+          }
+        },
+        {
+          name: 'Express',
+          svg: svgs.express,
+          hover: {
+            fill: 'group-hover:fill-express'
+          }
+        },
+        {
+          name: 'MongoDB',
+          svg: svgs.mongoDb,
+          hover: {
+            fill: 'group-hover:fill-mongodb'
+          }
+        }
+      ]
     }
   ]
 }

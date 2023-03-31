@@ -1,4 +1,4 @@
-import { HeaderType, Section, SkillType } from './global'
+import { ProjectType, HeaderType, Section, SkillType } from '@/types/global'
 
 export type HeaderSectionType = {
   navLinks: HeaderType[];
