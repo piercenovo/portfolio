@@ -39,7 +39,7 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
             </div>
           </div>
 
-          <div className='mt-20 flex flex-col justify-center items-center h-fit gap-12 p-10'>
+          <div className='mt-20 flex flex-col justify-center items-center bg-primary-darker h-fit gap-12 p-10'>
             <ul>
               {navLinks.map(({ section, children }, i) => (
                 <a href={`#${section}`} key={section} onClick={onClick}>
