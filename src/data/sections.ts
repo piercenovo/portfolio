@@ -37,7 +37,7 @@ export const heroSection: HeroSectionType = {
   title: 'pierce novoa.',
   tagline: 'Construyo cosas para la gente.',
   description:
-    'Soy un desarrollador de software que se especializa en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. Actualmente, estoy enfocado en la creación de aplicaciones web y móviles para una vida más fácil. 🚀'
+    'Soy un desarrollador de software que se especializa en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. 🚀'
 }
 
 // About Section
@@ -268,6 +268,44 @@ export const projectsSection: ProjectsSectionType = {
   title: 'Proyectos',
   projects: [
     {
+      name: 'Airbnb Clone',
+      description: 'Es una plataforma de alojamiento en línea que conecta a los viajeros con anfitriones locales en todo el mundo, se ha creado para proporcionar una experiencia de usuario similar.',
+      url: 'https://rent-app-mocha.vercel.app/',
+      repo: 'https://github.com/piercenovo/post-it-app',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1686756632/Portfolio/airbnb_karwum.png',
+      year: 2023,
+      tags: [
+        {
+          name: 'Next.js',
+          svg: svgs.nextJs,
+          hover: {
+            fill: 'group-hover:fill-nextjs'
+          }
+        },
+        {
+          name: 'Tailwind',
+          svg: svgs.tailwindCss,
+          hover: {
+            fill: 'group-hover:fill-tailwindcss'
+          }
+        },
+        {
+          name: 'Prisma',
+          svg: svgs.prisma,
+          hover: {
+            fill: 'group-hover:fill-prisma'
+          }
+        },
+        {
+          name: 'PostgreSQL',
+          svg: svgs.postgreSql,
+          hover: {
+            fill: 'group-hover:fill-postgresql'
+          }
+        }
+      ]
+    },
+    {
       name: 'PostIt',
       description: 'Es una plataforma donde puedes conectarte fácilmente a través de tu cuenta de Google y subir tus publicaciones y comentarios en cuestión de segundos.',
       url: 'https://postit.piercenovo.dev/',
@@ -342,7 +380,7 @@ export const projectsSection: ProjectsSectionType = {
       url: 'https://todo-graphql-production.up.railway.app/',
       repo: 'https://github.com/piercenovo/todo-graphql',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/todo-app_ajlsir.png',
-      year: 2023,
+      year: 2022,
       tags: [
         {
           name: 'React.js',
