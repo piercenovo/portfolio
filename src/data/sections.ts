@@ -35,16 +35,16 @@ export const heroSection: HeroSectionType = {
   subtitle1: 'Hola,',
   subtitle2: 'me llamo',
   title: 'pierce novoa.',
-  tagline: 'Construyo cosas para la gente.',
+  tagline: 'Construyo aplicaciones para las personas.',
   description:
-    'Soy un desarrollador de software que se especializa en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. 🚀'
+    'Desarrollador de software especializado en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. 🚀'
 }
 
 // About Section
 export const aboutSection: AboutSectionType = {
   title: 'Sobre mí',
   paragraphs: [
-    '¡Hola! Mi nombre es Pierce Novoa y tengo +1 año de experiencia como desarrollador de software. Me ha fascinado la tecnología desde pequeño y eso me llevó a estudiar Ingeniería de Sistemas.',
+    '+2 años de experiencia. Desarrollador Móbil y Web. De Lima, Perú. Me ha fascinado la tecnología desde pequeño y eso me llevó a estudiar Ingeniería de Sistemas.',
     ' Decidí emprender esta carrera con el objetivo de crear soluciones prácticas a través del uso de código, siendo de utilidad para las personas y sus emprendimientos.'
   ],
   img: '/images/about.webp'
@@ -375,44 +375,6 @@ export const projectsSection: ProjectsSectionType = {
       ]
     },
     {
-      name: 'Todo App',
-      description: 'Es una aplicación que permite gestionar listas de proyectos, y asignar tareas a cada proyecto en particular. Fue desarrollado en un sistema de tipo monorepo multipaquete.',
-      url: 'https://todo-graphql-production.up.railway.app/',
-      repo: 'https://github.com/piercenovo/todo-graphql',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/todo-app_ajlsir.png',
-      year: 2022,
-      tags: [
-        {
-          name: 'React.js',
-          svg: svgs.reactJs,
-          hover: {
-            fill: 'group-hover:fill-reactjs'
-          }
-        },
-        {
-          name: 'Tailwind',
-          svg: svgs.tailwindCss,
-          hover: {
-            fill: 'group-hover:fill-tailwindcss'
-          }
-        },
-        {
-          name: 'GraphQL',
-          svg: svgs.graphql,
-          hover: {
-            fill: 'group-hover:fill-graphql'
-          }
-        },
-        {
-          name: 'MongoDB',
-          svg: svgs.mongoDb,
-          hover: {
-            fill: 'group-hover:fill-mongodb'
-          }
-        }
-      ]
-    },
-    {
       name: 'Brainconcent',
       description: 'Es una aplicación móvil que está enfocada al entrenamiento de la concentración y las habilidades cognitivas de niños con TDAH, cuenta con un diseño llamativo e interactivo.',
       url: 'https://apps.apple.com/pe/app/brainconcent/id1658845005?l=es',
@@ -439,6 +401,44 @@ export const projectsSection: ProjectsSectionType = {
           svg: svgs.express,
           hover: {
             fill: 'group-hover:fill-express'
+          }
+        },
+        {
+          name: 'MongoDB',
+          svg: svgs.mongoDb,
+          hover: {
+            fill: 'group-hover:fill-mongodb'
+          }
+        }
+      ]
+    },
+    {
+      name: 'Todo App',
+      description: 'Es una aplicación que permite gestionar listas de proyectos, y asignar tareas a cada proyecto en particular. Fue desarrollado en un sistema de tipo monorepo multipaquete.',
+      url: 'https://todo-graphql-production.up.railway.app/',
+      repo: 'https://github.com/piercenovo/todo-graphql',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/todo-app_ajlsir.png',
+      year: 2022,
+      tags: [
+        {
+          name: 'React.js',
+          svg: svgs.reactJs,
+          hover: {
+            fill: 'group-hover:fill-reactjs'
+          }
+        },
+        {
+          name: 'Tailwind',
+          svg: svgs.tailwindCss,
+          hover: {
+            fill: 'group-hover:fill-tailwindcss'
+          }
+        },
+        {
+          name: 'GraphQL',
+          svg: svgs.graphql,
+          hover: {
+            fill: 'group-hover:fill-graphql'
           }
         },
         {

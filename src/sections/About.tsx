@@ -38,8 +38,8 @@ export function About() {
             priority
             alt='Pierce Novoa'
             src={img}
-            width='400'
-            height='400'
+            width='300'
+            height='300'
             className='mx-auto w-72 animate-profile grayscale hover:filter-none delay-100 shadow-image bg-no-repeat'
           />
         </div>
