@@ -1,4 +1,7 @@
 {
+  "env": {
+    "node": true
+  },
   "extends": [
     "./node_modules/standard/eslintrc.json",
     "next/core-web-vitals"
@@ -8,6 +11,7 @@
     "no-undef": "off",
     "array-callback-return": "off",
     "react-hooks/exhaustive-deps": "off",
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "quotes": [2, "single"]
   }
 }

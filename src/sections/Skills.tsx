@@ -13,7 +13,7 @@ export function Skills() {
   const { name, technologies } = skills[activeSkill]
 
   return (
-    <Section id='skills' title={title} number='02'>
+    <Section id='habilidades' title={title} number='02'>
       <article
         className='mx-auto flex w-full max-w-lg flex-col gap-2 sm:max-w-xl xl:max-w-2xl'
       >
@@ -37,11 +37,11 @@ export function Skills() {
 
         <div key={getId()} data-skill-container={name} className='grid grid-cols-3'>
           {technologies.map(({ name, svg, hover }) => (
-            <button key={name} className='group flex flex-col items-center gap-3 py-6'>
+            <button key={name} className='group flex flex-col items-center gap-3 py-6  '>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox={svg.viewBox}
-                className={`${hover.fill} group-hover:drop-shadow-white w-8 transition-all duration-300`}
+                className={`${hover.fill} group-hover:drop-shadow-white h-8 w-8  group-hover:scale-[1.07] transition-all duration-300`}
               >
                 <path d={svg.path} />
               </svg>

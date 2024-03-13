@@ -1,4 +1,11 @@
-import { AboutSectionType, HeaderSectionType, HeroSectionType, ProjectsSectionType, SkillsSectionType, SocialsSectionType } from '@/types/data'
+import {
+  AboutSectionType,
+  HeaderSectionType,
+  HeroSectionType,
+  ProjectsSectionType,
+  SkillsSectionType,
+  SocialsSectionType
+} from '@/types/data'
 import * as svgs from '@/data/svg'
 
 import { twitter, instagram, gitHubOutline, linkedIn } from '@/data/svg'
@@ -7,19 +14,19 @@ import { twitter, instagram, gitHubOutline, linkedIn } from '@/data/svg'
 export const headerSection: HeaderSectionType = {
   navLinks: [
     {
-      section: 'about',
-      children: 'Sobre Mi'
-    },
-    {
-      section: 'skills',
-      children: 'Habilidades'
-    },
-    {
-      section: 'projects',
+      section: 'proyectos',
       children: 'Proyectos'
     },
     {
-      section: 'contact',
+      section: 'habilidades',
+      children: 'Habilidades'
+    },
+    {
+      section: 'sobre-mi',
+      children: 'Sobre Mí'
+    },
+    {
+      section: 'contacto',
       children: 'Contacto'
     }
   ],
@@ -37,15 +44,15 @@ export const heroSection: HeroSectionType = {
   title: 'pierce novoa.',
   tagline: 'Construyo aplicaciones para las personas.',
   description:
-    'Desarrollador de software especializado en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. 🚀'
+    '+2 años de experiencia. Ingeniero de Sistemas y Desarrollador de Software de Lima, Perú 🇵🇪. Especializado en el desarrollo de aplicaciones excepcionales.'
 }
 
 // About Section
 export const aboutSection: AboutSectionType = {
   title: 'Sobre mí',
   paragraphs: [
-    '+2 años de experiencia. Desarrollador Móbil y Web. De Lima, Perú. Me ha fascinado la tecnología desde pequeño y eso me llevó a estudiar Ingeniería de Sistemas.',
-    ' Decidí emprender esta carrera con el objetivo de crear soluciones prácticas a través del uso de código, siendo de utilidad para las personas y sus emprendimientos.'
+    'Mi nombre es Pierce, tengo 22 años y soy de Lima, Perú 🇵🇪. Terminé mis estudios como Ingeniero de Sistemas. Actualmente especializado en el Desarrollo de Software, donde disfruto creando experiencias excepcionales para los usuarios.',
+    'Como freelancer, con una sólida experiencia en el diseño de soluciones informáticas, contribuyo al crecimiento de las pequeñas y medianas empresas. Mi objetivo es proporcionar soluciones adaptadas a sus necesidades específicas.'
   ],
   img: '/images/about.webp'
 }
@@ -82,14 +89,6 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'JavaScript',
-          svg: svgs.javaScript,
-          hover: {
-            fill: 'group-hover:fill-javascript',
-            text: 'group-hover:text-javascript'
-          }
-        },
-        {
           name: 'TypeScript',
           svg: svgs.typeScript,
           hover: {
@@ -106,14 +105,6 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'React.js',
-          svg: svgs.reactJs,
-          hover: {
-            fill: 'group-hover:fill-reactjs',
-            text: 'group-hover:text-reactjs'
-          }
-        },
-        {
           name: 'Flutter',
           svg: svgs.flutter,
           hover: {
@@ -121,6 +112,23 @@ export const skillsSection: SkillsSectionType = {
             text: 'group-hover:text-flutter'
           }
         },
+        {
+          name: 'Astro',
+          svg: svgs.astro,
+          hover: {
+            fill: 'group-hover:fill-astro',
+            text: 'group-hover:text-astro'
+          }
+        },
+        {
+          name: 'React.js',
+          svg: svgs.reactJs,
+          hover: {
+            fill: 'group-hover:fill-reactjs',
+            text: 'group-hover:text-reactjs'
+          }
+        },
+
         {
           name: 'Next.js',
           svg: svgs.nextJs,
@@ -135,11 +143,11 @@ export const skillsSection: SkillsSectionType = {
       name: 'Backend',
       technologies: [
         {
-          name: 'Node.js',
-          svg: svgs.nodeJs,
+          name: 'Firebase',
+          svg: svgs.firebase,
           hover: {
-            fill: 'group-hover:fill-nodejs',
-            text: 'group-hover:text-nodejs'
+            fill: 'group-hover:fill-firebase',
+            text: 'group-hover:text-firebase'
           }
         },
         {
@@ -151,13 +159,14 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'GraphQL',
-          svg: svgs.graphql,
+          name: 'NestJS',
+          svg: svgs.nestjs,
           hover: {
-            fill: 'group-hover:fill-graphql',
-            text: 'group-hover:text-graphql'
+            fill: 'group-hover:fill-nestjs',
+            text: 'group-hover:text-nestjs'
           }
         },
+
         {
           name: 'MongoDB',
           svg: svgs.mongoDb,
@@ -183,6 +192,14 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
+          name: 'GraphQL',
+          svg: svgs.graphql,
+          hover: {
+            fill: 'group-hover:fill-graphql',
+            text: 'group-hover:text-graphql'
+          }
+        },
+        {
           name: 'Prisma',
           svg: svgs.prisma,
           hover: {
@@ -192,7 +209,7 @@ export const skillsSection: SkillsSectionType = {
         },
         {
           name: 'JSON Web Tokens',
-          svg: svgs.JsonWebTokens,
+          svg: svgs.jsonWebTokens,
           hover: {
             fill: 'group-hover:fill-jsonwebtokens',
             text: 'group-hover:text-jsonwebtokens'
@@ -221,7 +238,7 @@ export const skillsSection: SkillsSectionType = {
         },
         {
           name: 'GitHub',
-          svg: svgs.gitHubFilled,
+          svg: svgs.github,
           hover: {
             fill: 'group-hover:fill-githubicon',
             text: 'group-hover:text-githubicon'
@@ -258,6 +275,14 @@ export const skillsSection: SkillsSectionType = {
             fill: 'group-hover:fill-docker',
             text: 'group-hover:text-docker'
           }
+        },
+        {
+          name: 'Cloudinary',
+          svg: svgs.cloudinary,
+          hover: {
+            fill: 'group-hover:fill-cloudinary',
+            text: 'group-hover:text-cloudinary'
+          }
         }
       ]
     }
@@ -269,7 +294,8 @@ export const projectsSection: ProjectsSectionType = {
   projects: [
     {
       name: 'Airbnb Clone',
-      description: 'Es una plataforma de alojamiento en línea que conecta a los viajeros con anfitriones locales en todo el mundo, se ha creado para proporcionar una experiencia de usuario similar.',
+      description:
+        'Es una plataforma de alojamiento en línea que conecta a los viajeros con anfitriones locales en todo el mundo, se ha creado para proporcionar una experiencia de usuario similar.',
       url: 'https://rent-app-mocha.vercel.app/',
       repo: 'https://github.com/piercenovo/post-it-app',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1686756632/Portfolio/airbnb_karwum.png',
@@ -306,46 +332,9 @@ export const projectsSection: ProjectsSectionType = {
       ]
     },
     {
-      name: 'PostIt',
-      description: 'Es una plataforma donde puedes conectarte fácilmente a través de tu cuenta de Google y subir tus publicaciones y comentarios en cuestión de segundos.',
-      url: 'https://postit.piercenovo.dev/',
-      repo: 'https://github.com/piercenovo/post-it-app',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/postit-app_xud2ni.png',
-      year: 2023,
-      tags: [
-        {
-          name: 'Next.js',
-          svg: svgs.nextJs,
-          hover: {
-            fill: 'group-hover:fill-nextjs'
-          }
-        },
-        {
-          name: 'Tailwind',
-          svg: svgs.tailwindCss,
-          hover: {
-            fill: 'group-hover:fill-tailwindcss'
-          }
-        },
-        {
-          name: 'Prisma',
-          svg: svgs.prisma,
-          hover: {
-            fill: 'group-hover:fill-prisma'
-          }
-        },
-        {
-          name: 'PostgreSQL',
-          svg: svgs.postgreSql,
-          hover: {
-            fill: 'group-hover:fill-postgresql'
-          }
-        }
-      ]
-    },
-    {
       name: 'Linktree Clone',
-      description: 'Es el clon de Linktree, una herramienta en línea que te permite crear una página de enlaces personalizada para centralizar todos tus perfiles y sitios web en un solo lugar.',
+      description:
+        'Es el clon de Linktree, una herramienta en línea que te permite crear una página de enlaces personalizada para centralizar todos tus perfiles y sitios web en un solo lugar.',
       url: 'https://linktr.piercenovo.dev/',
       repo: 'https://github.com/piercenovo/linktree-clone',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/linktree-app_al0u8n.png',
@@ -376,8 +365,8 @@ export const projectsSection: ProjectsSectionType = {
     },
     {
       name: 'Brainconcent',
-      description: 'Es una aplicación móvil que está enfocada al entrenamiento de la concentración y las habilidades cognitivas de niños con TDAH, cuenta con un diseño llamativo e interactivo.',
-      url: 'https://apps.apple.com/pe/app/brainconcent/id1658845005?l=es',
+      description:
+        'Es una aplicación móvil que está enfocada al entrenamiento de la concentración y las habilidades cognitivas de niños con TDAH, cuenta con un diseño llamativo e interactivo.',
       repo: 'https://github.com/piercenovo/brainconcent-flutter',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448412/Portfolio/brainconcent_uw6ud8.png',
       year: 2022,
@@ -411,52 +400,15 @@ export const projectsSection: ProjectsSectionType = {
           }
         }
       ]
-    },
-    {
-      name: 'Todo App',
-      description: 'Es una aplicación que permite gestionar listas de proyectos, y asignar tareas a cada proyecto en particular. Fue desarrollado en un sistema de tipo monorepo multipaquete.',
-      url: 'https://todo-graphql-production.up.railway.app/',
-      repo: 'https://github.com/piercenovo/todo-graphql',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/todo-app_ajlsir.png',
-      year: 2022,
-      tags: [
-        {
-          name: 'React.js',
-          svg: svgs.reactJs,
-          hover: {
-            fill: 'group-hover:fill-reactjs'
-          }
-        },
-        {
-          name: 'Tailwind',
-          svg: svgs.tailwindCss,
-          hover: {
-            fill: 'group-hover:fill-tailwindcss'
-          }
-        },
-        {
-          name: 'GraphQL',
-          svg: svgs.graphql,
-          hover: {
-            fill: 'group-hover:fill-graphql'
-          }
-        },
-        {
-          name: 'MongoDB',
-          svg: svgs.mongoDb,
-          hover: {
-            fill: 'group-hover:fill-mongodb'
-          }
-        }
-      ]
     }
   ]
 }
 
 // Contact Section
 export const contactSection = {
-  title: 'Sobre mí',
-  description: 'Actualmente me encuentro en búsqueda de nuevas oportunidades, cualquier oferta será bien recibida. Si simplemente deseas hacerme una pregunta o saludarme, no dudes en ponerte en contacto conmigo.',
+  title: 'Contacto',
+  description:
+    'Actualmente me encuentro en búsqueda de nuevas oportunidades, cualquier oferta será bien recibida. Si simplemente deseas hacerme una pregunta o saludarme, no dudes en ponerte en contacto conmigo.',
   contact: {
     title: '¡Contáctame!',
     name: 'Contactar',

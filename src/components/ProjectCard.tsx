@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import { sfmono } from '@/app/font'
 import { gitHubProject, linkProject } from '@/data/svg'
 import { ProjectType } from '@/types/global'
@@ -23,10 +24,10 @@ export function ProjectCard({
 
   return (
     <div
-      className='block group bg-primary-dark w-full max-w-[25rem] hover:drop-shadow-white shadow-sm rounded-md overflow-hidden transition-all duration-200 grayscale hover:grayscale-0 group'
+      className='block group bg-primary-dark w-full max-w-[28rem] hover:drop-shadow-white shadow-sm rounded-md overflow-hidden transition-all duration-200 grayscale hover:grayscale-0 group'
     >
       <div
-        className='overflow-hidden h-[200px]'
+        className='overflow-hidden h-[220px]'
       >
         <a
           href={url}
@@ -69,11 +70,11 @@ export function ProjectCard({
                 <path fillRule='evenodd' d={gitHubProject.path} />
               </svg>
             </a>
-            <a
+            {url && <a
               href={url}
               className='block'
               target='_blank' rel='noreferrer'
-            >
+                    >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox={linkProject.viewBox}
@@ -81,7 +82,7 @@ export function ProjectCard({
               >
                 <path fillRule='evenodd' d={linkProject.path} />
               </svg>
-            </a>
+                    </a>}
           </div>
         </div>
         <div className='flex justify-between capitalize font-medium text-lg xl:text-xl duration-200 group-hover:text-secondary mt-3'>

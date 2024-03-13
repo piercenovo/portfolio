@@ -8,7 +8,7 @@ export function Navbar() {
   const { name, title, url } = cta
 
   return (
-    <nav className='w-full h-full flex items-center justify-between md:max-w-4xl lg:max-w-7xl'>
+    <nav className='w-full h-full flex items-center justify-between max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl'>
       <a href='/#'>
         <Image priority alt='Logo' src='/images/logo.png' width={90} height={30} />
       </a>

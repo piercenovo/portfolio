@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header
       id='navbar'
-      className={` ${sfmono.className} w-screen h-20 z-20 fixed bg-primary-darkest/90 flex justify-center items-center backdrop-blur-[10px] animate-fade-in-down duration-500 px-6 md:px-8`}
+      className={` ${sfmono.className} w-screen h-20 z-20 fixed bg-primary-darkest/90 flex justify-center items-center backdrop-blur-[10px] animate-fade-in-down duration-500 px-4 md:px-8`}
     >
       {/* Only visible for larger devices */}
       <Navbar />

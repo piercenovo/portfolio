@@ -1,12 +1,14 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import { sfmono } from '@/app/font'
+import SocialIcons from '@/components/SocialIcons'
 import { heroSection } from '@/data/sections'
 import { arrowDown } from '@/data/svg'
 
 export function Hero() {
-  const { subtitle1, subtitle2, title, tagline, description } = heroSection
+  const { subtitle1, subtitle2, title, description } = heroSection
   return (
-    <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-md sm:max-w-xl lg:max-w-3xl xl:max-w-5xl px-2 sm:px-0'>
-      <div className='flex flex-col gap-3 pt-28 w-full'>
+    <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl px-2 md:px-6'>
+      <div className='flex flex-col gap-1 pt-28 w-full'>
         <h3
           className={` ${sfmono.className} animate-fade-in text-sm lg:text-base text-secondary animation-delay-250 animation-duration-1000 mb-2`}
         >
@@ -17,28 +19,27 @@ export function Hero() {
         </h3>
 
         <h1
-          className='animate-fade-in text-4xl font-semibold capitalize leading-none text-primary-lightest animation-duration-1500 animation-delay-1000 sm:text-5xl md:text-6xl xl:text-7xl'
+          className='mt-1 animate-fade-in text-4xl font-semibold capitalize leading-none text-primary-lightest animation-duration-1500 animation-delay-1000 sm:text-5xl md:text-6xl xl:text-7xl'
         >
           {title}
         </h1>
 
-        <h2
-          className='-mt-2 animate-fade-in text-4xl font-semibold leading-none sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl w-full'
+        <p
+          className='animate-fade-in text-2xl max-w-3xl'
         >
-          {tagline}
-        </h2>
-
-        <p className='max-w-md animate-fade-in sm:max-w-prose md:text-lg lg:text-xl'>
           {description}
         </p>
+
+        <SocialIcons />
+
       </div>
 
       <div className='mx-auto'>
-        <a href='#about'>
+        <a href='#proyectos'>
           <button
             data-hero-arrow
-            data-section-id='about'
-            aria-label='Ir a Sobre Mi'
+            data-section-id='proyectos'
+            aria-label='Ir a Proyectos'
             className='animate-arrow [&>svg]:hover:fill-secondary'
           >
             <svg

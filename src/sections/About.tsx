@@ -9,12 +9,12 @@ import { aboutSection } from '@/data/sections'
 export function About() {
   const { title, paragraphs, img } = aboutSection
   return (
-    <Section id='about' title={title} number='01'>
+    <Section id='sobre-mi' title={title} number='03'>
       <article
-        className='grid gap-5 xl:grid-cols-2 xl:gap-3 max-w-md sm:max-w-xl lg:max-w-3xl xl:max-w-5xl'
+        className='flex gap-5 w-full flex-col xl:flex-row max-w-3xl lg:max-w-4xl xl:max-w-5xl px-2 md:px-6'
       >
         <div
-          className='mx-auto flex max-w-md flex-col gap-3 sm:max-w-prose md:max-w-xl lg:max-w-prose-lg xl:max-w-md xl:justify-between text-base md:text-lg lg:text-xl'
+          className=' flex max-w-xl flex-col gap-3 sm:max-w-prose md:max-w-xl lg:max-w-3xl mx-auto xl:mx-0 xl:max-w-[39rem] xl:justify-between text-lg lg:text-xl'
         >
 
           {paragraphs.map((paragraph) => (
@@ -22,17 +22,18 @@ export function About() {
           ))}
 
           <p>
-            Recientemente, he publicado una aplicación móvil llamada
+            Algunos de mis éxitos destacan desarrollar una
             <WordLink
               href='https://apps.apple.com/pe/app/brainconcent/id1658845005?l=es' title='¡Visualiza la App!'
-            > Brainconcent
-            </WordLink>
-            , enfocada en el entrenamiento de la concentración en niños con TDAH.
+            >  aplicación móvil para el entrenamiento de concentración
+              en niños con TDAH.
+            </WordLink> Colaborando en soluciones innovadoras que buscan mejorar la calidad de vida
+            a través de la integración de la tecnología.
           </p>
         </div>
 
         <div
-          className='mx-auto flex max-w-lg flex-col gap-5 sm:max-w-prose md:max-w-xl lg:max-w-prose-lg xl:max-w-md xl:mt-1'
+          className='mx-auto flex max-w-lg flex-col gap-5 xl:max-w-md xl:mt-1'
         >
           <Image
             priority
@@ -40,7 +41,7 @@ export function About() {
             src={img}
             width='300'
             height='300'
-            className='mx-auto w-72 animate-profile grayscale hover:filter-none delay-100 shadow-image bg-no-repeat'
+            className='mx-auto w-[18rem] animate-profile grayscale hover:filter-none duration-300 shadow-image bg-no-repeat'
           />
         </div>
       </article>

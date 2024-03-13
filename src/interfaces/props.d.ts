@@ -1,12 +1,18 @@
 export interface ButtonProps {
-  title: string;
-  href: string;
-  children: string;
+  title: string
+  href: string
+  children: string
+}
+
+export interface IconButtonProps {
+  title: string
+  href: string
+  children?: JSX.Element
 }
 
 export interface MenuProps {
-  onClick: (event: React.MouseEvent) => void;
-  navbarCollapsed: boolean;
+  onClick: (event: React.MouseEvent) => void
+  navbarCollapsed: boolean
 }
 
 export interface SlideUpProps {
@@ -16,10 +22,10 @@ export interface SlideUpProps {
 }
 
 export interface SectionProps {
-  id: string;
-  title: string;
-  number: string;
-  children: JSX.Element;
+  id: string
+  title: string
+  number: string
+  children: JSX.Element
 }
 
 export interface SideColumnProps {

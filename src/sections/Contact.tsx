@@ -5,7 +5,7 @@ import Section from '../components/Section'
 export function Contact() {
   const { title, description, contact } = contactSection
   return (
-    <Section id='contact' title={title} number='03'>
+    <Section id='contacto' title={title} number='04'>
       <article className='flex flex-col gap-8 pb-32'>
         <p className='mx-auto max-w-lg text-center sm:max-w-xl md:text-lg lg:text-xl'>
           {description}
