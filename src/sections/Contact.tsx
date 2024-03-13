@@ -7,7 +7,7 @@ export function Contact() {
   return (
     <Section id='contacto' title={title} number='04'>
       <article className='flex flex-col gap-8 pb-32'>
-        <p className='mx-auto max-w-lg text-center sm:max-w-xl md:text-lg lg:text-xl'>
+        <p className='mx-auto max-w-lg text-center sm:max-w-xl text-lg lg:text-xl'>
           {description}
         </p>
 

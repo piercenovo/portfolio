@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className='flex animate-fade-in flex-col gap-6 pb-6'>
       {/* Only visible for smaller devices */}
-      <div className='md:hidden'>
+      <div className='md:hidden flex justify-center'>
         <SocialIcons />
       </div>
 

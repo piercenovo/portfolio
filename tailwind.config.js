@@ -44,6 +44,7 @@ module.exports = {
         graphql: '#E535AB',
         postgresql: '#3178c6',
         firebase: '#ED9F1A',
+        digitalocean: '#0A7DEF',
         nestjs: '#D32950',
         jsonwebtokens: '#FB015B',
         figma: '#A259FF',

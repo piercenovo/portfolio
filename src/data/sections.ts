@@ -208,7 +208,7 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'JSON Web Tokens',
+          name: 'JWT',
           svg: svgs.jsonWebTokens,
           hover: {
             fill: 'group-hover:fill-jsonwebtokens',
@@ -282,6 +282,14 @@ export const skillsSection: SkillsSectionType = {
           hover: {
             fill: 'group-hover:fill-cloudinary',
             text: 'group-hover:text-cloudinary'
+          }
+        },
+        {
+          name: 'Digital Ocean',
+          svg: svgs.digitalOcean,
+          hover: {
+            fill: 'group-hover:fill-digitalocean',
+            text: 'group-hover:text-digitalocean'
           }
         }
       ]

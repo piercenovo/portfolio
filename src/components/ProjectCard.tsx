@@ -85,11 +85,11 @@ export function ProjectCard({
                     </a>}
           </div>
         </div>
-        <div className='flex justify-between capitalize font-medium text-lg xl:text-xl duration-200 group-hover:text-secondary mt-3'>
+        <div className='flex justify-between capitalize font-medium text-xl duration-200 group-hover:text-secondary mt-3'>
           <span>{name}</span>
           <span className='mr-1'>{year}</span>
         </div>
-        <p className='text-base md:text-lg'>
+        <p className='text-lg'>
           {description}
         </p>
       </div>
