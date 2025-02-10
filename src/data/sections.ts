@@ -44,14 +44,14 @@ export const heroSection: HeroSectionType = {
   title: 'pierce novoa.',
   tagline: 'Construyo aplicaciones para las personas.',
   description:
-    '+2 años de experiencia. Ingeniero de Sistemas y Desarrollador de Software de Lima, Perú 🇵🇪. Especializado en el desarrollo de aplicaciones excepcionales.'
+    '+3 años de experiencia. Ingeniero de Sistemas y Desarrollador de Software de Trujillo, Perú 🇵🇪. Especializado en el desarrollo de aplicaciones excepcionales.'
 }
 
 // About Section
 export const aboutSection: AboutSectionType = {
   title: 'Sobre mí',
   paragraphs: [
-    'Mi nombre es Pierce, tengo 22 años y soy de Lima, Perú 🇵🇪. Terminé mis estudios como Ingeniero de Sistemas. Actualmente especializado en el Desarrollo de Software, donde disfruto creando experiencias excepcionales para los usuarios.',
+    'Mi nombre es Pierce, tengo 23 años y soy de Trujillo, Perú 🇵🇪. Terminé mis estudios como Ingeniero de Sistemas. Actualmente especializado en el Desarrollo de Software, donde disfruto creando experiencias excepcionales para los usuarios.',
     'Como freelancer, con una sólida experiencia en el diseño de soluciones informáticas, contribuyo al crecimiento de las pequeñas y medianas empresas. Mi objetivo es proporcionar soluciones adaptadas a sus necesidades específicas.'
   ],
   img: '/images/about.webp'

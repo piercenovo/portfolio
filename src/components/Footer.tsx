@@ -9,9 +9,13 @@ export default function Footer() {
         <SocialIcons />
       </div>
 
-      <div className={`${sfmono.className} flex flex-col items-center gap-2 text-xs lg:text-sm`}>
-        <span className='text-center transition'>Hecho con ❤️ por Pierce Novoa</span>
-        <span className='text-center transition'>&#169; 2024</span>
+      <div
+        className={`${sfmono.className} flex flex-col items-center gap-2 text-xs lg:text-sm`}
+      >
+        <span className='text-center transition'>
+          Hecho con ❤️ por Pierce Novoa
+        </span>
+        <span className='text-center transition'>&#169; 2025</span>
       </div>
     </footer>
   )
