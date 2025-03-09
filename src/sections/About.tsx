@@ -23,10 +23,10 @@ export function About() {
               title='¡Visualiza la App!'
             >
               aplicación móvil para la gestión de productividad en la cosecha
-              agrícola,
-            </WordLink>{' '}
-            mejorando la eficiencia y trazabilidad en el sector agroindustrial a
-            través de herramientas digitales innovadoras.
+              agrícola
+            </WordLink>
+            , mejorando la eficiencia y trazabilidad en el sector agroindustrial
+            a través de herramientas digitales innovadoras.
           </p>
         </div>
 

@@ -51,7 +51,7 @@ export const heroSection: HeroSectionType = {
 export const aboutSection: AboutSectionType = {
   title: 'Sobre mí',
   paragraphs: [
-    'Mi nombre es Pierce, tengo 23 años y soy de Trujillo, Perú 🇵🇪. Me especializo en transformar ideas en aplicaciones funcionales y eficientes. Disfruto diseñar experiencias intuitivas que aporten valor a los usuarios.',
+    'Mi nombre es Pierce y tengo 23 años. Me especializo en transformar las ideas en aplicaciones funcionales y eficientes. Disfruto diseñar experiencias intuitivas que aporten valor a los usuarios.',
     'Como freelancer, contribuyo al crecimiento de las pequeñas y medianas empresas. Mi objetivo es proporcionar soluciones adaptadas a sus necesidades específicas.'
   ],
   img: '/images/about.webp'
