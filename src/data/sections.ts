@@ -304,7 +304,7 @@ export const projectsSection: ProjectsSectionType = {
       name: 'Productividad campo',
       description:
         'Aplicación móvil para el sector agroindustrial que optimiza la gestión de la cosecha de arándanos mediante el registro digital de envases y la recepción de guías con códigos QR.',
-      repo: 'https://github.com/piercenovo/brainconcent-flutter',
+      url: 'https://play.google.com/store/apps/details?id=com.missionproduce.productividadcampo&hl=es',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1741485433/Portfolio/productividad-campo_ave8c8.png',
       year: 2025,
       tags: [

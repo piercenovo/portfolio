@@ -28,7 +28,7 @@ export type ProjectType = {
   name: string
   description: string
   url?: string
-  repo: string
+  repo?: string
   year: number
   img: string
   tags: {
