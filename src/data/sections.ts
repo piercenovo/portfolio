@@ -51,8 +51,8 @@ export const heroSection: HeroSectionType = {
 export const aboutSection: AboutSectionType = {
   title: 'Sobre mí',
   paragraphs: [
-    'Mi nombre es Pierce, tengo 23 años y soy de Trujillo, Perú 🇵🇪. Terminé mis estudios como Ingeniero de Sistemas. Actualmente especializado en el Desarrollo de Software, donde disfruto creando experiencias excepcionales para los usuarios.',
-    'Como freelancer, con una sólida experiencia en el diseño de soluciones informáticas, contribuyo al crecimiento de las pequeñas y medianas empresas. Mi objetivo es proporcionar soluciones adaptadas a sus necesidades específicas.'
+    'Mi nombre es Pierce, tengo 23 años y soy de Trujillo, Perú 🇵🇪. Me especializo en transformar ideas en aplicaciones funcionales y eficientes. Disfruto diseñar experiencias intuitivas que aporten valor a los usuarios.',
+    'Como freelancer, contribuyo al crecimiento de las pequeñas y medianas empresas. Mi objetivo es proporcionar soluciones adaptadas a sus necesidades específicas.'
   ],
   img: '/images/about.webp'
 }
@@ -301,9 +301,47 @@ export const projectsSection: ProjectsSectionType = {
   title: 'Proyectos',
   projects: [
     {
+      name: 'Productividad campo',
+      description:
+        'Aplicación móvil para el sector agroindustrial que optimiza la gestión de la cosecha de arándanos mediante el registro digital de envases y la recepción de guías con códigos QR.',
+      repo: 'https://github.com/piercenovo/brainconcent-flutter',
+      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1741485433/Portfolio/productividad-campo_ave8c8.png',
+      year: 2025,
+      tags: [
+        {
+          name: 'Flutter',
+          svg: svgs.flutter,
+          hover: {
+            fill: 'group-hover:fill-flutter'
+          }
+        },
+        {
+          name: 'Node.js',
+          svg: svgs.nodeJs,
+          hover: {
+            fill: 'group-hover:fill-nodejs'
+          }
+        },
+        {
+          name: 'Express',
+          svg: svgs.express,
+          hover: {
+            fill: 'group-hover:fill-express'
+          }
+        },
+        {
+          name: 'MySQL',
+          svg: svgs.mysql,
+          hover: {
+            fill: 'group-hover:fill-mysql'
+          }
+        }
+      ]
+    },
+    {
       name: 'Airbnb Clone',
       description:
-        'Es una plataforma de alojamiento en línea que conecta a los viajeros con anfitriones locales en todo el mundo, se ha creado para proporcionar una experiencia de usuario similar.',
+        'Plataforma de reservas que conecta anfitriones y viajeros, permitiendo alquilar alojamientos de forma segura y eficiente. Ofrece gestión de reservas y comunicación directa entre usuarios.',
       url: 'https://rent-app-mocha.vercel.app/',
       repo: 'https://github.com/piercenovo/post-it-app',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1686756632/Portfolio/airbnb_karwum.png',
@@ -342,7 +380,7 @@ export const projectsSection: ProjectsSectionType = {
     {
       name: 'Linktree Clone',
       description:
-        'Es el clon de Linktree, una herramienta en línea que te permite crear una página de enlaces personalizada para centralizar todos tus perfiles y sitios web en un solo lugar.',
+        'Herramienta para crear un perfil único con múltiples enlaces, permitiendo compartir fácilmente contenido, redes sociales y recursos desde un solo lugar.',
       url: 'https://linktr.piercenovo.dev/',
       repo: 'https://github.com/piercenovo/linktree-clone',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/linktree-app_al0u8n.png',
@@ -374,7 +412,7 @@ export const projectsSection: ProjectsSectionType = {
     {
       name: 'Brainconcent',
       description:
-        'Es una aplicación móvil que está enfocada al entrenamiento de la concentración y las habilidades cognitivas de niños con TDAH, cuenta con un diseño llamativo e interactivo.',
+        'Aplicación móvil diseñada para fortalecer la concentración y las habilidades cognitivas en niños con TDAH, a través de un entorno interactivo y visualmente atractivo.',
       repo: 'https://github.com/piercenovo/brainconcent-flutter',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448412/Portfolio/brainconcent_uw6ud8.png',
       year: 2022,

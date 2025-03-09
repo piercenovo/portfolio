@@ -1,7 +1,7 @@
 import { ButtonProps } from '@/interfaces/props'
 import Link from 'next/link'
 
-export function WordLink({ children, title, href } : ButtonProps) {
+export function WordLink({ children, title, href }: ButtonProps) {
   return (
     <Link
       title={title}
