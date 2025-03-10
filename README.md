@@ -66,7 +66,7 @@
 
 - To change the content, edit `/data/sections.ts`
 
-- To change the **resume**, change `/public/resume.pdf` with your resume (name must be `resume.pdf`)
+- To change the **curriculum**, change `/public/curriculum.pdf` with your curriculum (name must be `curriculum.pdf`)
 
 - To change the **About Section**, edit `/containers/About.tsx`
 

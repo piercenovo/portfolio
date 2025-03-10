@@ -33,7 +33,7 @@ export const headerSection: HeaderSectionType = {
   cta: {
     name: 'Curriculum',
     title: '¡Visualiza mi Curriculum Vitae!',
-    url: '/resume.pdf'
+    url: '/curriculum.pdf'
   }
 }
 
@@ -345,7 +345,7 @@ export const projectsSection: ProjectsSectionType = {
       url: 'https://rent-app-mocha.vercel.app/',
       repo: 'https://github.com/piercenovo/post-it-app',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1686756632/Portfolio/airbnb_karwum.png',
-      year: 2023,
+      year: 2024,
       tags: [
         {
           name: 'Next.js',
