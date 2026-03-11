@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 export interface ButtonProps {
   title: string
   href: string
@@ -7,7 +9,7 @@ export interface ButtonProps {
 export interface IconButtonProps {
   title: string
   href: string
-  children?: JSX.Element
+  children?: React.JSX.Element
 }
 
 export interface MenuProps {
@@ -25,10 +27,10 @@ export interface SectionProps {
   id: string
   title: string
   number: string
-  children: JSX.Element
+  children: React.JSX.Element
 }
 
 export interface SideColumnProps {
   orientation: 'left' | 'right'
-  children: JSX.Element
+  children: React.JSX.Element
 }
