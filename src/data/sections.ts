@@ -42,17 +42,17 @@ export const heroSection: HeroSectionType = {
   subtitle1: 'Hola,',
   subtitle2: 'me llamo',
   title: 'pierce novoa.',
-  tagline: 'Construyo aplicaciones para las personas.',
+  tagline: 'Construyo aplicaciones móviles para las personas.',
   description:
-    '+3 años de experiencia. Ingeniero de Sistemas y Desarrollador de Software de Trujillo, Perú 🇵🇪. Especializado en el desarrollo de aplicaciones excepcionales.'
+    'Mobile Software Engineer con más de 3 años desarrollando apps multiplataforma iOS/Android con Flutter. Trujillo, Perú 🇵🇪. Especializado en Clean Architecture  y soluciones offline-first.'
 }
 
 // About Section
 export const aboutSection: AboutSectionType = {
   title: 'Sobre mí',
   paragraphs: [
-    'Mi nombre es Pierce y tengo 23 años. Me especializo en transformar las ideas en aplicaciones funcionales y eficientes. Disfruto diseñar experiencias intuitivas que aporten valor a los usuarios.',
-    'Como freelancer, contribuyo al crecimiento de las pequeñas y medianas empresas. Mi objetivo es proporcionar soluciones adaptadas a sus necesidades específicas.'
+    'Soy Pierce, Mobile Software Engineer especializado en Flutter con más de 3 años construyendo apps multiplataforma para iOS y Android. Me enfoco en arquitecturas offline-first, Clean Architecture y patrones de estado como BLoC, Cubit y Riverpod.',
+    'He trabajado en los sectores agrícola y financiero entregando mejoras de rendimiento superiores al 30%. Disfruto el ciclo completo: desde el diseño arquitectónico hasta el despliegue en producción.'
   ],
   img: '/images/about.webp'
 }
@@ -62,38 +62,14 @@ export const skillsSection: SkillsSectionType = {
   title: 'Habilidades',
   skills: [
     {
-      name: 'Frontend',
+      name: 'Móvil',
       technologies: [
         {
-          name: 'CSS',
-          svg: svgs.css,
+          name: 'Flutter',
+          svg: svgs.flutter,
           hover: {
-            fill: 'group-hover:fill-css',
-            text: 'group-hover:text-css'
-          }
-        },
-        {
-          name: 'Styled Components',
-          svg: svgs.styledcomponents,
-          hover: {
-            fill: 'group-hover:fill-styledcomponents',
-            text: 'group-hover:text-styledcomponents'
-          }
-        },
-        {
-          name: 'Tailwind',
-          svg: svgs.tailwindCss,
-          hover: {
-            fill: 'group-hover:fill-tailwindcss',
-            text: 'group-hover:text-tailwindcss'
-          }
-        },
-        {
-          name: 'TypeScript',
-          svg: svgs.typeScript,
-          hover: {
-            fill: 'group-hover:fill-typescript',
-            text: 'group-hover:text-typescript'
+            fill: 'group-hover:fill-flutter',
+            text: 'group-hover:text-flutter'
           }
         },
         {
@@ -105,44 +81,6 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'Flutter',
-          svg: svgs.flutter,
-          hover: {
-            fill: 'group-hover:fill-flutter',
-            text: 'group-hover:text-flutter'
-          }
-        },
-        {
-          name: 'Astro',
-          svg: svgs.astro,
-          hover: {
-            fill: 'group-hover:fill-astro',
-            text: 'group-hover:text-astro'
-          }
-        },
-        {
-          name: 'React.js',
-          svg: svgs.reactJs,
-          hover: {
-            fill: 'group-hover:fill-reactjs',
-            text: 'group-hover:text-reactjs'
-          }
-        },
-
-        {
-          name: 'Next.js',
-          svg: svgs.nextJs,
-          hover: {
-            fill: 'group-hover:fill-nextjs',
-            text: 'group-hover:text-nextjs'
-          }
-        }
-      ]
-    },
-    {
-      name: 'Backend',
-      technologies: [
-        {
           name: 'Firebase',
           svg: svgs.firebase,
           hover: {
@@ -151,44 +89,19 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'Express',
-          svg: svgs.express,
+          name: 'TypeScript',
+          svg: svgs.typeScript,
           hover: {
-            fill: 'group-hover:fill-express',
-            text: 'group-hover:text-express'
+            fill: 'group-hover:fill-typescript',
+            text: 'group-hover:text-typescript'
           }
         },
         {
-          name: 'NestJS',
-          svg: svgs.nestjs,
+          name: 'JWT',
+          svg: svgs.jsonWebTokens,
           hover: {
-            fill: 'group-hover:fill-nestjs',
-            text: 'group-hover:text-nestjs'
-          }
-        },
-
-        {
-          name: 'MongoDB',
-          svg: svgs.mongoDb,
-          hover: {
-            fill: 'group-hover:fill-mongodb',
-            text: 'group-hover:text-mongodb'
-          }
-        },
-        {
-          name: 'MySQL',
-          svg: svgs.mysql,
-          hover: {
-            fill: 'group-hover:fill-mysql',
-            text: 'group-hover:text-mysql'
-          }
-        },
-        {
-          name: 'PostgreSQL',
-          svg: svgs.postgreSql,
-          hover: {
-            fill: 'group-hover:fill-postgresql',
-            text: 'group-hover:text-postgresql'
+            fill: 'group-hover:fill-jsonwebtokens',
+            text: 'group-hover:text-jsonwebtokens'
           }
         },
         {
@@ -197,6 +110,27 @@ export const skillsSection: SkillsSectionType = {
           hover: {
             fill: 'group-hover:fill-graphql',
             text: 'group-hover:text-graphql'
+          }
+        }
+      ]
+    },
+    {
+      name: 'Backend',
+      technologies: [
+        {
+          name: 'NestJS',
+          svg: svgs.nestjs,
+          hover: {
+            fill: 'group-hover:fill-nestjs',
+            text: 'group-hover:text-nestjs'
+          }
+        },
+        {
+          name: 'Node.js',
+          svg: svgs.nodeJs,
+          hover: {
+            fill: 'group-hover:fill-nodejs',
+            text: 'group-hover:text-nodejs'
           }
         },
         {
@@ -208,64 +142,40 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'JWT',
-          svg: svgs.jsonWebTokens,
+          name: 'PostgreSQL',
+          svg: svgs.postgreSql,
           hover: {
-            fill: 'group-hover:fill-jsonwebtokens',
-            text: 'group-hover:text-jsonwebtokens'
+            fill: 'group-hover:fill-postgresql',
+            text: 'group-hover:text-postgresql'
+          }
+        },
+        {
+          name: 'MySQL',
+          svg: svgs.mysql,
+          hover: {
+            fill: 'group-hover:fill-mysql',
+            text: 'group-hover:text-mysql'
+          }
+        },
+        {
+          name: 'MongoDB',
+          svg: svgs.mongoDb,
+          hover: {
+            fill: 'group-hover:fill-mongodb',
+            text: 'group-hover:text-mongodb'
           }
         }
       ]
     },
     {
-      name: 'DevOps & Otros',
+      name: 'DevOps & Herramientas',
       technologies: [
-        {
-          name: 'Figma',
-          svg: svgs.figma,
-          hover: {
-            fill: 'group-hover:fill-figma',
-            text: 'group-hover:text-figma'
-          }
-        },
         {
           name: 'Git',
           svg: svgs.git,
           hover: {
             fill: 'group-hover:fill-git',
             text: 'group-hover:text-git'
-          }
-        },
-        {
-          name: 'GitHub',
-          svg: svgs.github,
-          hover: {
-            fill: 'group-hover:fill-githubicon',
-            text: 'group-hover:text-githubicon'
-          }
-        },
-        {
-          name: 'Vercel',
-          svg: svgs.vercel,
-          hover: {
-            fill: 'group-hover:fill-vercel',
-            text: 'group-hover:text-vercel'
-          }
-        },
-        {
-          name: 'VS Code',
-          svg: svgs.vscode,
-          hover: {
-            fill: 'group-hover:fill-vscode',
-            text: 'group-hover:text-vscode'
-          }
-        },
-        {
-          name: 'PNPM',
-          svg: svgs.pnpm,
-          hover: {
-            fill: 'group-hover:fill-pnpm',
-            text: 'group-hover:text-pnpm'
           }
         },
         {
@@ -277,19 +187,19 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'Cloudinary',
-          svg: svgs.cloudinary,
+          name: 'Figma',
+          svg: svgs.figma,
           hover: {
-            fill: 'group-hover:fill-cloudinary',
-            text: 'group-hover:text-cloudinary'
+            fill: 'group-hover:fill-figma',
+            text: 'group-hover:text-figma'
           }
         },
         {
-          name: 'Digital Ocean',
-          svg: svgs.digitalOcean,
+          name: 'VS Code',
+          svg: svgs.vscode,
           hover: {
-            fill: 'group-hover:fill-digitalocean',
-            text: 'group-hover:text-digitalocean'
+            fill: 'group-hover:fill-vscode',
+            text: 'group-hover:text-vscode'
           }
         }
       ]
@@ -323,10 +233,10 @@ export const projectsSection: ProjectsSectionType = {
           }
         },
         {
-          name: 'Express',
-          svg: svgs.express,
+          name: 'NestJS',
+          svg: svgs.nestjs,
           hover: {
-            fill: 'group-hover:fill-express'
+            fill: 'group-hover:fill-nestjs'
           }
         },
         {

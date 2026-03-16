@@ -146,6 +146,8 @@ html::-webkit-scrollbar-track {
   @apply mx-auto mt-1 h-24 w-[1px] bg-primary content-[""];
 }
 
-svg {
-  @apply fill-primary;
+@layer base {
+  svg {
+    @apply fill-primary;
+  }
 }
