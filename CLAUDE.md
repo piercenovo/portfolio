@@ -32,14 +32,18 @@ All content lives in **`src/data/sections.ts`** — this is the primary file to 
 
 ### Tailwind theme
 
-Custom colors for every technology brand (e.g., `fill-nextjs`, `text-tailwindcss`) are defined in `tailwind.config.js`. Custom animation utilities (`animation-delay-*`, `animation-duration-*`) are generated via a plugin in steps of 250ms up to 2000ms. The color palette uses `primary` (slate-based dark theme) and `secondary` (sky blue) semantic tokens.
+Tailwind v4 — no `tailwind.config.js`. All theme tokens live in the `@theme` block at the top of `src/app/globals.css`:
+- **Colors**: `--color-primary-*`, `--color-secondary-*`, and one token per tech brand (e.g., `--color-nextjs`, `--color-tailwindcss`)
+- **Animations/keyframes**: `--animate-fade-in`, `--animate-profile`, `--animate-arrow`, etc. Keyframes are defined right after the `@theme` block
+- **Custom utilities**: `animation-delay-{250,500,1000}` and `animation-duration-{1000,1500}` are defined with `@utility` directives
+- **Shadows/sizes**: `--shadow-image`, `--drop-shadow-white`, `--max-width-8xl`, `--max-width-prose-lg`
 
 ### Content updates
 
 - **Portfolio content** → `src/data/sections.ts`
 - **CV/Resume** → replace `public/curriculum.pdf` (filename must stay `curriculum.pdf`)
 - **About photo** → `public/images/about.webp`
-- **Theme colors** → `tailwind.config.js`
+- **Theme colors / animations** → `src/app/globals.css` (`@theme` block)
 - **Custom fonts** → `src/app/fonts/` + `src/app/font.tsx` (Calibre and SFMono families)
 
 ### Commit convention
