@@ -1,12 +1,15 @@
-import { headerSection } from '@/data/sections'
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
 import { MenuProps } from '@/interfaces/props'
 import { Button } from './Button'
 import Counter from './Counter'
 import { CloseMenu, OpenMenu } from './Icons'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Menu({ onClick, navbarCollapsed }: MenuProps) {
-  const { navLinks, cta } = headerSection
-  const { name, title, url } = cta
+  const { t } = useLanguage()
+  const { navLinks, cta } = t.header
 
   return (
     <div>
@@ -41,21 +44,20 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
 
           <div className='pt-20 flex flex-col justify-center items-center bg-primary-darker h-fit gap-12 p-10'>
             <ul>
-              {navLinks.map(({ section, children }, i) => (
+              {navLinks.map(({ section, label }, i) => (
                 <a href={`#${section}`} key={section} onClick={onClick}>
                   <li
                     className='capitalize py-4 cursor-pointer text-primary-light hover:text-secondary transition-colors duration-300 flex flex-col px-4 text-center'
                   >
                     <Counter count={i} />
-                    {children}
+                    {label}
                   </li>
                 </a>
               ))}
             </ul>
-            <Button
-              title={title} href={url}
-            >
-              {name}
+            <LanguageSwitcher />
+            <Button title={cta.title} href={cta.url}>
+              {cta.label}
             </Button>
           </div>
         </div>

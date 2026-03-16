@@ -1,11 +1,14 @@
+'use client'
+
 /* eslint-disable react/jsx-closing-tag-location */
 import { sfmono } from '@/app/font'
 import SocialIcons from '@/components/SocialIcons'
-import { heroSection } from '@/data/sections'
+import { useLanguage } from '@/contexts/LanguageContext'
 import { arrowDown } from '@/data/svg'
 
 export function Hero() {
-  const { subtitle1, subtitle2, title, description } = heroSection
+  const { t } = useLanguage()
+  const { subtitle1, subtitle2, description } = t.hero
   return (
     <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6'>
       <div className='flex flex-col gap-1 pt-28 w-full'>
@@ -21,7 +24,7 @@ export function Hero() {
         <h1
           className='mt-1 animate-fade-in text-4xl font-semibold capitalize leading-none text-primary-lightest animation-duration-1500 animation-delay-1000 sm:text-5xl md:text-6xl xl:text-7xl'
         >
-          {title}
+          pierce novoa.
         </h1>
 
         <p

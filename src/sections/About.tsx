@@ -5,9 +5,12 @@ import Section from '../components/Section'
 import Image from 'next/image'
 import { getId } from '@/utils/helper'
 import { aboutSection } from '@/data/sections'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function About() {
-  const { title, paragraphs, img } = aboutSection
+  const { t } = useLanguage()
+  const { title, paragraphs, achievement } = t.about
+  const { img } = aboutSection
   return (
     <Section id='sobre-mi' title={title} number='03'>
       <article className='flex gap-5 w-full flex-col xl:flex-row max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6'>
@@ -17,16 +20,14 @@ export function About() {
           ))}
 
           <p>
-            Uno de mis logros destacados es el desarrollo de una{' '}
+            {achievement.prefix}
             <WordLink
               href='https://play.google.com/store/apps/details?id=com.missionproduce.productividadcampo&hl=es'
-              title='¡Visualiza la App!'
+              title={achievement.link.title}
             >
-              aplicación móvil para la gestión de productividad en la cosecha
-              agrícola
+              {achievement.link.text}
             </WordLink>
-            , mejorando la eficiencia y trazabilidad en el sector agroindustrial
-            a través de herramientas digitales innovadoras.
+            {achievement.suffix}
           </p>
         </div>
 

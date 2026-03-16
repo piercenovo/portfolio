@@ -1,9 +1,12 @@
-import { contactSection } from '@/data/sections'
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
 import { Button } from '../components/Button'
 import Section from '../components/Section'
 
 export function Contact() {
-  const { title, description, contact } = contactSection
+  const { t } = useLanguage()
+  const { title, description, cta } = t.contact
   return (
     <Section id='contacto' title={title} number='04'>
       <article className='flex flex-col gap-8 pb-32'>
@@ -11,9 +14,8 @@ export function Contact() {
           {description}
         </p>
 
-        <Button title={contact.title} href={contact.link}>{contact.name}</Button>
+        <Button title={cta.title} href='mailto:piercenovoah@gmail.com'>{cta.label}</Button>
       </article>
     </Section>
-
   )
 }
