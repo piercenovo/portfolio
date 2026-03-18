@@ -13,7 +13,7 @@ export function Hero() {
     <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6'>
       <div className='flex flex-col gap-1 pt-28 w-full'>
         <h3
-          className={` ${sfmono.className} animate-fade-in text-sm lg:text-base text-secondary animation-delay-250 animation-duration-1000 mb-2`}
+          className={`${sfmono.className} animate-fade-in text-sm lg:text-base text-secondary animation-delay-250 animation-duration-1000 mb-2`}
         >
           {subtitle1}{' '}
           <span className='animate-fade-in animation-duration-1000 animation-delay-500'>
@@ -22,19 +22,18 @@ export function Hero() {
         </h3>
 
         <h1
-          className='mt-1 animate-fade-in text-4xl font-semibold capitalize leading-none text-primary-lightest animation-duration-1500 animation-delay-1000 sm:text-5xl md:text-6xl xl:text-7xl'
+          className='mt-1 animate-fade-in text-4xl font-semibold capitalize leading-none text-primary-lightest animation-delay-750 animation-duration-1000 sm:text-5xl md:text-6xl xl:text-7xl'
         >
           pierce novoa.
         </h1>
 
-        <p
-          className='animate-fade-in text-xl max-w-3xl'
-        >
+        <p className='animate-fade-in text-xl max-w-3xl animation-delay-1000'>
           {description}
         </p>
 
-        <SocialIcons />
-
+        <div className='animate-fade-in animation-delay-1000'>
+          <SocialIcons />
+        </div>
       </div>
 
       <div className='mx-auto'>
@@ -56,6 +55,5 @@ export function Hero() {
         </a>
       </div>
     </main>
-
   )
 }

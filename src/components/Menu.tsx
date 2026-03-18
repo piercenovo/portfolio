@@ -2,9 +2,9 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import { MenuProps } from '@/interfaces/props'
+import { Menu as MenuIcon, X } from 'lucide-react'
 import { Button } from './Button'
 import Counter from './Counter'
-import { CloseMenu, OpenMenu } from './Icons'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Menu({ onClick, navbarCollapsed }: MenuProps) {
@@ -13,55 +13,60 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
 
   return (
     <div>
-      {/* burger icon  */}
+      {/* Burger icon — only on mobile */}
       <div className='md:hidden'>
-        <div onClick={onClick} className='cursor-pointer text-white'>
-          <CloseMenu />
-        </div>
+        <button
+          onClick={onClick}
+          aria-label={navbarCollapsed ? 'Cerrar menú' : 'Abrir menú'}
+          className='text-primary-light hover:text-secondary transition-colors duration-200 p-1'
+        >
+          {navbarCollapsed ? <X size={26} strokeWidth={1.5} /> : <MenuIcon size={26} strokeWidth={1.5} />}
+        </button>
       </div>
 
-      {/* mobile menu  */}
-      <div className={
-    navbarCollapsed
-      ? 'md:hidden fixed right-0 top-0 z-10 w-full h-screen bg-primary-darkest/95 backdrop-blur-sm'
-      : ''
-  }
-      >
-        <div className={
-      navbarCollapsed
-        ? 'fixed right-0 top-0 w-4/6 h-full bg-primary-darker text-white duration-500 ease-in-out'
-        : 'fixed right-[-100%] top-0 h-full duration-500 ease-in-out'
-    }
-        >
-          <div>
-            <div
-              onClick={onClick}
-              className='flex w-full items-center cursor-pointer justify-end h-20 px-6'
-            >
-              <OpenMenu />
-            </div>
-          </div>
+      {/* Backdrop */}
+      {navbarCollapsed && (
+        <div
+          className='md:hidden fixed inset-0 z-10 bg-primary-darkest/80 backdrop-blur-sm'
+          onClick={onClick}
+        />
+      )}
 
-          <div className='pt-20 flex flex-col justify-center items-center bg-primary-darker h-fit gap-12 p-10'>
-            <ul>
-              {navLinks.map(({ section, label }, i) => (
-                <a href={`#${section}`} key={section} onClick={onClick}>
-                  <li
-                    className='capitalize py-4 cursor-pointer text-primary-light hover:text-secondary transition-colors duration-300 flex flex-col px-4 text-center'
-                  >
-                    <Counter count={i} />
-                    {label}
-                  </li>
-                </a>
-              ))}
-            </ul>
-            <LanguageSwitcher />
-            <Button title={cta.title} href={cta.url}>
-              {cta.label}
-            </Button>
-          </div>
+      {/* Slide-in drawer */}
+      <div
+        className={`fixed right-0 top-0 z-20 h-full w-4/6 max-w-xs bg-primary-darker text-white transition-transform duration-300 ease-in-out ${
+          navbarCollapsed ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        {/* Close button inside drawer */}
+        <div className='flex justify-end px-6 h-20 items-center'>
+          <button
+            onClick={onClick}
+            aria-label='Cerrar menú'
+            className='text-primary-light hover:text-secondary transition-colors duration-200 p-1'
+          >
+            <X size={24} strokeWidth={1.5} />
+          </button>
         </div>
 
+        <div className='flex flex-col items-center gap-10 px-8 pt-8 pb-12'>
+          <ul className='w-full'>
+            {navLinks.map(({ section, label }, i) => (
+              <a href={`#${section}`} key={section} onClick={onClick}>
+                <li className='capitalize py-4 cursor-pointer text-primary-light hover:text-secondary transition-colors duration-300 flex flex-col px-4 text-center border-b border-primary/10 last:border-0'>
+                  <Counter count={i} />
+                  {label}
+                </li>
+              </a>
+            ))}
+          </ul>
+
+          <LanguageSwitcher />
+
+          <Button title={cta.title} href={cta.url}>
+            {cta.label}
+          </Button>
+        </div>
       </div>
     </div>
   )

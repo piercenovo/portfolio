@@ -8,7 +8,7 @@ import {
 } from '@/types/data'
 import * as svgs from '@/data/svg'
 
-import { twitter, instagram, gitHubOutline, linkedIn } from '@/data/svg'
+import { gitHubOutline, linkedIn } from '@/data/svg'
 
 // Header Section
 export const headerSection: HeaderSectionType = {
@@ -388,22 +388,6 @@ export const socials: SocialsSectionType[] = [
     svg: linkedIn,
     hover: {
       fill: 'group-hover:fill-linkedin'
-    }
-  },
-  {
-    name: 'Twitter',
-    href: 'https://twitter.com/piercenovodev',
-    svg: twitter,
-    hover: {
-      fill: 'group-hover:fill-twitter'
-    }
-  },
-  {
-    name: 'Instagram',
-    href: 'https://www.instagram.com/piercenovo.dev',
-    svg: instagram,
-    hover: {
-      fill: 'group-hover:fill-instagram'
     }
   }
 ]

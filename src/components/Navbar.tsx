@@ -12,16 +12,15 @@ export function Navbar() {
 
   return (
     <nav className='w-full h-full flex items-center justify-between max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl'>
-      <a href='/#'>
+      {/* Logo — fixed width to balance layout */}
+      <a href='/#' className='shrink-0 w-[90px]'>
         <Image priority alt='Logo' src='/images/logo.png' width={90} height={30} />
       </a>
 
       <ul className='hidden md:flex gap-7 lg:gap-8'>
         {navLinks.map(({ section, label }, i) => (
           <a href={`#${section}`} key={section}>
-            <li
-              className='capitalize cursor-pointer text-primary-light hover:text-secondary transition-colors duration-300 text-xs lg:text-sm'
-            >
+            <li className='capitalize cursor-pointer text-primary-light hover:text-secondary transition-colors duration-300 text-xs lg:text-sm'>
               <Counter count={i} />
               {label}
             </li>
@@ -29,7 +28,8 @@ export function Navbar() {
         ))}
       </ul>
 
-      <div className='hidden md:flex items-center gap-4'>
+      {/* Right side — fixed width matching logo to keep nav links centered */}
+      <div className='hidden md:flex items-center justify-end gap-4 shrink-0 w-[170px]'>
         <LanguageSwitcher />
         <Button title={cta.title} href={cta.url}>
           {cta.label}

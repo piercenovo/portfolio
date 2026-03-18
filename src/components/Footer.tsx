@@ -2,6 +2,8 @@ import { sfmono } from '@/app/font'
 import SocialIcons from './SocialIcons'
 
 export default function Footer() {
+  const year = new Date().getFullYear()
+
   return (
     <footer className='flex animate-fade-in flex-col gap-6 pb-6'>
       {/* Only visible for smaller devices */}
@@ -15,7 +17,7 @@ export default function Footer() {
         <span className='text-center transition'>
           Hecho con ❤️ por Pierce Novoa
         </span>
-        <span className='text-center transition'>&#169; 2025</span>
+        <span className='text-center transition'>&#169; {year}</span>
       </div>
     </footer>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { sfmono } from '@/app/font'
+import SlideUp from '@/components/SlideUp'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { skillsSection } from '@/data/sections'
 import { getId } from '@/utils/helper'
@@ -16,6 +17,7 @@ export function Skills() {
 
   return (
     <Section id='habilidades' title={title} number='02'>
+      <SlideUp>
       <article
         className='mx-auto flex w-full max-w-lg flex-col gap-2 sm:max-w-xl xl:max-w-2xl'
       >
@@ -58,6 +60,7 @@ export function Skills() {
         </div>
 
       </article>
+      </SlideUp>
     </Section>
   )
 }

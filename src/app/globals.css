@@ -53,11 +53,11 @@
   --color-prisma: #336791;
 
   /* Animations */
-  --animate-fade-in: fade-in 1.15s 1.75s both;
-  --animate-fade-in-down: fade-in-down 1.15s 1.50s both;
-  --animate-fade-in-up: fade-in-up 1.15s 1.50s both;
+  --animate-fade-in: fade-in 0.7s both;
+  --animate-fade-in-down: fade-in-down 0.7s 0.1s both;
+  --animate-fade-in-up: fade-in-up 0.7s both;
   --animate-profile: profile 8s ease-in-out infinite 1s;
-  --animate-arrow: fade-in 2.5s 3s both, floating 1.5s 3s infinite;
+  --animate-arrow: fade-in 0.8s 1.5s both, floating 1.5s 1.5s infinite;
 
   /* Max widths */
   --max-width-prose-lg: 75ch;
@@ -71,6 +71,11 @@
 @keyframes fade-in {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-in-down {
@@ -103,6 +108,10 @@
   animation-delay: 500ms;
 }
 
+@utility animation-delay-750 {
+  animation-delay: 750ms;
+}
+
 @utility animation-delay-1000 {
   animation-delay: 1000ms;
 }
@@ -113,6 +122,11 @@
 
 @utility animation-duration-1500 {
   animation-duration: 1500ms;
+}
+
+/* Scroll-triggered section reveal */
+.animate-slideUpCubiBezier {
+  animation: slide-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 html {
@@ -149,5 +163,9 @@ html::-webkit-scrollbar-track {
 @layer base {
   svg {
     @apply fill-primary;
+  }
+
+  #navbar {
+    transition: top 0.3s ease-in-out;
   }
 }

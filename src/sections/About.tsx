@@ -2,6 +2,7 @@
 
 import { WordLink } from '../components/WordLink'
 import Section from '../components/Section'
+import SlideUp from '@/components/SlideUp'
 import Image from 'next/image'
 import { getId } from '@/utils/helper'
 import { aboutSection } from '@/data/sections'
@@ -13,6 +14,7 @@ export function About() {
   const { img } = aboutSection
   return (
     <Section id='sobre-mi' title={title} number='03'>
+      <SlideUp>
       <article className='flex gap-5 w-full flex-col xl:flex-row max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6'>
         <div className=' flex max-w-xl flex-col gap-3 sm:max-w-prose md:max-w-xl lg:max-w-3xl mx-auto xl:mx-0 xl:max-w-[39rem] xl:justify-between text-lg lg:text-xl'>
           {paragraphs.map((paragraph) => (
@@ -42,6 +44,7 @@ export function About() {
           />
         </div>
       </article>
+      </SlideUp>
     </Section>
   )
 }
