@@ -1,3 +1,4 @@
+import { BackToTop } from '@/components/BackToTop'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { LanguageProvider } from '@/contexts/LanguageContext'
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: {
           <Header />
           {children}
           <Footer />
+          <BackToTop />
         </LanguageProvider>
       </body>
     </html>

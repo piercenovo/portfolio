@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 export default function useReference() {
   const ref = useRef(null)
-  const offset = '0px'
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -10,19 +10,20 @@ export default function useReference() {
           if (entry.isIntersecting) {
             entry.target.classList.remove('opacity-0')
             entry.target.classList.add('animate-slideUpCubiBezier')
+            observer.unobserve(entry.target)
           }
         })
       },
-      { rootMargin: offset }
+      { rootMargin: '0px 0px 60px 0px', threshold: 0.1 }
     )
 
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-  }, [ref])
+    const el = ref.current
+    if (el) observer.observe(el)
 
-  return {
-    ref,
-    offset
-  }
+    return () => {
+      if (el) observer.unobserve(el)
+    }
+  }, [])
+
+  return { ref }
 }
