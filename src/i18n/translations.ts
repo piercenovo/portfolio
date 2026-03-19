@@ -25,7 +25,7 @@ export interface Translation {
   }
   about: {
     title: string
-    paragraphs: [string, string]
+    paragraphs: [string]
     achievement: {
       prefix: string
       link: { text: string; title: string }
@@ -44,6 +44,9 @@ export interface Translation {
     title: string
     description: string
     cta: { title: string; label: string }
+  }
+  footer: {
+    madeBy: string
   }
 }
 
@@ -110,8 +113,7 @@ export const translations: Record<Lang, Translation> = {
     about: {
       title: 'Sobre mí',
       paragraphs: [
-        'Soy Pierce, Mobile Software Engineer especializado en Flutter con más de 3 años construyendo apps multiplataforma para iOS y Android. Me enfoco en arquitecturas offline-first, Clean Architecture y patrones de estado como BLoC, Cubit y Riverpod.',
-        'He trabajado en los sectores agrícola y financiero entregando mejoras de rendimiento superiores al 30%. Disfruto el ciclo completo: desde el diseño arquitectónico hasta el despliegue en producción.'
+        'Me motiva construir software que resuelve problemas reales: apps que funcionan sin internet, que escalan con el negocio y que los usuarios disfrutan usar. Disfruto el ciclo completo, desde el diseño arquitectónico hasta el despliegue en producción.'
       ],
       achievement: {
         prefix: 'Uno de mis logros destacados es el desarrollo de una ',
@@ -144,6 +146,9 @@ export const translations: Record<Lang, Translation> = {
         title: '¡Contáctame!',
         label: 'Contactar'
       }
+    },
+    footer: {
+      madeBy: 'Hecho con ❤️ por Pierce Novoa'
     }
   },
 
@@ -209,8 +214,7 @@ export const translations: Record<Lang, Translation> = {
     about: {
       title: 'About me',
       paragraphs: [
-        "I'm Pierce, a Mobile Software Engineer specialized in Flutter with 3+ years building cross-platform apps for iOS and Android. I focus on offline-first architectures, Clean Architecture, and state management patterns like BLoC, Cubit, and Riverpod.",
-        "I've worked in the agricultural and financial sectors delivering over 30% performance improvements. I enjoy the full cycle: from architectural design to production deployment."
+        "I'm driven by building software that solves real problems: apps that work without internet, scale with the business, and that users actually enjoy. I like the full cycle — from architectural design to production deployment."
       ],
       achievement: {
         prefix: 'One of my key achievements is developing a ',
@@ -243,6 +247,9 @@ export const translations: Record<Lang, Translation> = {
         title: 'Contact Me!',
         label: 'Contact Me'
       }
+    },
+    footer: {
+      madeBy: 'Made with ❤️ by Pierce Novoa'
     }
   }
 }

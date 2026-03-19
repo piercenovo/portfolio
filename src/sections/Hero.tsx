@@ -9,7 +9,7 @@ import { arrowDown } from '@/data/svg'
 
 export function Hero() {
   const { t } = useLanguage()
-  const { subtitle1, subtitle2, description } = t.hero
+  const { subtitle1, subtitle2, tagline, description } = t.hero
   const { cta } = t.header
   return (
     <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6'>
@@ -29,7 +29,11 @@ export function Hero() {
           pierce novoa.
         </h1>
 
-        <p className='animate-fade-in text-xl max-w-3xl animation-delay-1000 mt-3'>
+        <h2 className='animate-fade-in text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-primary-light animation-delay-750 animation-duration-1000 mt-2'>
+          {tagline}
+        </h2>
+
+        <p className='animate-fade-in text-lg max-w-2xl text-primary animation-delay-1000 animation-duration-1000 mt-3'>
           {description}
         </p>
 

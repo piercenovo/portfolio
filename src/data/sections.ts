@@ -1,7 +1,4 @@
 import {
-  AboutSectionType,
-  HeaderSectionType,
-  HeroSectionType,
   ProjectsSectionType,
   SkillsSectionType,
   SocialsSectionType
@@ -10,56 +7,13 @@ import * as svgs from '@/data/svg'
 
 import { gitHubOutline, linkedIn } from '@/data/svg'
 
-// Header Section
-export const headerSection: HeaderSectionType = {
-  navLinks: [
-    {
-      section: 'proyectos',
-      children: 'Proyectos'
-    },
-    {
-      section: 'habilidades',
-      children: 'Habilidades'
-    },
-    {
-      section: 'sobre-mi',
-      children: 'Sobre Mí'
-    },
-    {
-      section: 'contacto',
-      children: 'Contacto'
-    }
-  ],
-  cta: {
-    name: 'Curriculum',
-    title: '¡Visualiza mi Curriculum Vitae!',
-    url: '/curriculum.pdf'
-  }
-}
-
-// Hero Section
-export const heroSection: HeroSectionType = {
-  subtitle1: 'Hola,',
-  subtitle2: 'me llamo',
-  title: 'pierce novoa.',
-  tagline: 'Construyo aplicaciones móviles para las personas.',
-  description:
-    'Mobile Software Engineer con más de 3 años desarrollando apps multiplataforma iOS/Android con Flutter. Trujillo, Perú 🇵🇪. Especializado en Clean Architecture  y soluciones offline-first.'
-}
-
 // About Section
-export const aboutSection: AboutSectionType = {
-  title: 'Sobre mí',
-  paragraphs: [
-    'Soy Pierce, Mobile Software Engineer especializado en Flutter con más de 3 años construyendo apps multiplataforma para iOS y Android. Me enfoco en arquitecturas offline-first, Clean Architecture y patrones de estado como BLoC, Cubit y Riverpod.',
-    'He trabajado en los sectores agrícola y financiero entregando mejoras de rendimiento superiores al 30%. Disfruto el ciclo completo: desde el diseño arquitectónico hasta el despliegue en producción.'
-  ],
+export const aboutSection = {
   img: '/images/about.webp'
 }
 
 // Skills Section
 export const skillsSection: SkillsSectionType = {
-  title: 'Habilidades',
   skills: [
     {
       name: 'Móvil',
@@ -208,7 +162,6 @@ export const skillsSection: SkillsSectionType = {
 }
 
 export const projectsSection: ProjectsSectionType = {
-  title: 'Proyectos',
   projects: [
     {
       name: 'Productividad campo',
@@ -358,18 +311,6 @@ export const projectsSection: ProjectsSectionType = {
       ]
     }
   ]
-}
-
-// Contact Section
-export const contactSection = {
-  title: 'Contacto',
-  description:
-    'Actualmente me encuentro en búsqueda de nuevas oportunidades, cualquier oferta será bien recibida. Si simplemente deseas hacerme una pregunta o saludarme, no dudes en ponerte en contacto conmigo.',
-  contact: {
-    title: '¡Contáctame!',
-    name: 'Contactar',
-    link: 'mailto:piercenovoah@gmail.com'
-  }
 }
 
 // Socials Section
