@@ -35,6 +35,22 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
+          name: 'Kotlin',
+          svg: svgs.kotlin,
+          hover: {
+            fill: 'group-hover:fill-kotlin',
+            text: 'group-hover:text-kotlin'
+          }
+        },
+        {
+          name: 'Swift',
+          svg: svgs.swift,
+          hover: {
+            fill: 'group-hover:fill-swift',
+            text: 'group-hover:text-swift'
+          }
+        },
+        {
           name: 'Firebase',
           svg: svgs.firebase,
           hover: {
@@ -42,28 +58,13 @@ export const skillsSection: SkillsSectionType = {
             text: 'group-hover:text-firebase'
           }
         },
+
         {
-          name: 'TypeScript',
-          svg: svgs.typeScript,
+          name: 'SQLite',
+          svg: svgs.sqlite,
           hover: {
-            fill: 'group-hover:fill-typescript',
-            text: 'group-hover:text-typescript'
-          }
-        },
-        {
-          name: 'JWT',
-          svg: svgs.jsonWebTokens,
-          hover: {
-            fill: 'group-hover:fill-jsonwebtokens',
-            text: 'group-hover:text-jsonwebtokens'
-          }
-        },
-        {
-          name: 'GraphQL',
-          svg: svgs.graphql,
-          hover: {
-            fill: 'group-hover:fill-graphql',
-            text: 'group-hover:text-graphql'
+            fill: 'group-hover:fill-sqlite',
+            text: 'group-hover:text-sqlites'
           }
         }
       ]
@@ -77,22 +78,6 @@ export const skillsSection: SkillsSectionType = {
           hover: {
             fill: 'group-hover:fill-nestjs',
             text: 'group-hover:text-nestjs'
-          }
-        },
-        {
-          name: 'Node.js',
-          svg: svgs.nodeJs,
-          hover: {
-            fill: 'group-hover:fill-nodejs',
-            text: 'group-hover:text-nodejs'
-          }
-        },
-        {
-          name: 'Prisma',
-          svg: svgs.prisma,
-          hover: {
-            fill: 'group-hover:fill-prisma',
-            text: 'group-hover:text-prisma'
           }
         },
         {
@@ -118,6 +103,22 @@ export const skillsSection: SkillsSectionType = {
             fill: 'group-hover:fill-mongodb',
             text: 'group-hover:text-mongodb'
           }
+        },
+        {
+          name: 'Drizzle',
+          svg: svgs.drizzle,
+          hover: {
+            fill: 'group-hover:fill-drizzle',
+            text: 'group-hover:text-drizzle'
+          }
+        },
+        {
+          name: 'Prisma',
+          svg: svgs.prisma,
+          hover: {
+            fill: 'group-hover:fill-prisma',
+            text: 'group-hover:text-prisma'
+          }
         }
       ]
     },
@@ -125,19 +126,27 @@ export const skillsSection: SkillsSectionType = {
       name: 'DevOps & Herramientas',
       technologies: [
         {
-          name: 'Git',
-          svg: svgs.git,
-          hover: {
-            fill: 'group-hover:fill-git',
-            text: 'group-hover:text-git'
-          }
-        },
-        {
           name: 'Docker',
           svg: svgs.docker,
           hover: {
             fill: 'group-hover:fill-docker',
             text: 'group-hover:text-docker'
+          }
+        },
+        {
+          name: 'Railway',
+          svg: svgs.railway,
+          hover: {
+            fill: 'group-hover:fill-railway',
+            text: 'group-hover:text-railway'
+          }
+        },
+        {
+          name: 'GitHub Actions',
+          svg: svgs.githubActions,
+          hover: {
+            fill: 'group-hover:fill-githubactions',
+            text: 'group-hover:text-githubactions'
           }
         },
         {
@@ -149,11 +158,19 @@ export const skillsSection: SkillsSectionType = {
           }
         },
         {
-          name: 'VS Code',
-          svg: svgs.vscode,
+          name: 'Postman',
+          svg: svgs.postman,
           hover: {
-            fill: 'group-hover:fill-vscode',
-            text: 'group-hover:text-vscode'
+            fill: 'group-hover:fill-postman',
+            text: 'group-hover:text-postman'
+          }
+        },
+        {
+          name: 'Cloudinary',
+          svg: svgs.cloudinary,
+          hover: {
+            fill: 'group-hover:fill-cloudinary',
+            text: 'group-hover:text-cloudinary'
           }
         }
       ]
@@ -278,7 +295,7 @@ export const projectsSection: ProjectsSectionType = {
         'Aplicación móvil diseñada para fortalecer la concentración y las habilidades cognitivas en niños con TDAH, a través de un entorno interactivo y visualmente atractivo.',
       repo: 'https://github.com/piercenovo/brainconcent-flutter',
       img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448412/Portfolio/brainconcent_uw6ud8.png',
-      year: 2022,
+      year: 2023,
       tags: [
         {
           name: 'Flutter',
