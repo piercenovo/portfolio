@@ -23,13 +23,13 @@ export function ProjectCard({
   if (!domLoaded) return <></>
 
   return (
-    <div className='block group bg-primary-dark w-full max-w-[28rem] hover:drop-shadow-white shadow-sm rounded-md overflow-hidden transition-all duration-200 grayscale hover:grayscale-0 group'>
+    <div className='block group bg-primary-dark w-full max-w-[28rem] hover:drop-shadow-white active:drop-shadow-white shadow-sm rounded-md overflow-hidden transition-all duration-200 grayscale hover:grayscale-0 active:grayscale-0 group'>
       <div className='overflow-hidden h-[220px]'>
         <a href={url} target='_blank' rel='noreferrer'>
           <img
             src={img}
             alt={name}
-            className='w-full h-full object-cover group-hover:scale-[1.05] transition duration-300 ease-in-out'
+            className='w-full h-full object-cover group-hover:scale-[1.05] group-active:scale-[1.05] transition duration-300 ease-in-out'
           />
         </a>
       </div>
@@ -79,7 +79,7 @@ export function ProjectCard({
             )}
           </div>
         </div>
-        <div className='flex justify-between capitalize font-medium text-xl duration-200 group-hover:text-secondary mt-3'>
+        <div className='flex justify-between capitalize font-medium text-xl duration-200 group-hover:text-secondary group-active:text-secondary mt-3'>
           <span>{name}</span>
           <span className='mr-1'>{year}</span>
         </div>

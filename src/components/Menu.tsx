@@ -3,6 +3,8 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import { MenuProps } from '@/interfaces/props'
 import { Menu as MenuIcon, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Button } from './Button'
 import Counter from './Counter'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -10,35 +12,26 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 export function Menu({ onClick, navbarCollapsed }: MenuProps) {
   const { t } = useLanguage()
   const { navLinks, cta } = t.header
+  const [mounted, setMounted] = useState(false)
 
-  return (
-    <div>
-      {/* Burger icon — only on mobile */}
-      <div className='md:hidden'>
-        <button
-          onClick={onClick}
-          aria-label={navbarCollapsed ? 'Cerrar menú' : 'Abrir menú'}
-          className='text-primary-light hover:text-secondary transition-colors duration-200 p-1'
-        >
-          {navbarCollapsed ? <X size={26} strokeWidth={1.5} /> : <MenuIcon size={26} strokeWidth={1.5} />}
-        </button>
-      </div>
+  useEffect(() => { setMounted(true) }, [])
 
+  const portal = mounted ? createPortal(
+    <>
       {/* Backdrop */}
-      {navbarCollapsed && (
-        <div
-          className='md:hidden fixed inset-0 z-10 bg-primary-darkest/80 backdrop-blur-sm'
-          onClick={onClick}
-        />
-      )}
+      <div
+        className={`fixed inset-0 z-40 bg-primary-darkest/80 backdrop-blur-sm transition-opacity duration-300 ${
+          navbarCollapsed ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={onClick}
+      />
 
       {/* Slide-in drawer */}
       <div
-        className={`fixed right-0 top-0 z-20 h-full w-4/6 max-w-xs bg-primary-darker text-white transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 z-50 h-full w-4/6 max-w-xs bg-primary-darker text-white transition-transform duration-300 ease-in-out ${
           navbarCollapsed ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* Close button inside drawer */}
         <div className='flex justify-end px-6 h-20 items-center'>
           <button
             onClick={onClick}
@@ -68,6 +61,24 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
           </Button>
         </div>
       </div>
+    </>,
+    document.body
+  ) : null
+
+  return (
+    <div>
+      {/* Burger icon — only on mobile */}
+      <div className='md:hidden'>
+        <button
+          onClick={onClick}
+          aria-label={navbarCollapsed ? 'Cerrar menú' : 'Abrir menú'}
+          className='text-primary-light hover:text-secondary transition-colors duration-200 p-1'
+        >
+          {navbarCollapsed ? <X size={26} strokeWidth={1.5} /> : <MenuIcon size={26} strokeWidth={1.5} />}
+        </button>
+      </div>
+
+      {portal}
     </div>
   )
 }

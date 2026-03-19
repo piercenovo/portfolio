@@ -6,7 +6,7 @@ export default function SlideUp({ children }: SlideUpProps) {
   const { ref } = useReference()
 
   return (
-    <div ref={ref} className='relative opacity-0'>
+    <div ref={ref} className='relative opacity-0 w-full flex flex-col items-center'>
       {children}
     </div>
   )
