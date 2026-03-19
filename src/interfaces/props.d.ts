@@ -19,8 +19,8 @@ export interface MenuProps {
 
 export interface SlideUpProps {
   offset?: string
+  delay?: number
   children?: ReactNode
-  // any props that come into the component
 }
 
 export interface SectionProps {

@@ -10,7 +10,7 @@ export function Contact() {
   const { title, description, cta } = t.contact
   return (
     <Section id='contacto' title={title} number='04'>
-      <SlideUp>
+      <SlideUp delay={120}>
         <article className='flex flex-col gap-8 pb-32'>
           <p className='mx-auto max-w-lg text-center sm:max-w-xl text-lg lg:text-xl'>
             {description}

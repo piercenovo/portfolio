@@ -17,7 +17,7 @@ export function Skills() {
 
   return (
     <Section id='habilidades' title={title} number='02'>
-      <SlideUp>
+      <SlideUp delay={120}>
       <article
         className='mx-auto flex w-full max-w-lg flex-col gap-2 sm:max-w-xl xl:max-w-2xl'
       >
