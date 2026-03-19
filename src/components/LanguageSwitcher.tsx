@@ -2,6 +2,7 @@
 
 import { sfmono } from '@/app/font'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { Languages } from 'lucide-react'
 
 export function LanguageSwitcher() {
   const { lang, setLang } = useLanguage()
@@ -13,8 +14,8 @@ export function LanguageSwitcher() {
       aria-label={isEs ? 'Switch to English' : 'Cambiar a Español'}
       className={`${sfmono.className} flex items-center gap-1.5 text-primary-light hover:text-secondary transition-colors duration-200`}
     >
-      <span className='text-base leading-none'>{isEs ? '🇵🇪' : '🇺🇸'}</span>
-      <span className='text-[11px] tracking-wide'>{lang.toUpperCase()}</span>
+      <Languages size={18} strokeWidth={2} className='fill-none' />
+      <span className='text-[12px] tracking-wide'>{lang.toUpperCase()}</span>
     </button>
   )
 }
