@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
-@theme {
-  /* Primary */
+/* Primary palette — inline so values are CSS variables, enabling theme switching */
+@theme inline {
   --color-primary-lightest: #f8fafc;
   --color-primary-light: #cbd5e1;
   --color-primary: #94a3b8;
   --color-primary-dark: #1B1B1B;
   --color-primary-darker: #19191A;
   --color-primary-darkest: #161515;
+}
 
+@theme {
   /* Secondary */
   --color-secondary: #0ea5e9;
   --color-secondary-darkest: #0c4a6e;
@@ -68,6 +70,21 @@
   --shadow-image: 0 0 0 9px rgb(255 255 255 / 30%);
 }
 
+/* ─── Light mode overrides ─────────────────────────────────── */
+:root.light {
+  --color-primary-lightest: #0f172a;
+  --color-primary-light: #1e293b;
+  --color-primary: #475569;
+  --color-primary-dark: #e2e8f0;
+  --color-primary-darker: #f1f5f9;
+  --color-primary-darkest: #f8fafc;
+}
+
+:root.light body {
+  background-image: none;
+}
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
 @keyframes fade-in {
   0% { opacity: 0; }
   100% { opacity: 1; }
@@ -100,35 +117,20 @@
   100% { transform: translateY(-15%); }
 }
 
-@utility animation-delay-250 {
-  animation-delay: 250ms;
-}
-
-@utility animation-delay-500 {
-  animation-delay: 500ms;
-}
-
-@utility animation-delay-750 {
-  animation-delay: 750ms;
-}
-
-@utility animation-delay-1000 {
-  animation-delay: 1000ms;
-}
-
-@utility animation-duration-1000 {
-  animation-duration: 1000ms;
-}
-
-@utility animation-duration-1500 {
-  animation-duration: 1500ms;
-}
+/* ─── Utilities ─────────────────────────────────────────────── */
+@utility animation-delay-250 { animation-delay: 250ms; }
+@utility animation-delay-500 { animation-delay: 500ms; }
+@utility animation-delay-750 { animation-delay: 750ms; }
+@utility animation-delay-1000 { animation-delay: 1000ms; }
+@utility animation-duration-1000 { animation-duration: 1000ms; }
+@utility animation-duration-1500 { animation-duration: 1500ms; }
 
 /* Scroll-triggered section reveal */
 .animate-slideUpCubiBezier {
   animation: slide-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* ─── Base ──────────────────────────────────────────────────── */
 html {
   scrollbar-width: thin;
   scrollbar-color: #2c4d7c transparent;
@@ -137,6 +139,7 @@ html {
 
 body {
   @apply bg-[url('/images/bg-body.svg')] w-full h-screen flex flex-col items-center bg-primary-darkest px-6 text-primary sm:px-0;
+  transition: background-color 0.3s ease;
 }
 
 ::selection {
@@ -144,17 +147,13 @@ body {
   color: white;
 }
 
-html::-webkit-scrollbar {
-  @apply w-3;
-}
+html::-webkit-scrollbar { @apply w-3; }
 
 html::-webkit-scrollbar-thumb {
   @apply rounded-full border-[3px] border-solid border-transparent bg-primary bg-clip-content;
 }
 
-html::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
+html::-webkit-scrollbar-track { @apply bg-transparent; }
 
 .vertical-line::after {
   @apply mx-auto mt-1 h-24 w-[1px] bg-primary content-[""];
@@ -166,6 +165,11 @@ html::-webkit-scrollbar-track {
   }
 
   #navbar {
-    transition: top 0.3s ease-in-out;
+    transition: top 0.3s ease-in-out, background-color 0.3s ease;
+  }
+
+  /* Offset sections for fixed navbar when scrolling to anchors */
+  section[id] {
+    scroll-margin-top: 80px;
   }
 }

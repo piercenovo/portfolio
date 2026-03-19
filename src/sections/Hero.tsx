@@ -2,6 +2,7 @@
 
 /* eslint-disable react/jsx-closing-tag-location */
 import { sfmono } from '@/app/font'
+import { Button } from '@/components/Button'
 import SocialIcons from '@/components/SocialIcons'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { arrowDown } from '@/data/svg'
@@ -9,6 +10,7 @@ import { arrowDown } from '@/data/svg'
 export function Hero() {
   const { t } = useLanguage()
   const { subtitle1, subtitle2, description } = t.hero
+  const { cta } = t.header
   return (
     <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6'>
       <div className='flex flex-col gap-1 pt-28 w-full'>
@@ -22,16 +24,17 @@ export function Hero() {
         </h3>
 
         <h1
-          className='mt-1 animate-fade-in text-4xl font-semibold capitalize leading-none text-primary-lightest animation-delay-750 animation-duration-1000 sm:text-5xl md:text-6xl xl:text-7xl'
+          className='mt-1 animate-fade-in text-4xl font-semibold capitalize leading-none animation-delay-750 animation-duration-1000 sm:text-5xl md:text-6xl xl:text-7xl bg-gradient-to-br from-primary-lightest to-primary bg-clip-text text-transparent'
         >
           pierce novoa.
         </h1>
 
-        <p className='animate-fade-in text-xl max-w-3xl animation-delay-1000'>
+        <p className='animate-fade-in text-xl max-w-3xl animation-delay-1000 mt-3'>
           {description}
         </p>
 
-        <div className='animate-fade-in animation-delay-1000'>
+        <div className='animate-fade-in animation-delay-1000 flex items-center gap-6 mt-6 flex-wrap'>
+          <div><Button title={cta.title} href={cta.url}>{cta.label}</Button></div>
           <SocialIcons />
         </div>
       </div>

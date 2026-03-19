@@ -2,7 +2,7 @@ import { socials } from '@/data/sections'
 
 export default function SocialIcons() {
   return (
-    <div className='flex flex-wrap gap-x-8 gap-y-4 flex-row md:gap-6 mt-4'>
+    <div className='flex flex-wrap gap-x-6 gap-y-4 flex-row md:gap-5'>
       {
       socials.map(({ name, href, svg, hover }) => (
         <a

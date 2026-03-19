@@ -2,13 +2,13 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import Image from 'next/image'
-import { Button } from './Button'
 import Counter from './Counter'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Navbar() {
   const { t } = useLanguage()
-  const { navLinks, cta } = t.header
+  const { navLinks } = t.header
 
   return (
     <nav className='w-full h-full flex items-center justify-between max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl'>
@@ -29,11 +29,9 @@ export function Navbar() {
       </ul>
 
       {/* Right side — fixed width matching logo to keep nav links centered */}
-      <div className='hidden md:flex items-center justify-end gap-4 shrink-0 w-[170px]'>
+      <div className='hidden md:flex items-center justify-end gap-4 shrink-0 w-[90px]'>
         <LanguageSwitcher />
-        <Button title={cta.title} href={cta.url}>
-          {cta.label}
-        </Button>
+        <ThemeToggle />
       </div>
     </nav>
   )

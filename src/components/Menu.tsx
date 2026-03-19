@@ -8,6 +8,7 @@ import { createPortal } from 'react-dom'
 import { Button } from './Button'
 import Counter from './Counter'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Menu({ onClick, navbarCollapsed }: MenuProps) {
   const { t } = useLanguage()
@@ -54,7 +55,10 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
             ))}
           </ul>
 
-          <LanguageSwitcher />
+          <div className='flex items-center gap-5'>
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
 
           <Button title={cta.title} href={cta.url}>
             {cta.label}
