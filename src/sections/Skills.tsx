@@ -16,7 +16,7 @@ export function Skills() {
   const { technologies } = skills[activeSkill]
 
   return (
-    <Section id='habilidades' title={title} number='02'>
+    <Section id='habilidades' title={title} number='03'>
       <SlideUp delay={120}>
       <article
         className='mx-auto flex w-full max-w-lg flex-col gap-2 sm:max-w-xl xl:max-w-2xl'

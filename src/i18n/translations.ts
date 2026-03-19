@@ -1,5 +1,13 @@
 export type Lang = 'es' | 'en'
 
+export interface ExperienceEntry {
+  role: string
+  company: string
+  location: string
+  period: string
+  bullets: string[]
+}
+
 export interface Translation {
   header: {
     navLinks: Array<{ section: string; label: string }>
@@ -10,6 +18,10 @@ export interface Translation {
     subtitle2: string
     tagline: string
     description: string
+  }
+  experience: {
+    title: string
+    entries: ExperienceEntry[]
   }
   about: {
     title: string
@@ -40,6 +52,7 @@ export const translations: Record<Lang, Translation> = {
     header: {
       navLinks: [
         { section: 'proyectos', label: 'Proyectos' },
+        { section: 'experiencia', label: 'Experiencia' },
         { section: 'habilidades', label: 'Habilidades' },
         { section: 'sobre-mi', label: 'Sobre Mí' },
         { section: 'contacto', label: 'Contacto' }
@@ -56,6 +69,43 @@ export const translations: Record<Lang, Translation> = {
       tagline: 'Construyo aplicaciones móviles para las personas.',
       description:
         'Mobile Software Engineer con más de 3 años desarrollando apps multiplataforma iOS/Android con Flutter. Trujillo, Perú 🇵🇪. Especializado en Clean Architecture y soluciones offline-first.'
+    },
+    experience: {
+      title: 'Experiencia',
+      entries: [
+        {
+          role: 'Mobile Software Engineer',
+          company: 'Mission Produce Perú',
+          location: 'Trujillo, Perú',
+          period: 'Mayo 2024 – Actualidad',
+          bullets: [
+            'Desarrollé app Flutter para medición de productividad en cosecha de arándanos, procesando más de 500 operaciones diarias con arquitectura offline-first, lectura QR/barras y sincronización en segundo plano.',
+            'Lideré sistema de evaluación de campo y laboratorio con cartillas dinámicas, formularios personalizables, gráficos y mapas con visualización offline mediante caché automático de tiles.',
+            'Diseñé arquitectura modular con Clean Architecture, principios SOLID, GetIt e inyección de dependencias con estructura feature-first escalable a múltiples unidades de negocio.'
+          ]
+        },
+        {
+          role: 'Mobile Software Engineer',
+          company: 'Grupo Mendieta',
+          location: 'Lima, Perú',
+          period: 'Marzo 2023 – Marzo 2024',
+          bullets: [
+            'Lideré migración completa de app financiera de Xamarin a Flutter, logrando rendimiento nativo con reducción del 30% en tiempos de carga mediante lazy loading y caching estratégico.',
+            'Implementé autenticación segura con JWT/OAuth, manejo encriptado de tokens y notificaciones push/locales para alertas de transacciones y vencimientos.',
+            'Establecí Clean Architecture con separación clara de capas (presentación, dominio, datos), DTOs y mappers, principios SOLID y gestión de estado con Cubit.'
+          ]
+        },
+        {
+          role: 'Mobile Developer',
+          company: 'I.E. Nuestra Señora de Lourdes',
+          location: 'Ascope, Perú',
+          period: 'Julio 2022 – Diciembre 2022',
+          bullets: [
+            'Desarrollé app educativa con juegos interactivos (puzzles, memoria) para mejorar concentración en niños con TDAH, logrando +30% en engagement diario.',
+            'Gestioné publicación exitosa en Play Store y App Store cumpliendo normativas de privacidad infantil (COPPA) y validación pedagógica con educadores.'
+          ]
+        }
+      ]
     },
     about: {
       title: 'Sobre mí',
@@ -101,6 +151,7 @@ export const translations: Record<Lang, Translation> = {
     header: {
       navLinks: [
         { section: 'proyectos', label: 'Projects' },
+        { section: 'experiencia', label: 'Experience' },
         { section: 'habilidades', label: 'Skills' },
         { section: 'sobre-mi', label: 'About Me' },
         { section: 'contacto', label: 'Contact' }
@@ -117,6 +168,43 @@ export const translations: Record<Lang, Translation> = {
       tagline: 'I build mobile apps for people.',
       description:
         'Mobile Software Engineer with 3+ years building cross-platform iOS/Android apps with Flutter. Trujillo, Peru 🇵🇪. Specialized in Clean Architecture and offline-first solutions.'
+    },
+    experience: {
+      title: 'Experience',
+      entries: [
+        {
+          role: 'Mobile Software Engineer',
+          company: 'Mission Produce Perú',
+          location: 'Trujillo, Peru',
+          period: 'May 2024 – Present',
+          bullets: [
+            'Built a Flutter app for blueberry harvest productivity, processing 500+ daily field operations with offline-first architecture, QR/barcode scanning, and automatic background sync.',
+            'Led a field and lab evaluation system with dynamic forms, data charts, and maps with offline tile caching.',
+            'Designed modular Clean Architecture with SOLID principles, GetIt, and a feature-first structure scalable across multiple business units.'
+          ]
+        },
+        {
+          role: 'Mobile Software Engineer',
+          company: 'Grupo Mendieta',
+          location: 'Lima, Peru',
+          period: 'March 2023 – March 2024',
+          bullets: [
+            'Led full migration of a financial app from Xamarin to Flutter, achieving near-native performance with a 30% reduction in load times via lazy loading and strategic caching.',
+            'Implemented secure JWT/OAuth authentication, encrypted token handling, and push/local notifications for transaction and payment alerts.',
+            'Established Clean Architecture with clear layer separation (presentation, domain, data), DTOs and mappers, SOLID principles, and Cubit state management.'
+          ]
+        },
+        {
+          role: 'Mobile Developer',
+          company: 'I.E. Nuestra Señora de Lourdes',
+          location: 'Ascope, Peru',
+          period: 'July 2022 – December 2022',
+          bullets: [
+            'Developed an educational app with interactive games (puzzles, memory) to improve focus in children with ADHD, achieving a 30% increase in daily engagement.',
+            'Managed successful Play Store and App Store releases, ensuring COPPA compliance and pedagogical validation with educators.'
+          ]
+        }
+      ]
     },
     about: {
       title: 'About me',
