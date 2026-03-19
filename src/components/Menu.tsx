@@ -5,14 +5,13 @@ import { MenuProps } from '@/interfaces/props'
 import { Menu as MenuIcon, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Button } from './Button'
 import Counter from './Counter'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Menu({ onClick, navbarCollapsed }: MenuProps) {
   const { t } = useLanguage()
-  const { navLinks, cta } = t.header
+  const { navLinks } = t.header
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => { setMounted(true) }, [])
@@ -59,10 +58,6 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
-
-          <Button title={cta.title} href={cta.url}>
-            {cta.label}
-          </Button>
         </div>
       </div>
     </>,

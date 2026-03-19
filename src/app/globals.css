@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-/* Primary palette — inline so values are CSS variables, enabling theme switching */
-@theme inline {
+/* Primary palette — regular @theme so Tailwind generates var() references,
+   allowing :root.light overrides to cascade at runtime */
+@theme {
   --color-primary-lightest: #f8fafc;
   --color-primary-light: #cbd5e1;
   --color-primary: #94a3b8;
