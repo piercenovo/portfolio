@@ -4,7 +4,6 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import Image from 'next/image'
 import Counter from './Counter'
 import { LanguageSwitcher } from './LanguageSwitcher'
-import { ThemeToggle } from './ThemeToggle'
 
 export function Navbar() {
   const { t } = useLanguage()
@@ -31,7 +30,6 @@ export function Navbar() {
       {/* Right side — fixed width matching logo to keep nav links centered */}
       <div className='hidden md:flex items-center justify-end gap-4 shrink-0 w-[90px]'>
         <LanguageSwitcher />
-        <ThemeToggle />
       </div>
     </nav>
   )

@@ -71,34 +71,6 @@
   --shadow-image: 0 0 0 9px rgb(255 255 255 / 30%);
 }
 
-/* ─── Light mode overrides ─────────────────────────────────── */
-:root.light {
-  --color-primary-lightest: #0f172a;
-  --color-primary-light: #1e293b;
-  --color-primary: #334155;
-  --color-primary-dark: #dde3ea;
-  --color-primary-darker: #eef2f7;
-  --color-primary-darkest: #f4f7fa;
-
-  /* Darken secondary so it has contrast on light backgrounds (sky-700) */
-  --color-secondary: #0369a1;
-  --color-secondary-light: #0369a11a;
-
-  /* Card hover shadow — dark subtle shadow instead of white glow */
-  --drop-shadow-white: 0px 4px 20px rgba(0, 0, 0, 0.10);
-}
-
-/* Light mode body — subtle dot-grid pattern instead of the dark SVG */
-:root.light body {
-  background-image: radial-gradient(rgba(100, 116, 139, 0.25) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Remove grayscale filter from cards/images in light mode — full color is
-   more legible on light backgrounds and the text content is readable */
-:root.light .grayscale {
-  --tw-grayscale: grayscale(0);
-}
 
 /* ─── Keyframes ─────────────────────────────────────────────── */
 @keyframes fade-in {

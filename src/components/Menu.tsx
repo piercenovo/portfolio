@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import Counter from './Counter'
 import { LanguageSwitcher } from './LanguageSwitcher'
-import { ThemeToggle } from './ThemeToggle'
 
 export function Menu({ onClick, navbarCollapsed }: MenuProps) {
   const { t } = useLanguage()
@@ -54,10 +53,7 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
             ))}
           </ul>
 
-          <div className='flex items-center gap-5'>
-            <LanguageSwitcher />
-            <ThemeToggle />
-          </div>
+          <LanguageSwitcher />
         </div>
       </div>
     </>,
