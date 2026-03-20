@@ -12,7 +12,7 @@ export function Hero() {
   const { subtitle1, subtitle2, tagline, description } = t.hero
   const { cta } = t.header
   return (
-    <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6'>
+    <main id='#' className='flex min-h-screen flex-col justify-evenly items-center w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl px-4 md:px-8'>
       <div className='flex flex-col gap-1 pt-28 w-full'>
         <h3
           className={`${sfmono.className} animate-fade-in text-sm lg:text-base text-secondary animation-delay-250 animation-duration-1000 mb-2`}
