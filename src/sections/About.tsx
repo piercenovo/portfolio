@@ -36,7 +36,7 @@ export function About() {
             src={img}
             width='300'
             height='300'
-            className='mx-auto w-[18rem] animate-profile grayscale hover:filter-none duration-300 shadow-image bg-no-repeat'
+            className='mx-auto w-[18rem] animate-profile grayscale hover:filter-none active:filter-none duration-300 shadow-image bg-no-repeat'
           />
         </div>
       </article>

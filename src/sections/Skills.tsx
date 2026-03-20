@@ -40,18 +40,18 @@ export function Skills() {
         </div>
 
         <div key={getId()} data-skill-container={groupNames[activeSkill]} className='grid grid-cols-3'>
-          {technologies.map(({ name, svg, hover }) => (
-            <button key={name} className='group flex flex-col items-center gap-3 py-6  '>
+          {technologies.map(({ name, svg, hover, active }) => (
+            <button key={name} className='group flex flex-col items-center gap-3 py-6'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox={svg.viewBox}
-                className={`${hover.fill} group-hover:drop-shadow-white h-8 w-8  group-hover:scale-[1.07] transition-all duration-300`}
+                className={`${hover.fill} ${active.fill} group-hover:drop-shadow-white group-active:drop-shadow-white h-8 w-8 group-hover:scale-[1.07] group-active:scale-[1.07] transition-all duration-300`}
               >
                 <path d={svg.path} />
               </svg>
 
               <p
-                className={`text-center text-xs md:text-sm font-semibold transition-all duration-300 group-hover:[text-shadow:0px_0px_10px_#ffffff50] ${sfmono.className} ${hover.text}`}
+                className={`text-center text-xs md:text-sm font-semibold transition-all duration-300 group-hover:[text-shadow:0px_0px_10px_#ffffff50] group-active:[text-shadow:0px_0px_10px_#ffffff50] ${sfmono.className} ${hover.text} ${active.text}`}
               >
                 {name}
               </p>

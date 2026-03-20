@@ -12,6 +12,10 @@ export type SkillType = {
       fill: string
       text: string
     }
+    active: {
+      fill: string
+      text: string
+    }
   }[]
 }
 
