@@ -1,9 +1,11 @@
 'use client'
 
+import { useLanguage } from '@/contexts/LanguageContext'
 import { ChevronUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export function BackToTop() {
+  const { lang } = useLanguage()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      aria-label='Volver al inicio'
+      aria-label={lang === 'es' ? 'Volver al inicio' : 'Back to top'}
       className={`fixed bottom-8 right-6 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-secondary bg-primary-darker text-secondary shadow-lg transition-all duration-300 hover:bg-secondary-light hover:scale-110 ${
         visible
           ? 'opacity-100 translate-y-0 pointer-events-auto'

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: 'Pierce Novoa Portfolio',
     images: [
       {
-        url: '/images/portfolio-screen.png',
+        url: 'https://piercenovo.dev/images/portfolio-screen.png',
         width: 1200,
         height: 630,
         alt: 'Pierce Novoa Portfolio'
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pierce Novoa | Mobile Software Engineer',
     description: 'Mobile Software Engineer with 3+ years building cross-platform iOS/Android apps with Flutter.',
-    images: ['/images/portfolio-screen.png']
+    images: ['https://piercenovo.dev/images/portfolio-screen.png']
   }
 }
 

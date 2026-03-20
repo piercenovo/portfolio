@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-/* Primary palette — regular @theme so Tailwind generates var() references,
-   allowing :root.light overrides to cascade at runtime */
+/* Primary palette — regular @theme so Tailwind generates var() references */
 @theme {
   --color-primary-lightest: #f8fafc;
   --color-primary-light: #cbd5e1;
@@ -133,7 +132,7 @@ html {
 }
 
 body {
-  @apply bg-[url('/images/bg-body.svg')] w-full h-screen flex flex-col items-center bg-primary-darkest px-6 text-primary sm:px-0;
+  @apply bg-[url('/images/bg-body.svg')] w-full min-h-screen flex flex-col items-center bg-primary-darkest text-primary;
   transition: background-color 0.3s ease;
 }
 

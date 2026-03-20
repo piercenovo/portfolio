@@ -1,14 +1,19 @@
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
 import { socials } from '@/data/sections'
 
 export default function SocialIcons() {
+  const { lang } = useLanguage()
+  const contactLabel = lang === 'es' ? 'Contáctame vía' : 'Contact me via'
+
   return (
     <div className='flex flex-wrap gap-x-6 gap-y-4 flex-row md:gap-5'>
-      {
-      socials.map(({ name, href, svg, hover }) => (
+      {socials.map(({ name, href, svg, hover }) => (
         <a
           key={name}
           aria-label={name}
-          title={`¡Contáctame vía ${name}!`}
+          title={`${contactLabel} ${name}`}
           href={href}
           target='_blank'
           rel='noopener noreferrer'
@@ -22,8 +27,7 @@ export default function SocialIcons() {
             <path fillRule='evenodd' d={svg.path} />
           </svg>
         </a>
-      ))
-}
+      ))}
     </div>
   )
 }
