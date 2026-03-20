@@ -44,6 +44,8 @@ export interface Translation {
     title: string
     description: string
     cta: { title: string; label: string }
+    email: string
+    copied: string
   }
   footer: {
     madeBy: string
@@ -145,7 +147,9 @@ export const translations: Record<Lang, Translation> = {
       cta: {
         title: '¡Contáctame!',
         label: 'Contactar'
-      }
+      },
+      email: 'piercenovoah@gmail.com',
+      copied: '¡Copiado!'
     },
     footer: {
       madeBy: 'Hecho con ❤️ por Pierce Novoa'
@@ -246,7 +250,9 @@ export const translations: Record<Lang, Translation> = {
       cta: {
         title: 'Contact Me!',
         label: 'Contact Me'
-      }
+      },
+      email: 'piercenovoah@gmail.com',
+      copied: 'Copied!'
     },
     footer: {
       madeBy: 'Made with ❤️ by Pierce Novoa'
