@@ -15,8 +15,10 @@
 ## 🌀 Sections
 
 - Hero
-- About
+- Projects
+- Experience
 - Skills
+- About
 - Contact
 
 <!-- BUILT WITH -->
@@ -64,13 +66,13 @@
   pnpm dev
 ```
 
-- To change the content, edit `/data/sections.ts`
+- To change the content, edit `src/data/sections.ts` and `src/i18n/translations.ts`
 
-- To change the **curriculum**, change `/public/curriculum.pdf` with your curriculum (name must be `curriculum.pdf`)
+- To change the **CV/Resume**, replace `public/curriculum-vitae.pdf` (ES) or `public/resume.pdf` (EN)
 
-- To change the **About Section**, edit `/containers/About.tsx`
+- To change the **About photo**, replace `public/images/about.webp`
 
-- To change the theme, edit `/tailwind.config.js`
+- To change the theme colors, edit the `@theme` block in `src/app/globals.css`
 
 <!-- CONTACT -->
 
@@ -79,14 +81,6 @@
 - Website - [www.piercenovo.dev](https://www.piercenovo.dev)
 - Github - [@piercenovo](https://github.com/piercenovo)
 - LinkedIn - [@piercenovoa](https://www.linkedin.com/in/piercenovoa/)
-- Twitter - [@piercenovodev](https://twitter.com/piercenovodev)
-- Instagram - [@piercenovo.dev](https://www.instagram.com/piercenovo.dev/)
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## 🤲🏻 Acknowledgements
-
-- [https://brittanychiang.com/](https://brittanychiang.com/) - Design Inspiration
 
 <!-- SHOW YOUR SUPPORT -->
 
