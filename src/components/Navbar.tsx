@@ -16,7 +16,7 @@ export function Navbar() {
         <Image priority alt='Logo' src='/images/logo.png' width={90} height={30} />
       </a>
 
-      <ul className='hidden md:flex gap-7 lg:gap-8'>
+      <ul className='hidden lg:flex gap-6 xl:gap-8'>
         {navLinks.map(({ section, label }, i) => (
           <a href={`#${section}`} key={section}>
             <li className='capitalize cursor-pointer text-primary-light hover:text-secondary transition-colors duration-300 text-xs lg:text-sm'>
@@ -28,7 +28,7 @@ export function Navbar() {
       </ul>
 
       {/* Right side — fixed width matching logo to keep nav links centered */}
-      <div className='hidden md:flex items-center justify-end gap-4 shrink-0 w-[90px]'>
+      <div className='hidden lg:flex items-center justify-end gap-4 shrink-0 w-[90px]'>
         <LanguageSwitcher />
       </div>
     </nav>

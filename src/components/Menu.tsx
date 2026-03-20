@@ -63,7 +63,7 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
   return (
     <div>
       {/* Burger icon — only on mobile */}
-      <div className='md:hidden'>
+      <div className='lg:hidden'>
         <button
           onClick={onClick}
           aria-label={navbarCollapsed ? 'Cerrar menú' : 'Abrir menú'}
