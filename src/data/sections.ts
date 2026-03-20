@@ -64,7 +64,7 @@ export const skillsSection: SkillsSectionType = {
           svg: svgs.sqlite,
           hover: {
             fill: 'group-hover:fill-sqlite',
-            text: 'group-hover:text-sqlites'
+            text: 'group-hover:text-sqlite'
           }
         }
       ]
