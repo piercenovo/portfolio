@@ -7,7 +7,7 @@ import { SectionProps } from '@/interfaces/props'
 export default function Section({ id, number, title, children } : SectionProps) {
   return (
     <section
-      id={id} className='flex w-full flex-col gap-8 pb-[10rem] pt-28 items-center justify-center px-4 md:px-8'
+      id={id} className='flex w-full flex-col gap-8 pb-[10rem] pt-28 items-center justify-center px-2 sm:px-0'
     >
       <SlideUp>
         <h2

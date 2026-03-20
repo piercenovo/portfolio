@@ -14,7 +14,7 @@ export function About() {
   return (
     <Section id='sobre-mi' title={title} number='04'>
       <SlideUp delay={120}>
-      <article className='flex gap-8 w-full flex-col xl:flex-row max-w-3xl lg:max-w-4xl xl:max-w-5xl items-center'>
+      <article className='flex gap-8 w-full flex-col xl:flex-row max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6 items-center'>
         <div className='flex flex-col gap-2 mx-auto xl:mx-0 max-w-xl lg:max-w-2xl xl:max-w-[39rem] text-lg lg:text-xl'>
           <p>{paragraphs[0]}</p>
           <p>
