@@ -43,7 +43,6 @@ export interface Translation {
   contact: {
     title: string
     description: string
-    cta: { title: string; label: string }
     email: string
     copied: string
   }
@@ -144,10 +143,6 @@ export const translations: Record<Lang, Translation> = {
       title: 'Contacto',
       description:
         'Actualmente me encuentro en búsqueda de nuevas oportunidades, cualquier oferta será bien recibida. Si simplemente deseas hacerme una pregunta o saludarme, no dudes en ponerte en contacto conmigo.',
-      cta: {
-        title: '¡Contáctame!',
-        label: 'Contactar'
-      },
       email: 'piercenovoah@gmail.com',
       copied: '¡Copiado!'
     },
@@ -247,10 +242,6 @@ export const translations: Record<Lang, Translation> = {
       title: 'Contact',
       description:
         "I'm currently looking for new opportunities — any offer is welcome. If you simply want to ask a question or say hello, don't hesitate to reach out.",
-      cta: {
-        title: 'Contact Me!',
-        label: 'Contact Me'
-      },
       email: 'piercenovoah@gmail.com',
       copied: 'Copied!'
     },
