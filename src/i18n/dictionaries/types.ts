@@ -14,7 +14,15 @@ export interface Dictionary {
     scrollLabel: string
     cv: { label: string; title: string }
   }
-  projects: { title: string; stack: string; live: string; repo: string; store: string }
+  projects: {
+    title: string
+    stack: string
+    live: string
+    repo: string
+    store: string
+    filterLabel: string
+    filters: { all: string; web: string; mobile: string }
+  }
   experience: { title: string; present: string }
   skills: { title: string }
   about: { title: string; photoAlt: string }

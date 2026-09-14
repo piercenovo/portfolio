@@ -39,7 +39,9 @@ export const es = {
     stack: 'Tecnologías',
     live: 'Ver sitio',
     repo: 'Ver código en GitHub',
-    store: 'Ver en Google Play'
+    store: 'Ver en Google Play',
+    filterLabel: 'Filtrar proyectos',
+    filters: { all: 'Todos', web: 'Web', mobile: 'Móvil' }
   },
   experience: { title: 'Experiencia', present: 'Actualidad' },
   skills: { title: 'Habilidades' },
