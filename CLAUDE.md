@@ -46,6 +46,24 @@ Tailwind v4 — no `tailwind.config.js`. All theme tokens live in the `@theme` b
 - **Theme colors / animations** → `src/app/globals.css` (`@theme` block)
 - **Custom fonts** → `src/app/fonts/` + `src/app/font.tsx` (Calibre and SFMono families)
 
-### Commit convention
+## Git
 
-Uses commitizen with `cz-conventional-changelog`. Run `pnpm comm` instead of `git commit` for guided conventional commits. Husky and lint-staged are configured for pre-commit hooks.
+- **Ramas:** `main` (producción), `develop` (integración), `feature/*`, `fix/*`
+- **No hacer `git push` al terminar una tarea** — solo commitear localmente; el push lo decide el usuario
+- **No hacer `git commit` hasta que el usuario confirme que la tarea está concluida**
+- **No incluir la línea `Co-Authored-By` en los mensajes de commit**
+- **Merge de `feature/*` o `fix/*` hacia `develop`**, y **merge de `develop` hacia `main`**: hacerlo sin generar un commit de merge adicional (fast-forward, ej. `git merge --ff-only`; si no es posible, hacer rebase primero)
+- **Mensajes de commit:** seguir la convención de [Conventional Commits](https://www.conventionalcommits.org/) (`tipo(scope): descripción`, tipos como `feat`, `fix`, `chore`, `refactor`, `docs`, `style`, `test`) — el mensaje se escribe en **inglés**
+- `pnpm comm` (commitizen) sigue disponible para commits guiados; Husky valida el mensaje en `commit-msg` y corre lint-staged en `pre-commit`
+- `docs/` está en `.gitignore`: los specs y planes (`docs/superpowers/`) son solo locales
+
+## Cuándo correr lint y build
+
+- **No correr lint ni build después de cada cambio.** Solo cuando el usuario lo pida explícitamente, o justo antes de hacer un commit.
+
+## Antes de hacer commit
+
+```bash
+pnpm lint
+pnpm build
+```
