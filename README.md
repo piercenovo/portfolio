@@ -66,11 +66,21 @@
   pnpm dev
 ```
 
-- To change the content, edit `src/data/sections.ts` and `src/i18n/translations.ts`
+5. Build the static site (output in `out/`)
+
+```bash
+  pnpm build
+```
+
+- To add a **project**, add an entry to `src/content/projects.ts`; put the original image in `.images/` and run `pnpm images`
+
+- To add a **technology**, add one line to `src/content/techs.ts`
+
+- To change **experience, skills, profile or about**, edit the files in `src/content/`
+
+- To change **UI texts**, edit `src/i18n/dictionaries/es.ts` and `src/i18n/dictionaries/en.ts`
 
 - To change the **CV/Resume**, replace `public/curriculum-vitae.pdf` (ES) or `public/resume.pdf` (EN)
-
-- To change the **About photo**, replace `public/images/about.webp`
 
 - To change the theme colors, edit the `@theme` block in `src/app/globals.css`
 

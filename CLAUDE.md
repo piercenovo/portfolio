@@ -6,45 +6,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm dev       # Start development server
-pnpm build     # Build for production
-pnpm start     # Run production build
-pnpm lint      # Run ESLint
-pnpm comm      # Create a conventional commit via commitizen (cz)
+pnpm build     # Static export to out/ (output: 'export')
+pnpm lint      # ESLint 9 (eslint.config.mjs)
+pnpm images    # Convert .images/*.{png,jpg,jpeg} to src/assets/projects/*.webp
+pnpm comm      # Guided conventional commit (commitizen)
 ```
 
-Package manager is **pnpm**. There are no tests configured.
+Package manager is **pnpm** — never `npm` or `yarn`. There are no tests configured.
 
 ## Architecture
 
-Single-page Next.js 14 portfolio with TypeScript and Tailwind CSS. The page renders five sections in order: Hero → Projects → Skills → About → Contact.
+Single-page Next.js 16 portfolio (App Router, React 19, TypeScript, Tailwind CSS 4) built as a **fully static site** — no server, no middleware, no API routes. Preview the build with `python3 -m http.server --directory out`.
 
-### Data flow
+### Routes and languages
 
-All content lives in **`src/data/sections.ts`** — this is the primary file to edit when updating portfolio content (nav links, hero text, projects, skills, about paragraphs, contact info, socials). SVG paths for technology icons are in `src/data/svg.ts`.
+- `src/app/(es)/` → `/` (Spanish), `src/app/(en)/en/` → `/en/` (English). Each group has its own root layout so `<html lang>` and metadata are correct in the static HTML.
+- Both pages render `<Home lang />` from `src/components/home/Home.tsx`.
+- Language detection is only a client-side suggestion (`LanguageSuggestion`); never redirect automatically.
+- `src/i18n/config.ts` — `Locale`, `Localized<T>`, `localePath`, `otherLocale`
+- `src/i18n/dictionaries/` — UI strings (`types.ts` defines `Dictionary`; `es.ts`/`en.ts` must satisfy it)
+- `src/i18n/metadata.ts` — per-language metadata, hreflang alternates, Open Graph (`public/og.png`)
+
+### Content
+
+Entity data lives in **`src/content/`** (typed in `src/types/content.ts`). Localized fields use `{ es, en }`; a missing language is a TypeScript error.
+
+- **Add a project** → add an object to `src/content/projects.ts` (array order = display order) and its image (see Images)
+- **Add a technology** → one line in `src/content/techs.ts` (`simple-icons` icon + hover `color`); use its id in projects/skills
+- **Experience** → `src/content/experience.ts` (`start`/`end` as `'YYYY-MM'`, no `end` = current)
+- **Skills groups** → `src/content/skills.ts`
+- **Name, email, CV paths, socials** → `src/content/profile.ts`
+- **About text and photo** → `src/content/about.ts` (photo at `src/assets/about.webp`)
+- **Section order / navigation** → `src/components/home/sections.ts`
+- **CV/Resume** → replace `public/curriculum-vitae.pdf` (ES) or `public/resume.pdf` (EN)
+
+### Images
+
+Put originals in `.images/` (gitignored), run `pnpm images`, and import the resulting `src/assets/projects/<name>.webp` statically. `next/image` runs with `images.unoptimized: true`, so images must be optimized before committing.
+
+### Server / client boundary
+
+Sections and content rendering are Server Components. Only interactive pieces are `'use client'`: `Header`, `MobileMenu`, `LanguageSwitcher`, `LanguageSuggestion`, `SkillsTabs`, `CopyEmailButton`, `BackToTop`, `SlideUp`. Client components must not import `@/content/*` or `simple-icons`; pass data or pre-rendered elements as props.
 
 ### Key directories
 
-- `src/sections/` — Full-page section components (Hero, Projects, Skills, About, Contact)
-- `src/components/` — Reusable UI primitives (Navbar, Header, Footer, ProjectCard, SlideUp, etc.)
-- `src/types/` — TypeScript type definitions (`global.d.ts` for base types, `data.d.ts` for section-specific types)
-- `src/hooks/` — Custom hooks (`useNavbarCollapsed`, `useReference`)
-- `src/utils/helper.ts` — Utility functions (e.g., `hideNavWhileScrolling`)
+- `src/sections/` — page sections (Hero, Projects, Experience, Skills, About, Contact)
+- `src/components/layout/` — document shell (RootDocument, Header, MobileMenu, Footer, BackToTop, language components)
+- `src/components/ui/` — primitives (Section, SlideUp, SvgIcon, TechIcon, ButtonLink, WordLink, SocialLinks, CopyEmailButton)
+- `src/components/projects/` — ProjectCard
+- `src/hooks/` — `useIsClient`, `useActiveSection`
 
 ### Tailwind theme
 
-Tailwind v4 — no `tailwind.config.js`. All theme tokens live in the `@theme` block at the top of `src/app/globals.css`:
-- **Colors**: `--color-primary-*`, `--color-secondary-*`, and one token per tech brand (e.g., `--color-nextjs`, `--color-tailwindcss`)
-- **Animations/keyframes**: `--animate-fade-in`, `--animate-profile`, `--animate-arrow`, etc. Keyframes are defined right after the `@theme` block
-- **Custom utilities**: `animation-delay-{250,500,1000}` and `animation-duration-{1000,1500}` are defined with `@utility` directives
-- **Shadows/sizes**: `--shadow-image`, `--drop-shadow-white`, `--max-width-8xl`, `--max-width-prose-lg`
+Tailwind v4 — no `tailwind.config.js`. Theme tokens live in the `@theme` blocks of `src/app/globals.css` (`--color-primary-*`, `--color-secondary-*`, animations, shadows). Brand colors are not tokens: `TechIcon` sets `--brand` inline and uses `group-hover:fill-(--brand)`. `.reveal` content is only hidden when scripting is enabled, and all animations respect `prefers-reduced-motion`.
 
-### Content updates
+### Fonts
 
-- **Portfolio content** → `src/data/sections.ts`
-- **CV/Resume** → replace `public/curriculum.pdf` (filename must stay `curriculum.pdf`)
-- **About photo** → `public/images/about.webp`
-- **Theme colors / animations** → `src/app/globals.css` (`@theme` block)
-- **Custom fonts** → `src/app/fonts/` + `src/app/font.tsx` (Calibre and SFMono families)
+`src/app/fonts/` + `src/app/font.tsx` (Calibre and SFMono families).
+
+### Tooling
+
+ESLint 9 flat config (`eslint-config-next` core-web-vitals + typescript), commitlint (`@commitlint/config-conventional`), lint-staged (`eslint --fix` on `ts/tsx`) and Husky 9 hooks (`pre-commit`, `commit-msg`).
 
 ## Git
 
