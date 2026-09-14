@@ -1,45 +1,41 @@
-'use client'
-
-import { WordLink } from '../components/WordLink'
-import Section from '../components/Section'
-import SlideUp from '@/components/SlideUp'
+import { Section } from '@/components/ui/Section'
+import { SlideUp } from '@/components/ui/SlideUp'
+import { WordLink } from '@/components/ui/WordLink'
+import { about } from '@/content/about'
+import type { SectionProps } from '@/types/section'
 import Image from 'next/image'
-import { aboutSection } from '@/data/sections'
-import { useLanguage } from '@/contexts/LanguageContext'
 
-export function About() {
-  const { t } = useLanguage()
-  const { title, paragraphs, achievement } = t.about
-  const { img } = aboutSection
+export function About({ lang, dict }: SectionProps) {
+  const achievement = about.achievement[lang]
+
   return (
-    <Section id='sobre-mi' title={title} number='04'>
+    <Section id='about' title={dict.about.title}>
       <SlideUp delay={120}>
-      <article className='flex gap-8 w-full flex-col xl:flex-row max-w-3xl lg:max-w-4xl xl:max-w-5xl px-0 sm:px-4 md:px-6 items-center'>
-        <div className='flex flex-col gap-2 mx-auto xl:mx-0 max-w-xl lg:max-w-2xl xl:max-w-[39rem] text-lg lg:text-xl'>
-          <p>{paragraphs[0]}</p>
-          <p>
-            {achievement.prefix}
-            <WordLink
-              href='https://play.google.com/store/apps/details?id=com.missionproduce.productividadcampo&hl=es'
-              title={achievement.link.title}
-            >
-              {achievement.link.text}
-            </WordLink>
-            {achievement.suffix}
-          </p>
-        </div>
+        <article className='flex w-full max-w-3xl flex-col items-center gap-8 px-0 sm:px-4 md:px-6 lg:max-w-4xl xl:max-w-5xl xl:flex-row'>
+          <div className='mx-auto flex max-w-xl flex-col gap-2 text-lg lg:max-w-2xl lg:text-xl xl:mx-0 xl:max-w-[39rem]'>
+            {about.paragraphs[lang].map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <p>
+              {achievement.prefix}
+              <WordLink href={about.achievementUrl} title={achievement.linkTitle}>
+                {achievement.linkText}
+              </WordLink>
+              {achievement.suffix}
+            </p>
+          </div>
 
-        <div className='mx-auto xl:mx-0 shrink-0'>
-          <Image
-            placeholder='blur'
-            alt='Pierce Novoa'
-            src={img}
-            width='300'
-            height='300'
-            className='mx-auto w-[18rem] animate-profile grayscale hover:filter-none active:filter-none duration-300 shadow-image bg-no-repeat'
-          />
-        </div>
-      </article>
+          <div className='mx-auto shrink-0 xl:mx-0'>
+            <Image
+              src={about.photo}
+              alt={dict.about.photoAlt}
+              placeholder='blur'
+              width={300}
+              height={300}
+              className='mx-auto w-[18rem] animate-profile shadow-image'
+            />
+          </div>
+        </article>
       </SlideUp>
     </Section>
   )

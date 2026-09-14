@@ -57,9 +57,9 @@ export const translations: Record<Lang, Translation> = {
       navLinks: [
         { section: 'projects', label: 'Proyectos' },
         { section: 'experience', label: 'Experiencia' },
-        { section: 'habilidades', label: 'Habilidades' },
-        { section: 'sobre-mi', label: 'Sobre Mí' },
-        { section: 'contacto', label: 'Contacto' }
+        { section: 'skills', label: 'Habilidades' },
+        { section: 'about', label: 'Sobre Mí' },
+        { section: 'contact', label: 'Contacto' }
       ],
       cta: {
         label: 'Curriculum',
@@ -156,9 +156,9 @@ export const translations: Record<Lang, Translation> = {
       navLinks: [
         { section: 'projects', label: 'Projects' },
         { section: 'experience', label: 'Experience' },
-        { section: 'habilidades', label: 'Skills' },
-        { section: 'sobre-mi', label: 'About Me' },
-        { section: 'contacto', label: 'Contact' }
+        { section: 'skills', label: 'Skills' },
+        { section: 'about', label: 'About Me' },
+        { section: 'contact', label: 'Contact' }
       ],
       cta: {
         label: 'Resume',

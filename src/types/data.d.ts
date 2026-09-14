@@ -1,8 +1,4 @@
-import { SkillType } from '@/types/global'
-
-export type SkillsSectionType = {
-  skills: SkillType[];
-};
+import type { SVG } from '@/types/global'
 
 export type SocialsSectionType = {
   name: string;

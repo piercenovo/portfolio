@@ -22,9 +22,9 @@ export function Home({ lang }: { lang: Locale }) {
       <Hero />
       <Projects lang={lang} dict={dict} />
       <Experience lang={lang} dict={dict} />
-      <Skills />
-      <About />
-      <Contact />
+      <Skills lang={lang} dict={dict} />
+      <About lang={lang} dict={dict} />
+      <Contact lang={lang} dict={dict} />
       <Footer />
       <BackToTop />
       <LanguageSuggestion
