@@ -31,7 +31,7 @@ export function About() {
 
         <div className='mx-auto xl:mx-0 shrink-0'>
           <Image
-            priority
+            placeholder='blur'
             alt='Pierce Novoa'
             src={img}
             width='300'

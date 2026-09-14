@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "comm": "cz",
-    "prepare": "husky || true"
+    "prepare": "husky || true",
+    "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.577.0",
@@ -30,6 +31,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.5.1",
     "postcss": "8.4.35",
+    "sharp": "0.35.4",
     "tailwindcss": "4.2.1",
     "typescript": "^5"
   },

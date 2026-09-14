@@ -1,6 +1,7 @@
 import { sfmono } from '@/app/font'
 import { gitHubProject, linkProject } from '@/data/svg'
 import { ProjectType } from '@/types/global'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export function ProjectCard({
@@ -25,9 +26,10 @@ export function ProjectCard({
     <div className='block group bg-primary-dark w-full max-w-[28rem] hover:drop-shadow-white active:drop-shadow-white shadow-sm rounded-md overflow-hidden transition-all duration-200 grayscale hover:grayscale-0 active:grayscale-0 group'>
       <div className='overflow-hidden h-[220px]'>
         <a href={url} target='_blank' rel='noreferrer'>
-          <img
+          <Image
             src={img}
             alt={name}
+            placeholder='blur'
             className='w-full h-full object-cover group-hover:scale-[1.05] group-active:scale-[1.05] transition duration-300 ease-in-out'
           />
         </a>

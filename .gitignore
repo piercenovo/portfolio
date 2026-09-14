@@ -37,3 +37,6 @@ next-env.d.ts
 
 # docs locales (specs/plans de superpowers, no forman parte del proyecto)
 /docs/
+
+# originales de imágenes (se versiona solo el WebP optimizado)
+/.images/

@@ -1,3 +1,5 @@
+import type { StaticImageData } from 'next/image'
+
 export type SVG = {
   viewBox: string
   path: string
@@ -25,7 +27,7 @@ export type ProjectType = {
   url?: string
   repo?: string
   year: number
-  img: string
+  img: StaticImageData
   tags: {
     name: string
     svg: SVG

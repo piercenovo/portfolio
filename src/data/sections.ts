@@ -6,10 +6,15 @@ import {
 import * as svgs from '@/data/svg'
 
 import { gitHubOutline, linkedIn } from '@/data/svg'
+import aboutPhoto from '@/assets/about.webp'
+import airbnbCloneCover from '@/assets/projects/airbnb-clone.webp'
+import brainconcentCover from '@/assets/projects/brainconcent.webp'
+import linktreeCloneCover from '@/assets/projects/linktree-clone.webp'
+import productividadCampoCover from '@/assets/projects/productividad-campo.webp'
 
 // About Section
 export const aboutSection = {
-  img: '/images/about.webp'
+  img: aboutPhoto
 }
 
 // Skills Section
@@ -256,7 +261,7 @@ export const projectsSection: ProjectsSectionType = {
       description:
         'Aplicación móvil para el sector agroindustrial que optimiza la gestión de la cosecha de arándanos mediante el registro digital de envases y la recepción de guías con códigos QR.',
       url: 'https://play.google.com/store/apps/details?id=com.missionproduce.productividadcampo&hl=es',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1741485433/Portfolio/productividad-campo_ave8c8.png',
+      img: productividadCampoCover,
       year: 2025,
       tags: [
         {
@@ -295,7 +300,7 @@ export const projectsSection: ProjectsSectionType = {
         'Plataforma de reservas que conecta anfitriones y viajeros, permitiendo alquilar alojamientos de forma segura y eficiente. Ofrece gestión de reservas y comunicación directa entre usuarios.',
       url: 'https://rent-app-mocha.vercel.app/',
       repo: 'https://github.com/piercenovo/airbnb-app',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1686756632/Portfolio/airbnb_karwum.png',
+      img: airbnbCloneCover,
       year: 2024,
       tags: [
         {
@@ -334,7 +339,7 @@ export const projectsSection: ProjectsSectionType = {
         'Herramienta para crear un perfil único con múltiples enlaces, permitiendo compartir fácilmente contenido, redes sociales y recursos desde un solo lugar.',
       url: 'https://linktr.piercenovo.dev/',
       repo: 'https://github.com/piercenovo/linktree-clone',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1680244107/Portfolio/linktree-app_al0u8n.png',
+      img: linktreeCloneCover,
       year: 2023,
       tags: [
         {
@@ -365,7 +370,7 @@ export const projectsSection: ProjectsSectionType = {
       description:
         'Aplicación móvil diseñada para fortalecer la concentración y las habilidades cognitivas en niños con TDAH, a través de un entorno interactivo y visualmente atractivo.',
       repo: 'https://github.com/piercenovo/brainconcent-flutter',
-      img: 'https://res.cloudinary.com/cloud-digital-asset/image/upload/v1679448412/Portfolio/brainconcent_uw6ud8.png',
+      img: brainconcentCover,
       year: 2023,
       tags: [
         {
