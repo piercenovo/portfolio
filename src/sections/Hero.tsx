@@ -43,10 +43,10 @@ export function Hero() {
       </div>
 
       <div className='mx-auto'>
-        <a href='#proyectos'>
+        <a href='#projects'>
           <button
             data-hero-arrow
-            data-section-id='proyectos'
+            data-section-id='projects'
             aria-label='Ir a Proyectos'
             className='animate-arrow [&>svg]:hover:fill-secondary'
           >

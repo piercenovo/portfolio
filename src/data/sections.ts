@@ -1,5 +1,4 @@
 import {
-  ProjectsSectionType,
   SkillsSectionType,
   SocialsSectionType
 } from '@/types/data'
@@ -7,10 +6,6 @@ import * as svgs from '@/data/svg'
 
 import { gitHubOutline, linkedIn } from '@/data/svg'
 import aboutPhoto from '@/assets/about.webp'
-import airbnbCloneCover from '@/assets/projects/airbnb-clone.webp'
-import brainconcentCover from '@/assets/projects/brainconcent.webp'
-import linktreeCloneCover from '@/assets/projects/linktree-clone.webp'
-import productividadCampoCover from '@/assets/projects/productividad-campo.webp'
 
 // About Section
 export const aboutSection = {
@@ -247,158 +242,6 @@ export const skillsSection: SkillsSectionType = {
           active: {
             fill: 'group-active:fill-cloudinary',
             text: 'group-active:text-cloudinary'
-          }
-        }
-      ]
-    }
-  ]
-}
-
-export const projectsSection: ProjectsSectionType = {
-  projects: [
-    {
-      name: 'Productividad campo',
-      description:
-        'Aplicación móvil para el sector agroindustrial que optimiza la gestión de la cosecha de arándanos mediante el registro digital de envases y la recepción de guías con códigos QR.',
-      url: 'https://play.google.com/store/apps/details?id=com.missionproduce.productividadcampo&hl=es',
-      img: productividadCampoCover,
-      year: 2025,
-      tags: [
-        {
-          name: 'Flutter',
-          svg: svgs.flutter,
-          hover: {
-            fill: 'group-hover:fill-flutter'
-          }
-        },
-        {
-          name: 'Node.js',
-          svg: svgs.nodeJs,
-          hover: {
-            fill: 'group-hover:fill-nodejs'
-          }
-        },
-        {
-          name: 'NestJS',
-          svg: svgs.nestjs,
-          hover: {
-            fill: 'group-hover:fill-nestjs'
-          }
-        },
-        {
-          name: 'MySQL',
-          svg: svgs.mysql,
-          hover: {
-            fill: 'group-hover:fill-mysql'
-          }
-        }
-      ]
-    },
-    {
-      name: 'Airbnb Clone',
-      description:
-        'Plataforma de reservas que conecta anfitriones y viajeros, permitiendo alquilar alojamientos de forma segura y eficiente. Ofrece gestión de reservas y comunicación directa entre usuarios.',
-      url: 'https://rent-app-mocha.vercel.app/',
-      repo: 'https://github.com/piercenovo/airbnb-app',
-      img: airbnbCloneCover,
-      year: 2024,
-      tags: [
-        {
-          name: 'Next.js',
-          svg: svgs.nextJs,
-          hover: {
-            fill: 'group-hover:fill-nextjs'
-          }
-        },
-        {
-          name: 'Tailwind',
-          svg: svgs.tailwindCss,
-          hover: {
-            fill: 'group-hover:fill-tailwindcss'
-          }
-        },
-        {
-          name: 'Prisma',
-          svg: svgs.prisma,
-          hover: {
-            fill: 'group-hover:fill-prisma'
-          }
-        },
-        {
-          name: 'PostgreSQL',
-          svg: svgs.postgreSql,
-          hover: {
-            fill: 'group-hover:fill-postgresql'
-          }
-        }
-      ]
-    },
-    {
-      name: 'Linktree Clone',
-      description:
-        'Herramienta para crear un perfil único con múltiples enlaces, permitiendo compartir fácilmente contenido, redes sociales y recursos desde un solo lugar.',
-      url: 'https://linktr.piercenovo.dev/',
-      repo: 'https://github.com/piercenovo/linktree-clone',
-      img: linktreeCloneCover,
-      year: 2023,
-      tags: [
-        {
-          name: 'Next.js',
-          svg: svgs.nextJs,
-          hover: {
-            fill: 'group-hover:fill-nextjs'
-          }
-        },
-        {
-          name: 'Tailwind',
-          svg: svgs.tailwindCss,
-          hover: {
-            fill: 'group-hover:fill-tailwindcss'
-          }
-        },
-        {
-          name: 'TypeScript',
-          svg: svgs.typeScript,
-          hover: {
-            fill: 'group-hover:fill-typescript'
-          }
-        }
-      ]
-    },
-    {
-      name: 'Brainconcent',
-      description:
-        'Aplicación móvil diseñada para fortalecer la concentración y las habilidades cognitivas en niños con TDAH, a través de un entorno interactivo y visualmente atractivo.',
-      repo: 'https://github.com/piercenovo/brainconcent-flutter',
-      img: brainconcentCover,
-      year: 2023,
-      tags: [
-        {
-          name: 'Flutter',
-          svg: svgs.flutter,
-          hover: {
-            fill: 'group-hover:fill-flutter'
-          }
-        },
-        {
-          name: 'Node.js',
-          svg: svgs.nodeJs,
-          hover: {
-            fill: 'group-hover:fill-nodejs'
-          }
-        },
-        {
-          name: 'Express',
-          svg: svgs.express,
-          hover: {
-            fill: 'group-hover:fill-express'
-          }
-        },
-        {
-          name: 'MongoDB',
-          svg: svgs.mongoDb,
-          hover: {
-            fill: 'group-hover:fill-mongodb'
           }
         }
       ]

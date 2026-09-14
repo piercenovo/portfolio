@@ -1,11 +1,7 @@
-import { ProjectType, SkillType } from '@/types/global'
+import { SkillType } from '@/types/global'
 
 export type SkillsSectionType = {
   skills: SkillType[];
-};
-
-export type ProjectsSectionType = {
-  projects: ProjectType[];
 };
 
 export type SocialsSectionType = {

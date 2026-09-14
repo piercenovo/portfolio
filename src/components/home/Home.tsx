@@ -13,14 +13,15 @@ import { Projects } from '@/sections/Projects'
 import { Skills } from '@/sections/Skills'
 
 export function Home({ lang }: { lang: Locale }) {
+  const dict = getDictionary(lang)
   const targetLang = otherLocale(lang)
 
   return (
     <LanguageProvider lang={lang}>
       <Header />
       <Hero />
-      <Projects />
-      <Experience />
+      <Projects lang={lang} dict={dict} />
+      <Experience lang={lang} dict={dict} />
       <Skills />
       <About />
       <Contact />
