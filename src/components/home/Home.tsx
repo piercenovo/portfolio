@@ -1,37 +1,33 @@
-import { BackToTop } from '@/components/BackToTop'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
+import { BackToTop } from '@/components/layout/BackToTop'
+import { Footer } from '@/components/layout/Footer'
+import { Header } from '@/components/layout/Header'
 import { LanguageSuggestion } from '@/components/layout/LanguageSuggestion'
-import { LanguageProvider } from '@/contexts/LanguageContext'
 import { otherLocale, type Locale } from '@/i18n/config'
 import { getDictionary } from '@/i18n/dictionaries/get-dictionary'
-import { About } from '@/sections/About'
-import { Contact } from '@/sections/Contact'
-import { Experience } from '@/sections/Experience'
 import { Hero } from '@/sections/Hero'
-import { Projects } from '@/sections/Projects'
-import { Skills } from '@/sections/Skills'
+import { sections } from './sections'
 
 export function Home({ lang }: { lang: Locale }) {
   const dict = getDictionary(lang)
   const targetLang = otherLocale(lang)
+  const navItems = sections.map(({ id }) => ({ id, label: dict.nav[id] }))
 
   return (
-    <LanguageProvider lang={lang}>
-      <Header />
-      <Hero />
-      <Projects lang={lang} dict={dict} />
-      <Experience lang={lang} dict={dict} />
-      <Skills lang={lang} dict={dict} />
-      <About lang={lang} dict={dict} />
-      <Contact lang={lang} dict={dict} />
-      <Footer />
-      <BackToTop />
+    <>
+      <Header lang={lang} navItems={navItems} labels={dict.header} languageLabel={dict.language.switchTo} />
+      <main className='flex w-full flex-col items-center'>
+        <Hero lang={lang} dict={dict} />
+        {sections.map(({ id, Component }) => (
+          <Component key={id} lang={lang} dict={dict} />
+        ))}
+      </main>
+      <Footer dict={dict} />
+      <BackToTop label={dict.backToTop} />
       <LanguageSuggestion
         currentLang={lang}
         targetLang={targetLang}
         text={getDictionary(targetLang).language.suggestion}
       />
-    </LanguageProvider>
+    </>
   )
 }
