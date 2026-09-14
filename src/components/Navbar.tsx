@@ -5,10 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Counter from './Counter'
-import { LanguageSwitcher } from './LanguageSwitcher'
+import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher'
+import { getDictionary } from '@/i18n/dictionaries/get-dictionary'
 
 export function Navbar() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const { navLinks } = t.header
   const [activeSection, setActiveSection] = useState<string>('')
 
@@ -65,7 +66,7 @@ export function Navbar() {
 
       {/* Right side — fixed width matching logo to keep nav links centered */}
       <div className='hidden lg:flex items-center justify-end gap-4 shrink-0 w-[90px]'>
-        <LanguageSwitcher />
+        <LanguageSwitcher currentLang={lang} label={getDictionary(lang).language.switchTo} />
       </div>
     </nav>
   )

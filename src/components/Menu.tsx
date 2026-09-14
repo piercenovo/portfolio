@@ -6,10 +6,11 @@ import { Menu as MenuIcon, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import Counter from './Counter'
-import { LanguageSwitcher } from './LanguageSwitcher'
+import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher'
+import { getDictionary } from '@/i18n/dictionaries/get-dictionary'
 
 export function Menu({ onClick, navbarCollapsed }: MenuProps) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const { navLinks } = t.header
   const [mounted, setMounted] = useState(false)
 
@@ -53,7 +54,7 @@ export function Menu({ onClick, navbarCollapsed }: MenuProps) {
             ))}
           </ul>
 
-          <LanguageSwitcher />
+          <LanguageSwitcher currentLang={lang} label={getDictionary(lang).language.switchTo} />
         </div>
       </div>
     </>,
