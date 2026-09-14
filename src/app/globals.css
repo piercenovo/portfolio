@@ -124,6 +124,31 @@
   animation: slide-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Reveal: content stays visible when JavaScript is unavailable */
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+  }
+
+  .reveal.is-revealed {
+    animation: slide-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ─── Base ──────────────────────────────────────────────────── */
 html {
   scrollbar-width: thin;
