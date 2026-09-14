@@ -6,12 +6,6 @@ export interface ButtonProps {
   children: string
 }
 
-export interface IconButtonProps {
-  title: string
-  href: string
-  children?: React.JSX.Element
-}
-
 export interface MenuProps {
   onClick: (event: React.MouseEvent) => void
   navbarCollapsed: boolean
@@ -27,10 +21,5 @@ export interface SectionProps {
   id: string
   title: string
   number: string
-  children: React.JSX.Element
-}
-
-export interface SideColumnProps {
-  orientation: 'left' | 'right'
   children: React.JSX.Element
 }

@@ -1,12 +1,12 @@
 'use client'
 
 import { sfmono } from '@/app/font'
-import useNavbarCollapsed from '@/hooks/useNavbarCollapsed'
+import { useState } from 'react'
 import { Menu } from './Menu'
 import { Navbar } from './Navbar'
 
 export default function Header() {
-  const { navbarCollapsed, setNavbarCollapsed } = useNavbarCollapsed()
+  const [navbarCollapsed, setNavbarCollapsed] = useState(false)
 
   return (
     <header

@@ -34,8 +34,3 @@ export const sfmono = localFont({
     }
   ]
 })
-
-export const signature = localFont({
-  src: './fonts/Agustina-Signature.otf',
-  display: 'swap'
-})

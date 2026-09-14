@@ -149,10 +149,6 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-track { @apply bg-transparent; }
 
-.vertical-line::after {
-  @apply mx-auto mt-1 h-24 w-[1px] bg-primary content-[""];
-}
-
 @layer base {
   svg {
     @apply fill-primary;

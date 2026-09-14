@@ -4,7 +4,6 @@ import { sfmono } from '@/app/font'
 import SlideUp from '@/components/SlideUp'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { skillsSection } from '@/data/sections'
-import { getId } from '@/utils/helper'
 import { useState } from 'react'
 import Section from '../components/Section'
 
@@ -26,7 +25,7 @@ export function Skills() {
             {
               skills.map((_skill, i) => (
                 <button
-                  key={getId()}
+                  key={groupNames[i]}
                   data-skill={groupNames[i]}
                   data-skill-index={i}
                   className={`flex-1 pb-3 pt-4 md:pt-5 md:pb-4 border-b-2 hover:text-secondary transition-transform ${i === activeSkill ? 'text-secondary border-secondary' : 'border-primary'}`}
@@ -39,7 +38,7 @@ export function Skills() {
           </div>
         </div>
 
-        <div key={getId()} data-skill-container={groupNames[activeSkill]} className='grid grid-cols-3'>
+        <div key={activeSkill} data-skill-container={groupNames[activeSkill]} className='grid grid-cols-3'>
           {technologies.map(({ name, svg, hover, active }) => (
             <button key={name} className='group flex flex-col items-center gap-3 py-6'>
               <svg
