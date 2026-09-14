@@ -1,11 +1,25 @@
 import airbnbCloneCover from '@/assets/projects/airbnb-clone.webp'
 import brainconcentCover from '@/assets/projects/brainconcent.webp'
-import linktreeCloneCover from '@/assets/projects/linktree-clone.webp'
 import productividadCampoCover from '@/assets/projects/productividad-campo.webp'
+import transwatCover from '@/assets/projects/transwat.webp'
 import type { Project } from '@/types/content'
 
 // Array order = display order
 export const projects: Project[] = [
+  {
+    slug: 'transwat',
+    name: 'TransWat',
+    kind: 'web',
+    year: 2026,
+    cover: transwatCover,
+    // Private repository, no public URL
+    links: {},
+    techs: ['nextjs', 'nestjs', 'drizzle', 'postgresql'],
+    summary: {
+      es: 'Sistema web para operaciones de almacén con módulos de operaciones, órdenes de despacho y tickets de balanza, integrado con un servicio externo que captura en tiempo real el peso de balanzas industriales.',
+      en: 'Web system for warehouse operations with modules for operations, dispatch orders and weighbridge tickets, integrated with an external service that captures live weight from industrial scales.'
+    }
+  },
   {
     slug: 'productividad-campo',
     name: 'Productividad campo',
@@ -35,22 +49,6 @@ export const projects: Project[] = [
     summary: {
       es: 'Plataforma de reservas que conecta anfitriones y viajeros, permitiendo alquilar alojamientos de forma segura y eficiente. Ofrece gestión de reservas y comunicación directa entre usuarios.',
       en: 'Booking platform connecting hosts and travelers, enabling secure and efficient accommodation rental. Features reservation management and direct communication between users.'
-    }
-  },
-  {
-    slug: 'linktree-clone',
-    name: 'Linktree Clone',
-    kind: 'web',
-    year: 2023,
-    cover: linktreeCloneCover,
-    links: {
-      live: 'https://linktr.piercenovo.dev/',
-      repo: 'https://github.com/piercenovo/linktree-clone'
-    },
-    techs: ['nextjs', 'tailwindcss', 'typescript'],
-    summary: {
-      es: 'Herramienta para crear un perfil único con múltiples enlaces, permitiendo compartir fácilmente contenido, redes sociales y recursos desde un solo lugar.',
-      en: 'Tool for creating a unique profile with multiple links, making it easy to share content, social media, and resources from a single place.'
     }
   },
   {
