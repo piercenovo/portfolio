@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Counter from './Counter'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -44,9 +45,9 @@ export function Navbar() {
   return (
     <nav className='w-full h-full flex items-center justify-between max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl'>
       {/* Logo — fixed width to balance layout */}
-      <a href='/#' className='shrink-0 w-[90px]'>
+      <Link href='/#' className='shrink-0 w-[90px]'>
         <Image priority alt='Logo' src='/images/logo.png' width={90} height={30} />
-      </a>
+      </Link>
 
       <ul className='hidden lg:flex gap-6 xl:gap-8'>
         {navLinks.map(({ section, label }, i) => {

@@ -1,6 +1,5 @@
 'use client'
 
-/* eslint-disable react/jsx-closing-tag-location */
 import { sfmono } from '@/app/font'
 import { Button } from '@/components/Button'
 import SocialIcons from '@/components/SocialIcons'

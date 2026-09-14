@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-indent */
 import { sfmono } from '@/app/font'
 import { gitHubProject, linkProject } from '@/data/svg'
 import { ProjectType } from '@/types/global'
