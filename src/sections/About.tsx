@@ -8,14 +8,14 @@ import type { CSSProperties } from 'react'
 
 const rowClassName = 'grid gap-3 border-b border-line py-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8'
 const termClassName = 'font-mono text-xs tracking-[0.08em] text-ink-muted uppercase sm:pt-1'
-const photoClassName = 'aspect-[4/5] w-full object-cover object-[50%_35%] grayscale-[45%] transition-[filter] duration-500 ease-out group-hover:grayscale-0'
+const photoClassName = 'aspect-[4/5] w-full object-cover object-[50%_35%] grayscale-[45%] transition-[filter] duration-500 ease-out group-hover:grayscale-0 group-data-powered:grayscale-0'
 const indexStyle = (index: number) => ({ '--i': index }) as CSSProperties
 
 export function About({ lang, dict }: SectionProps) {
   return (
     <Section id='about' title={dict.about.title}>
       <PowerOn className='grid gap-10 md:grid-cols-[15rem_minmax(0,1fr)] md:gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16'>
-        <figure className='boot group w-full max-w-[18rem] self-start rounded-[3px] border border-line bg-panel transition-colors duration-200 hover:border-line-strong'>
+        <figure data-unit className='boot group w-full max-w-[18rem] self-start justify-self-center rounded-[3px] border border-line bg-panel transition-colors duration-200 hover:border-line-strong data-powered:border-line-strong md:justify-self-start'>
           <div className='p-2'>
             {/* One photo per theme, each composited on its own ground; the hidden one
                 is display:none, so it is neither announced nor fetched until shown */}

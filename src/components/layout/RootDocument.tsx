@@ -4,6 +4,7 @@ import type { Locale } from '@/i18n/config'
 import type { ReactNode } from 'react'
 import { themeInitScript } from './theme'
 import { ThemeSync } from './ThemeSync'
+import { TouchPower } from './TouchPower'
 
 type RootDocumentProps = {
   lang: Locale
@@ -25,6 +26,7 @@ export function RootDocument({ lang, children }: RootDocumentProps) {
           <body> before hydration; this only ignores attribute mismatches on this tag */}
       <body suppressHydrationWarning>
         <ThemeSync />
+        <TouchPower />
         {children}
       </body>
     </html>

@@ -24,7 +24,7 @@ export function TechIcon({ id, className = 'h-5 w-5', decorative = false }: Tech
       icon={icon}
       title={decorative ? undefined : name}
       style={brandStyle(id)}
-      className={`text-ink-muted transition-colors duration-200 group-hover:text-(--brand) group-focus-within:text-(--brand) light:group-hover:text-(--brand-light) light:group-focus-within:text-(--brand-light) ${className}`}
+      className={`text-ink-muted transition-colors duration-200 group-hover:text-(--brand) group-focus-within:text-(--brand) group-data-powered:text-(--brand) light:group-hover:text-(--brand-light) light:group-focus-within:text-(--brand-light) light:group-data-powered:text-(--brand-light) ${className}`}
     />
   )
 }

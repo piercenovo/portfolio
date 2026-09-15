@@ -44,14 +44,14 @@ export function ProjectCard({ project, lang, labels }: ProjectCardProps) {
   const cardLinks = candidateLinks.filter((link): link is CardLink => link !== null)
 
   return (
-    <article className='group flex h-full flex-col rounded-[3px] border border-line bg-panel transition-colors duration-200 hover:border-line-strong'>
+    <article data-unit className='group flex h-full flex-col rounded-[3px] border border-line bg-panel transition-colors duration-200 hover:border-line-strong data-powered:border-line-strong'>
       <div className='rounded-t-[3px] border-b border-line bg-ground p-3 sm:p-4'>
         <div className='boot-warm overflow-hidden rounded-[2px] border border-line'>
           <Image
             src={cover}
             alt={name}
             placeholder='blur'
-            className='aspect-[16/10] w-full object-cover object-top transition-[scale] duration-500 ease-out will-change-[scale] group-hover:scale-[1.02]'
+            className='aspect-[16/10] w-full object-cover object-top transition-[scale] duration-500 ease-out will-change-[scale] group-hover:scale-[1.02] group-data-powered:scale-[1.02]'
           />
         </div>
       </div>
@@ -89,8 +89,8 @@ export function ProjectCard({ project, lang, labels }: ProjectCardProps) {
 
         <ul aria-label={labels.stack} className='mt-auto flex flex-wrap items-center gap-1.5 border-t border-line pt-3'>
           {techs.map((techId) => (
-            <li key={techId} className='group/tip relative grid h-8 w-8 place-items-center rounded-[3px] transition-colors duration-200 hover:bg-raised'>
-              <TechIcon id={techId} className='h-5 w-5 transition-transform duration-300 ease-(--ease-out-expo) group-hover/tip:-translate-y-0.5' />
+            <li key={techId} data-unit className='group/tip relative grid h-8 w-8 place-items-center rounded-[3px] transition-colors duration-200 hover:bg-raised data-powered:bg-raised'>
+              <TechIcon id={techId} className='h-5 w-5 transition-transform duration-300 ease-(--ease-out-expo) group-hover/tip:-translate-y-0.5 group-data-powered/tip:-translate-y-0.5' />
               <Tooltip label={techRegistry[techId].name} />
             </li>
           ))}

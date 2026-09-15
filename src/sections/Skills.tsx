@@ -16,11 +16,12 @@ export function Skills({ lang, dict }: SectionProps) {
         {group.techs.map((techId, index) => (
           <li
             key={techId}
+            data-unit
             style={{ ...brandStyle(techId), '--i': index, '--step': '45ms' } as CSSProperties}
-            className='boot group flex flex-col items-center gap-3 bg-panel px-2 py-6 text-center transition-colors duration-200 hover:bg-raised'
+            className='boot group flex flex-col items-center gap-3 bg-panel px-2 py-6 text-center transition-colors duration-200 hover:bg-raised data-powered:bg-raised'
           >
             <TechIcon id={techId} decorative className='h-7 w-7' />
-            <span className='font-mono text-[0.6875rem] leading-tight tracking-[0.04em] text-ink-muted uppercase transition-colors duration-200 group-hover:text-ink'>
+            <span className='font-mono text-[0.6875rem] leading-tight tracking-[0.04em] text-ink-muted uppercase transition-colors duration-200 group-hover:text-ink group-data-powered:text-ink'>
               {techs[techId].name}
             </span>
           </li>
