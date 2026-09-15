@@ -2,8 +2,8 @@ import type { Dictionary } from './types'
 
 export const en = {
   meta: {
-    title: 'Pierce Novoa | Fullstack Developer',
-    description: 'Fullstack Developer with 3+ years building web systems and mobile apps end to end. Trujillo, Peru.'
+    title: 'Pierce Novoa | Fullstack Software Engineer',
+    description: 'Fullstack Software Engineer with 4+ years delivering digital products end to end with NestJS, Next.js and Flutter. Trujillo, Peru.'
   },
   nav: {
     projects: 'Projects',
@@ -29,8 +29,8 @@ export const en = {
   hero: {
     greeting: 'Hello,',
     intro: 'my name is',
-    tagline: 'I build web systems and mobile apps end to end.',
-    description: 'Fullstack Developer with 3+ years building web systems and cross-platform mobile apps. Trujillo, Peru 🇵🇪. Specialized in Clean Architecture and offline-first solutions.',
+    tagline: 'I build digital products end to end.',
+    description: 'Fullstack Software Engineer with 4+ years taking products from requirements to production: NestJS APIs, Next.js web interfaces and Flutter mobile apps for the industrial, agricultural and financial sectors. Trujillo, Peru 🇵🇪.',
     scrollLabel: 'Go to Projects',
     cv: { label: 'Resume', title: 'View my Resume!' }
   },
@@ -45,7 +45,7 @@ export const en = {
   },
   experience: { title: 'Experience', present: 'Present' },
   skills: { title: 'Skills' },
-  about: { title: 'About me', photoAlt: 'Photo of Pierce Novoa' },
+  about: { title: 'About me', photoAlt: 'Photo of Pierce Novoa', education: 'Education', languages: 'Languages' },
   contact: {
     title: 'Contact',
     description: "I'm currently looking for new opportunities — any offer is welcome. If you simply want to ask a question or say hello, don't hesitate to reach out.",

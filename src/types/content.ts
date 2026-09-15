@@ -28,7 +28,7 @@ export type Project = {
 
 export type ExperienceEntry = {
   role: Localized
-  company: string
+  company: Localized
   location: Localized
   start: YearMonth
   end?: YearMonth
@@ -50,16 +50,15 @@ export type Profile = {
   socials: SocialLink[]
 }
 
-export type Achievement = {
-  prefix: string
-  linkText: string
-  linkTitle: string
-  suffix: string
+export type EducationEntry = {
+  title: Localized
+  institution: string
+  period: string
 }
 
 export type About = {
   photo: StaticImageData
   paragraphs: Localized<string[]>
-  achievement: Localized<Achievement>
-  achievementUrl: string
+  education: EducationEntry[]
+  languages: Localized
 }

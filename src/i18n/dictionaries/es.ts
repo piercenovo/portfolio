@@ -2,8 +2,8 @@ import type { Dictionary } from './types'
 
 export const es = {
   meta: {
-    title: 'Pierce Novoa | Fullstack Developer',
-    description: 'Fullstack Developer con más de 3 años construyendo sistemas web y apps móviles de punta a punta. Trujillo, Perú.'
+    title: 'Pierce Novoa | Fullstack Software Engineer',
+    description: 'Fullstack Software Engineer con más de 4 años desarrollando productos digitales de extremo a extremo con NestJS, Next.js y Flutter. Trujillo, Perú.'
   },
   nav: {
     projects: 'Proyectos',
@@ -29,8 +29,8 @@ export const es = {
   hero: {
     greeting: 'Hola,',
     intro: 'me llamo',
-    tagline: 'Construyo sistemas web y apps móviles de punta a punta.',
-    description: 'Fullstack Developer con más de 3 años desarrollando sistemas web y apps móviles multiplataforma. Trujillo, Perú 🇵🇪. Especializado en Clean Architecture y soluciones offline-first.',
+    tagline: 'Construyo productos digitales de extremo a extremo.',
+    description: 'Fullstack Software Engineer con más de 4 años llevando productos del requisito a producción: APIs en NestJS, interfaces web en Next.js y apps móviles en Flutter, para los sectores industrial, agrícola y financiero. Trujillo, Perú 🇵🇪.',
     scrollLabel: 'Ir a Proyectos',
     cv: { label: 'Curriculum', title: '¡Visualiza mi Curriculum Vitae!' }
   },
@@ -45,7 +45,7 @@ export const es = {
   },
   experience: { title: 'Experiencia', present: 'Actualidad' },
   skills: { title: 'Habilidades' },
-  about: { title: 'Sobre mí', photoAlt: 'Foto de Pierce Novoa' },
+  about: { title: 'Sobre mí', photoAlt: 'Foto de Pierce Novoa', education: 'Formación', languages: 'Idiomas' },
   contact: {
     title: 'Contacto',
     description: 'Actualmente me encuentro en búsqueda de nuevas oportunidades, cualquier oferta será bien recibida. Si simplemente deseas hacerme una pregunta o saludarme, no dudes en ponerte en contacto conmigo.',

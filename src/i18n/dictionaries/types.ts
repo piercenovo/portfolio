@@ -25,7 +25,7 @@ export interface Dictionary {
   }
   experience: { title: string; present: string }
   skills: { title: string }
-  about: { title: string; photoAlt: string }
+  about: { title: string; photoAlt: string; education: string; languages: string }
   contact: { title: string; description: string; copy: string; copied: string; or: string; socialLabel: string }
   footer: { madeBy: string }
   backToTop: string

@@ -52,7 +52,7 @@ Sections and content rendering are Server Components. Only interactive pieces ar
 
 - `src/sections/` — page sections (Hero, Projects, Experience, Skills, About, Contact)
 - `src/components/layout/` — document shell (RootDocument, Header, MobileMenu, Footer, BackToTop, language components)
-- `src/components/ui/` — primitives (Section, SlideUp, SvgIcon, TechIcon, ButtonLink, WordLink, SocialLinks, CopyEmailButton)
+- `src/components/ui/` — primitives (Section, SlideUp, SvgIcon, TechIcon, ButtonLink, SocialLinks, CopyEmailButton)
 - `src/components/projects/` — ProjectCard
 - `src/hooks/` — `useIsClient`, `useActiveSection`
 

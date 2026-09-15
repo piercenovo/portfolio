@@ -5,25 +5,33 @@ export const about: About = {
   photo,
   paragraphs: {
     es: [
-      'Me motiva construir software que resuelve problemas reales: apps que funcionan sin internet, que escalan con el negocio y que los usuarios disfrutan usar. Disfruto el ciclo completo, desde el diseño arquitectónico hasta el despliegue en producción.'
+      'Me motiva construir productos que resuelven problemas reales, participando en todo el ciclo: levantamiento de requisitos con el cliente, diseño de arquitectura, desarrollo, despliegue en producción y capacitación de usuarios.',
+      'Aplico Clean Architecture, principios SOLID y buenas prácticas de escalabilidad, y disfruto los retos de integración: sincronización offline-first, modelado de datos en PostgreSQL y SQL Server, e incluso conectar hardware industrial como balanzas por RS-485.'
     ],
     en: [
-      "I'm driven by building software that solves real problems: apps that work without internet, scale with the business, and that users actually enjoy. I like the full cycle — from architectural design to production deployment."
+      "I'm driven by building products that solve real problems, taking part in the whole cycle: gathering requirements with the client, designing the architecture, building, deploying to production and training users.",
+      'I apply Clean Architecture, SOLID principles and scalability best practices, and I enjoy integration challenges: offline-first synchronization, data modeling in PostgreSQL and SQL Server, and even connecting industrial hardware such as scales over RS-485.'
     ]
   },
-  achievement: {
-    es: {
-      prefix: 'Uno de mis logros destacados es el desarrollo de una ',
-      linkText: 'aplicación móvil para la gestión de productividad en la cosecha agrícola',
-      linkTitle: '¡Visualiza la App!',
-      suffix: ', mejorando la eficiencia y trazabilidad en el sector agroindustrial a través de herramientas digitales innovadoras.'
+  education: [
+    {
+      title: { es: 'Ingeniería de Sistemas', en: 'B.Sc. in Systems Engineering' },
+      institution: 'Universidad César Vallejo (UCV)',
+      period: '2018 – 2022'
     },
-    en: {
-      prefix: 'One of my key achievements is developing a ',
-      linkText: 'mobile app for agricultural harvest productivity management',
-      linkTitle: 'View the App!',
-      suffix: ', improving efficiency and traceability in the agribusiness sector through innovative digital tools.'
+    {
+      title: { es: 'Bootcamp: Clean Architecture con Riverpod', en: 'Bootcamp: Clean Architecture with Riverpod' },
+      institution: 'Flutter Masters',
+      period: '2024'
+    },
+    {
+      title: { es: 'Flutter - Móvil: De Cero a Experto', en: 'Flutter - Mobile: From Zero to Expert' },
+      institution: 'Udemy',
+      period: '2023'
     }
-  },
-  achievementUrl: 'https://play.google.com/store/apps/details?id=com.missionproduce.productividadcampo&hl=es'
+  ],
+  languages: {
+    es: 'Español (nativo) · Inglés (profesional)',
+    en: 'Spanish (native) · English (professional working proficiency)'
+  }
 }
