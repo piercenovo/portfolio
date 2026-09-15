@@ -38,6 +38,7 @@ Entity data lives in **`src/content/`** (typed in `src/types/content.ts`). Local
 - **Name, email, CV paths, socials** → `src/content/profile.ts`
 - **About text and photo** → `src/content/about.ts` (photo at `src/assets/about.webp`)
 - **Section order / navigation** → `src/components/home/sections.ts`
+- **Logo and favicon** → header logo `public/images/pd-logo.svg` (for the dark background; `pd-logo-light.svg` is the variant for light backgrounds), favicon is the square `</>` mark without the letters: `public/pd-icon.svg`, `public/favicon.ico` (16/32/48 PNG entries; keep this name, browsers request it on their own) and `public/apple-touch-icon.png` (180 px), declared in `icons` in `src/i18n/metadata.ts` with a `?v=` query to bust browser favicon caches
 - **CV/Resume** → replace `public/pierce-novoa-cv-es.pdf` (ES) or `public/pierce-novoa-cv-en.pdf` (EN)
 
 ### Images
@@ -55,7 +56,7 @@ Sections and content rendering are Server Components. Only interactive pieces ar
 - `src/sections/` — page sections (Hero, Projects + ProjectsFilter, Experience, Skills + SkillsTabs, About, Contact)
 - `src/components/hero/` — hero process diagram: PlantDiagram (server), PlantLive (plays the signal only while visible), WeightReadout (simulated scale reading)
 - `src/components/layout/` — document shell (RootDocument, Header, MobileMenu, Footer, BackToTop, language components)
-- `src/components/ui/` — primitives (Section, PowerOn, Segmented, Expandable, SvgIcon, TechIcon, ButtonLink, SocialLinks, CopyEmailButton)
+- `src/components/ui/` — primitives (Section, PowerOn, Segmented, Expandable, Tooltip, SvgIcon, TechIcon, ButtonLink, SocialLinks, CopyEmailButton). `Tooltip` is a hover/focus label only: its trigger needs `group/tip relative` and keeps its own accessible name
 - `src/components/projects/` — ProjectCard
 - `src/hooks/` — `useIsClient`, `useActiveSection`
 
@@ -63,7 +64,7 @@ Sections and content rendering are Server Components. Only interactive pieces ar
 
 Tailwind v4 — no `tailwind.config.js`. Theme tokens live in the `@theme` block of `src/app/globals.css`: surfaces `ground` / `panel` / `raised`, hairlines `line` / `line-strong`, text `ink` / `ink-muted` / `ink-faint`, `live` (cyan: live state or primary action only), `unstable` (amber: only an unstable reading), plus `--ease-out-expo`. Brand colors are not tokens: `TechIcon` sets `--brand` inline and uses `group-hover:text-(--brand)`.
 
-Motion is a "power-on" grammar, never slide-ins. `PowerOn` sets `data-power='off'` once JavaScript runs and switches it to `on` when the element enters the viewport; CSS then animates descendants (or the element itself) with `.boot` (blur to sharp, stagger with `--i` and `--step`), `.boot-led`, `.boot-rail` and `.boot-screen` (image scan). Without JavaScript or with `prefers-reduced-motion` content stays visible. Do not nest a `PowerOn` inside another one whose `.boot` children would match both. The hero uses its own `.plant` rules and `.power-rule` draws the section heading rule.
+Motion is a "power-on" grammar, never slide-ins. `PowerOn` sets `data-power='off'` once JavaScript runs and switches it to `on` when the element enters the viewport; CSS then animates descendants (or the element itself) with `.boot` (blur to sharp, stagger with `--i` and `--step`), `.boot-led`, `.boot-rail`, `.boot-screen` (the about photo powers on like a CRT: a bright center line opens to the full picture) and `.boot-warm` (project screenshots warm up from dark and transparent to normal brightness). Boot animations fill `backwards` only, so nothing stays applied after they end; never animate the hovered image itself or leave a mask or filter on its frame, or the first hover stutters. Without JavaScript or with `prefers-reduced-motion` content stays visible. Do not nest a `PowerOn` inside another one whose `.boot` children would match both. The hero uses its own `.plant` rules and `.power-rule` draws the section heading rule.
 
 ### Fonts
 
