@@ -20,8 +20,9 @@ Single-page Next.js 16 portfolio (App Router, React 19, TypeScript, Tailwind CSS
 
 ### Routes and languages
 
-- `src/app/(es)/` → `/` (Spanish), `src/app/(en)/en/` → `/en/` (English). Each group has its own root layout so `<html lang>` and metadata are correct in the static HTML.
-- Both pages render `<Home lang />` from `src/components/home/Home.tsx`.
+- `src/app/[[...lang]]/` is the single root layout + page: `/` (Spanish, no segment) and `/en/` (English). `src/i18n/route.ts` provides `localeStaticParams` (with `dynamicParams = false`) and `resolveLocale(params)`, which 404s unknown segments. Each exported HTML still gets its own `<html lang>` and metadata via `generateMetadata`.
+- Keep one root layout: Next.js fully reloads when navigating between different root layouts (e.g. route groups), but only re-renders when just the param changes. That is what makes the language switch instant: `LanguageSwitcher` uses `next/link` with `scroll={false}` and `LanguageSuggestion` uses `router.push`; `savePreferredLocale` only stores the choice.
+- The page renders `<Home lang />` from `src/components/home/Home.tsx`.
 - Language detection is only a client-side suggestion (`LanguageSuggestion`); never redirect automatically.
 - `src/i18n/config.ts` — `Locale`, `Localized<T>`, `localePath`, `otherLocale`
 - `src/i18n/dictionaries/` — UI strings (`types.ts` defines `Dictionary`; `es.ts`/`en.ts` must satisfy it)
@@ -49,7 +50,7 @@ The about photo (`src/assets/about.webp`) is a 4:5 WebP (1200×1500): the transp
 
 ### Server / client boundary
 
-Sections and content rendering are Server Components. Only interactive pieces are `'use client'`: `Header`, `MobileMenu`, `LanguageSwitcher`, `LanguageSuggestion`, `BackToTop`, `ProjectsFilter`, `SkillsTabs`, `CopyEmailButton`, `Expandable`, `PowerOn`, `PlantLive`, `WeightReadout`. `Segmented` has no directive but is only rendered inside client components. Client components must not import `@/content/*` or `simple-icons`; pass data or pre-rendered elements as props (e.g. `Projects` renders each `ProjectCard` on the server and passes it to `ProjectsFilter`).
+Sections and content rendering are Server Components. Only interactive pieces are `'use client'`: `Header`, `MobileMenu`, `LanguageSwitcher`, `LanguageSuggestion`, `ThemeToggle`, `ThemeSync`, `BackToTop`, `ProjectsFilter`, `SkillsTabs`, `CopyEmailButton`, `Expandable`, `PowerOn`, `PlantLive`, `WeightReadout`. `ThemeSync` (rendered in `RootDocument`'s body) exists because React resets `<html>` attributes when the root layout remounts on a language switch; its layout effect restores the saved `data-theme` before paint. `Segmented` has no directive but is only rendered inside client components. Client components must not import `@/content/*` or `simple-icons`; pass data or pre-rendered elements as props (e.g. `Projects` renders each `ProjectCard` on the server and passes it to `ProjectsFilter`).
 
 ### Key directories
 
@@ -62,7 +63,9 @@ Sections and content rendering are Server Components. Only interactive pieces ar
 
 ### Tailwind theme and motion
 
-Tailwind v4 — no `tailwind.config.js`. Theme tokens live in the `@theme` block of `src/app/globals.css`: surfaces `ground` / `panel` / `raised`, hairlines `line` / `line-strong`, text `ink` / `ink-muted` / `ink-faint`, `live` (cyan: live state or primary action only), `unstable` (amber: only an unstable reading), plus `--ease-out-expo`. Brand colors are not tokens: `TechIcon` sets `--brand` inline and uses `group-hover:text-(--brand)`.
+Tailwind v4 — no `tailwind.config.js`. Theme tokens live in the `@theme` block of `src/app/globals.css`: surfaces `ground` / `panel` / `raised`, hairlines `line` / `line-strong`, text `ink` / `ink-muted` / `ink-faint`, `live` (cyan: live state or primary action only), `unstable` (amber: only an unstable reading), plus `--ease-out-expo` and `--color-shadow`. Brand colors are not tokens: `TechIcon` sets `--brand` / `--brand-light` inline (from `color` / optional `lightColor` in `techs.ts`) and uses `group-hover:text-(--brand)` plus `light:group-hover:text-(--brand-light)`.
+
+Dark and light themes: dark is the default (no attribute). `:root[data-theme='light']` in `globals.css` redefines the same tokens (AA-checked), so components never branch on the theme; use the `light:` custom variant only for assets or colors that must differ (logo `pd-logo-light.svg`, `about.photoLight`, brand `lightColor`). `src/components/layout/theme.ts` holds the `pd-theme` storage key, the inline `themeInitScript` that `RootDocument` puts in `<head>` so the saved theme applies before paint (hence `suppressHydrationWarning` on `<html>`), and `applyTheme`. `ThemeToggle` (header) reads `<html data-theme>` through `useSyncExternalStore` and switches with a top-to-bottom repaint view transition (`.theme-switching`), skipped with reduced motion or a hidden tab.
 
 Motion is a "power-on" grammar, never slide-ins. `PowerOn` sets `data-power='off'` once JavaScript runs and switches it to `on` when the element enters the viewport; CSS then animates descendants (or the element itself) with `.boot` (blur to sharp, stagger with `--i` and `--step`), `.boot-led`, `.boot-rail`, `.boot-screen` (the about photo powers on like a CRT: a bright center line opens to the full picture) and `.boot-warm` (project screenshots warm up from dark and transparent to normal brightness). Boot animations fill `backwards` only, so nothing stays applied after they end; never animate the hovered image itself or leave a mask or filter on its frame, or the first hover stutters. Without JavaScript or with `prefers-reduced-motion` content stays visible. Do not nest a `PowerOn` inside another one whose `.boot` children would match both. The hero uses its own `.plant` rules and `.power-rule` draws the section heading rule.
 
