@@ -26,7 +26,7 @@ Single-page Next.js 16 portfolio (App Router, React 19, TypeScript, Tailwind CSS
 - Language detection is only a client-side suggestion (`LanguageSuggestion`); never redirect automatically.
 - `src/i18n/config.ts` — `Locale`, `Localized<T>`, `localePath`, `otherLocale`
 - `src/i18n/dictionaries/` — UI strings (`types.ts` defines `Dictionary`; `es.ts`/`en.ts` must satisfy it)
-- `src/i18n/metadata.ts` — per-language metadata, hreflang alternates, Open Graph (`public/og.png`)
+- `src/i18n/metadata.ts` — per-language metadata, hreflang alternates, Open Graph and X image: `public/images/portfolio-screen.png` (the same screenshot as the README, declared at its real 1920×1080; replace the file to update both)
 
 ### Content
 
@@ -50,7 +50,7 @@ The about photo (`src/assets/about.webp`) is a 4:5 WebP (1200×1500): the transp
 
 ### Server / client boundary
 
-Sections and content rendering are Server Components. Only interactive pieces are `'use client'`: `Header`, `MobileMenu`, `LanguageSwitcher`, `LanguageSuggestion`, `ThemeToggle`, `ThemeSync`, `BackToTop`, `ProjectsFilter`, `SkillsTabs`, `CopyEmailButton`, `Expandable`, `PowerOn`, `PlantLive`, `WeightReadout`. `ThemeSync` (rendered in `RootDocument`'s body) exists because React resets `<html>` attributes when the root layout remounts on a language switch; its layout effect restores the saved `data-theme` before paint. `Segmented` has no directive but is only rendered inside client components. Client components must not import `@/content/*` or `simple-icons`; pass data or pre-rendered elements as props (e.g. `Projects` renders each `ProjectCard` on the server and passes it to `ProjectsFilter`).
+Sections and content rendering are Server Components. Only interactive pieces are `'use client'`: `Header`, `MobileMenu`, `LanguageSwitcher`, `LanguageSuggestion`, `ThemeToggle`, `ThemeSync`, `TouchPower`, `BackToTop`, `ProjectsFilter`, `SkillsTabs`, `CopyEmailButton`, `Expandable`, `PowerOn`, `PlantLive`, `WeightReadout`. `ThemeSync` (rendered in `RootDocument`'s body) exists because React resets `<html>` attributes when the root layout remounts on a language switch; its layout effect restores the saved `data-theme` before paint. `TouchPower` (also in `RootDocument`) gives touch screens the hover effects: a tap sets `data-powered` on the tapped `[data-unit]` element and its `[data-unit]` ancestors until the next tap elsewhere, so every hover effect on a unit needs its pair (`hover:` → `data-powered:`, `group-hover:` → `group-data-powered:`, `group-hover/tip:` → `group-data-powered/tip:`). Tailwind v4 only applies `hover:` on devices that can hover. `Segmented` has no directive but is only rendered inside client components. Client components must not import `@/content/*` or `simple-icons`; pass data or pre-rendered elements as props (e.g. `Projects` renders each `ProjectCard` on the server and passes it to `ProjectsFilter`).
 
 ### Key directories
 
