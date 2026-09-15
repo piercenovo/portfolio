@@ -8,7 +8,7 @@
   <img alt="Commits" src="https://badgen.net/github/commits/piercenovo/portfolio/main">
  </p>
 
-[![My Portfolio](https://raw.githubusercontent.com/piercenovo/portfolio/main/public/images/portfolio-screen.png)](https://www.piercenovo.dev)
+[![My Portfolio](https://raw.githubusercontent.com/piercenovo/portfolio/main/public/images/portfolio-screen.webp)](https://www.piercenovo.dev)
 
 <!-- SECTIONS -->
 
