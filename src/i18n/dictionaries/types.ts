@@ -3,7 +3,15 @@ type Station = { label: string; detail: string }
 export interface Dictionary {
   meta: { title: string; description: string }
   nav: { projects: string; experience: string; skills: string; about: string; contact: string }
-  header: { homeLabel: string; navLabel: string; openMenu: string; closeMenu: string; contact: string }
+  header: {
+    homeLabel: string
+    navLabel: string
+    openMenu: string
+    closeMenu: string
+    contact: string
+    themeToLight: string
+    themeToDark: string
+  }
   language: {
     switchTo: string
     suggestion: { message: string; accept: string; dismiss: string }

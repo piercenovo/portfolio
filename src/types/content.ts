@@ -8,6 +8,8 @@ export type Tech = {
   name: string
   icon: IconData
   color: string
+  // Hover color on the light theme when `color` would be too faint on white
+  lightColor?: string
 }
 
 export type YearMonth = `${number}-${number}`
@@ -57,6 +59,7 @@ export type EducationEntry = {
 
 export type About = {
   photo: StaticImageData
+  photoLight: StaticImageData
   paragraphs: Localized<string[]>
   education: EducationEntry[]
   languages: Localized

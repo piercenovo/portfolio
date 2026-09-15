@@ -1,8 +1,13 @@
 import { techs, type TechId } from '@/content/techs'
+import type { Tech } from '@/types/content'
 import type { CSSProperties } from 'react'
 import { SvgIcon } from './SvgIcon'
 
-export const brandStyle = (id: TechId) => ({ '--brand': techs[id].color }) as CSSProperties
+// `--brand` powers a unit on the dark theme; `--brand-light` on the light theme
+export const brandStyle = (id: TechId) => {
+  const { color, lightColor }: Tech = techs[id]
+  return { '--brand': color, '--brand-light': lightColor ?? color } as CSSProperties
+}
 
 type TechIconProps = {
   id: TechId
@@ -19,7 +24,7 @@ export function TechIcon({ id, className = 'h-5 w-5', decorative = false }: Tech
       icon={icon}
       title={decorative ? undefined : name}
       style={brandStyle(id)}
-      className={`text-ink-muted transition-colors duration-200 group-hover:text-(--brand) group-focus-within:text-(--brand) ${className}`}
+      className={`text-ink-muted transition-colors duration-200 group-hover:text-(--brand) group-focus-within:text-(--brand) light:group-hover:text-(--brand-light) light:group-focus-within:text-(--brand-light) ${className}`}
     />
   )
 }

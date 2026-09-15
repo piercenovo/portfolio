@@ -39,7 +39,7 @@ export function PlantDiagram({ hero }: { hero: Dictionary['hero'] }) {
               key={key}
               data-station
               style={{ ...indexStyle(index), ...(techs[0] ? brandStyle(techs[0]) : {}) }}
-              className='group relative flex items-center justify-between gap-4 rounded-[3px] border border-line bg-panel px-4 py-3 transition-colors duration-200 hover:border-(--brand,var(--color-live)) lg:col-start-1'
+              className='group relative flex items-center justify-between gap-4 rounded-[3px] border border-line bg-panel px-4 py-3 transition-colors duration-200 hover:border-(--brand,var(--color-live)) light:hover:border-(--brand-light,var(--color-live)) lg:col-start-1'
             >
               {index > 0 && <Wire index={index} />}
               <div className='flex min-w-0 items-center gap-3'>

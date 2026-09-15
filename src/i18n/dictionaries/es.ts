@@ -17,7 +17,9 @@ export const es = {
     navLabel: 'Navegación principal',
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
-    contact: 'Contactar'
+    contact: 'Contactar',
+    themeToLight: 'Cambiar a tema claro',
+    themeToDark: 'Cambiar a tema oscuro'
   },
   language: {
     switchTo: 'Ver en inglés',
@@ -29,7 +31,7 @@ export const es = {
   },
   hero: {
     tagline: 'Construyo productos digitales de extremo a extremo.',
-    description: 'Fullstack Software Engineer con más de 4 años llevando productos del requisito a producción: APIs en NestJS, interfaces web en Next.js y apps móviles en Flutter, para los sectores industrial, agrícola y financiero. Trujillo, Perú.',
+    description: 'Más de 4 años llevando productos del requisito a producción: APIs en NestJS, interfaces web en Next.js y apps móviles en Flutter, para los sectores industrial, agrícola y financiero. Trujillo, Perú.',
     status: 'Disponible para nuevas oportunidades',
     cv: { label: 'Descargar CV', title: 'Curriculum Vitae en PDF' },
     diagramLabel: 'Flujo de entrega de un producto, del requisito al hardware',

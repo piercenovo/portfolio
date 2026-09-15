@@ -6,6 +6,7 @@ import type { Dictionary } from '@/i18n/dictionaries/types'
 import Image from 'next/image'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { MobileMenu } from './MobileMenu'
+import { ThemeToggle } from './ThemeToggle'
 
 export type NavItem = { id: string; label: string }
 
@@ -18,17 +19,21 @@ type HeaderProps = {
 
 export function Header({ lang, navItems, labels, languageLabel }: HeaderProps) {
   const activeId = useActiveSection(navItems.map(({ id }) => id))
+  // Contact already has its own button beside the nav, so the link list skips it
+  const linkItems = navItems.filter(({ id }) => id !== 'contact')
 
   return (
     <header className='fixed inset-x-0 top-0 z-30 border-b border-line bg-ground/95'>
       <div className='mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-6 px-5 sm:px-8'>
         <a href='#top' aria-label={labels.homeLabel} className='shrink-0 rounded-[2px]'>
-          <Image priority alt='' src='/images/pd-logo.svg' width={64} height={24} />
+          {/* The light logo stays lazy: hidden images are not fetched until shown */}
+          <Image priority alt='' src='/images/pd-logo.svg' width={64} height={24} className='light:hidden' />
+          <Image alt='' src='/images/pd-logo-light.svg' width={64} height={24} className='hidden light:block' />
         </a>
 
         <nav aria-label={labels.navLabel} className='hidden lg:block'>
           <ul className='flex items-center gap-1'>
-            {navItems.map(({ id, label }) => {
+            {linkItems.map(({ id, label }) => {
               const isActive = activeId === id
 
               return (
@@ -47,6 +52,7 @@ export function Header({ lang, navItems, labels, languageLabel }: HeaderProps) {
         </nav>
 
         <div className='flex items-center gap-3'>
+          <ThemeToggle toLightLabel={labels.themeToLight} toDarkLabel={labels.themeToDark} />
           <LanguageSwitcher currentLang={lang} label={languageLabel} />
           <a
             href='#contact'

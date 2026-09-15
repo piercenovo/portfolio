@@ -22,6 +22,62 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ─── Light console ─────────────────────────────────────────────
+   Dark is the default. The light theme keeps every role and only swaps values:
+   graphite ink on light gray panels, with cyan and amber darkened so text and
+   controls keep AA contrast. The head script sets data-theme before paint. */
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
+
+:root {
+  color-scheme: dark;
+  --color-shadow: rgb(0 0 0 / 0.6);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-ground: #f3f5f7;
+  --color-panel: #ffffff;
+  --color-raised: #e9edf1;
+  --color-line: #d8dee4;
+  --color-line-strong: #b9c3cc;
+  --color-ink: #10151a;
+  --color-ink-muted: #4d5966;
+  --color-ink-faint: #6b7682;
+  --color-live: #0e7490;
+  --color-live-strong: #155e75;
+  --color-live-soft: #0e74901a;
+  --color-unstable: #a15c07;
+  --color-shadow: rgb(16 21 26 / 0.14);
+}
+
+/* Theme switch: the new palette redraws the screen top to bottom, like a
+   console repainting. ThemeToggle adds .theme-switching only for that
+   transition; per-card transition names are dropped so the page moves as one. */
+@keyframes theme-repaint {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+:root.theme-switching [style*='view-transition-name'] {
+  view-transition-name: none !important;
+}
+
+/* Tokens swap instantly while switching; the repaint carries the motion, so no
+   element is caught mid color transition inside the new snapshot */
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition: none !important;
+}
+
+:root.theme-switching::view-transition-old(root) {
+  animation: none;
+}
+
+:root.theme-switching::view-transition-new(root) {
+  animation: theme-repaint 620ms var(--ease-out-expo);
+}
+
 /* ─── Keyframes ─────────────────────────────────────────────── */
 @keyframes unit-boot {
   from { opacity: 0.25; }

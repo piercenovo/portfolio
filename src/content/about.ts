@@ -1,8 +1,10 @@
+import photoLight from '@/assets/about-light.webp'
 import photo from '@/assets/about.webp'
 import type { About } from '@/types/content'
 
 export const about: About = {
   photo,
+  photoLight,
   paragraphs: {
     es: [
       'Me motiva construir productos que resuelven problemas reales, participando en todo el ciclo: levantamiento de requisitos con el cliente, diseño de arquitectura, desarrollo, despliegue en producción y capacitación de usuarios.',

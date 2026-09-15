@@ -17,7 +17,9 @@ export const en = {
     navLabel: 'Main navigation',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
-    contact: 'Get in touch'
+    contact: 'Get in touch',
+    themeToLight: 'Switch to light theme',
+    themeToDark: 'Switch to dark theme'
   },
   language: {
     switchTo: 'View in Spanish',
@@ -29,7 +31,7 @@ export const en = {
   },
   hero: {
     tagline: 'I build digital products end to end.',
-    description: 'Fullstack Software Engineer with 4+ years taking products from requirements to production: NestJS APIs, Next.js web interfaces and Flutter mobile apps for the industrial, agricultural and financial sectors. Trujillo, Peru.',
+    description: 'Over 4 years taking products from requirements to production: NestJS APIs, Next.js web interfaces and Flutter mobile apps for the industrial, agricultural and financial sectors. Trujillo, Peru.',
     status: 'Open to new opportunities',
     cv: { label: 'Download CV', title: 'Resume in PDF' },
     diagramLabel: 'Product delivery flow, from requirement to hardware',
