@@ -23,11 +23,6 @@ export const about: About = {
       title: { es: 'Bootcamp: Clean Architecture con Riverpod', en: 'Bootcamp: Clean Architecture with Riverpod' },
       institution: 'Flutter Masters',
       period: '2024'
-    },
-    {
-      title: { es: 'Flutter - Móvil: De Cero a Experto', en: 'Flutter - Mobile: From Zero to Expert' },
-      institution: 'Udemy',
-      period: '2023'
     }
   ],
   languages: {
