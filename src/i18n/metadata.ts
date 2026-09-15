@@ -13,6 +13,14 @@ export function buildMetadata(lang: Locale): Metadata {
     metadataBase: new URL(SITE_URL),
     title: meta.title,
     description: meta.description,
+    // `?v=` busts browsers' sticky favicon cache; bump it when the icon changes
+    icons: {
+      icon: [
+        { url: '/favicon.ico?v=2', sizes: '16x16 32x32 48x48' },
+        { url: '/pd-icon.svg?v=2', type: 'image/svg+xml' }
+      ],
+      apple: '/apple-touch-icon.png?v=2'
+    },
     alternates: {
       canonical: url,
       languages: { es: localePath('es'), en: localePath('en'), 'x-default': localePath('es') }

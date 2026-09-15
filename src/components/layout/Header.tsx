@@ -23,7 +23,7 @@ export function Header({ lang, navItems, labels, languageLabel }: HeaderProps) {
     <header className='fixed inset-x-0 top-0 z-30 border-b border-line bg-ground/95'>
       <div className='mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-6 px-5 sm:px-8'>
         <a href='#top' aria-label={labels.homeLabel} className='shrink-0 rounded-[2px]'>
-          <Image priority alt='' src='/images/logo.png' width={72} height={24} />
+          <Image priority alt='' src='/images/pd-logo.svg' width={64} height={24} />
         </a>
 
         <nav aria-label={labels.navLabel} className='hidden lg:block'>
