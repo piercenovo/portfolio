@@ -1,4 +1,4 @@
-import { localePath, type Locale } from './config'
+import type { Locale } from './config'
 
 const PREFERRED_LOCALE_KEY = 'preferred-locale'
 const SUGGESTION_DISMISSED_KEY = 'language-suggestion-dismissed'
@@ -20,11 +20,11 @@ export function dismissLanguageSuggestion(): void {
   }
 }
 
-export function goToLocale(lang: Locale): void {
+// Only remembers the choice; callers navigate client-side with next/link or the router
+export function savePreferredLocale(lang: Locale): void {
   try {
     localStorage.setItem(PREFERRED_LOCALE_KEY, lang)
   } catch {
     // storage unavailable: navigation still works
   }
-  window.location.assign(localePath(lang) + window.location.hash)
 }
