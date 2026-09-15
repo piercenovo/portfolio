@@ -2,18 +2,18 @@ import type { SkillGroup } from '@/types/content'
 
 export const skillGroups: SkillGroup[] = [
   {
-    id: 'mobile',
-    label: { es: 'Móvil', en: 'Mobile' },
-    techs: ['flutter', 'dart', 'kotlin', 'swift', 'firebase', 'sqlite']
+    id: 'frontend',
+    label: { es: 'Frontend', en: 'Frontend' },
+    techs: ['nextjs', 'react', 'typescript', 'tailwindcss', 'leaflet', 'flutter', 'dart', 'android', 'ios']
   },
   {
     id: 'backend',
-    label: { es: 'Backend', en: 'Backend' },
-    techs: ['nestjs', 'postgresql', 'mysql', 'mongodb', 'drizzle', 'prisma']
+    label: { es: 'Backend & Datos', en: 'Backend & Data' },
+    techs: ['nestjs', 'nodejs', 'zod', 'jsonwebtokens', 'drizzle', 'postgresql', 'mysql', 'sqlite', 'firebase']
   },
   {
     id: 'tools',
     label: { es: 'DevOps & Herramientas', en: 'DevOps & Tools' },
-    techs: ['docker', 'railway', 'githubactions', 'figma', 'postman', 'cloudinary']
+    techs: ['docker', 'git', 'github', 'githubactions', 'turborepo', 'figma', 'claude', 'googleplay', 'appstore']
   }
 ]
