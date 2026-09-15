@@ -42,23 +42,28 @@ Entity data lives in **`src/content/`** (typed in `src/types/content.ts`). Local
 
 ### Images
 
-Put originals in `.images/` (gitignored), run `pnpm images`, and import the resulting `src/assets/projects/<name>.webp` statically. `next/image` runs with `images.unoptimized: true`, so images must be optimized before committing.
+Put originals in `.images/` (gitignored), run `pnpm images`, and import the resulting `src/assets/projects/<name>.webp` statically. `next/image` runs with `images.unoptimized: true`, so images must be optimized before committing. `pnpm images` only reads files at the top of `.images/`; unedited originals kept for reference go in `.images/originals/` (for example the blurred TransWat screenshot's source and the about photo cutout).
+
+The about photo (`src/assets/about.webp`) is a 4:5 WebP (1200×1500): the transparent cutout composited onto the site's graphite ground with a cyan glow. Nothing in `public/` is processed, and everything in it ships, so never leave source images there.
 
 ### Server / client boundary
 
-Sections and content rendering are Server Components. Only interactive pieces are `'use client'`: `Header`, `MobileMenu`, `LanguageSwitcher`, `LanguageSuggestion`, `SkillsTabs`, `CopyEmailButton`, `BackToTop`, `SlideUp`. Client components must not import `@/content/*` or `simple-icons`; pass data or pre-rendered elements as props.
+Sections and content rendering are Server Components. Only interactive pieces are `'use client'`: `Header`, `MobileMenu`, `LanguageSwitcher`, `LanguageSuggestion`, `BackToTop`, `ProjectsFilter`, `SkillsTabs`, `CopyEmailButton`, `Expandable`, `PowerOn`, `PlantLive`, `WeightReadout`. `Segmented` has no directive but is only rendered inside client components. Client components must not import `@/content/*` or `simple-icons`; pass data or pre-rendered elements as props (e.g. `Projects` renders each `ProjectCard` on the server and passes it to `ProjectsFilter`).
 
 ### Key directories
 
-- `src/sections/` — page sections (Hero, Projects, Experience, Skills, About, Contact)
+- `src/sections/` — page sections (Hero, Projects + ProjectsFilter, Experience, Skills + SkillsTabs, About, Contact)
+- `src/components/hero/` — hero process diagram: PlantDiagram (server), PlantLive (plays the signal only while visible), WeightReadout (simulated scale reading)
 - `src/components/layout/` — document shell (RootDocument, Header, MobileMenu, Footer, BackToTop, language components)
-- `src/components/ui/` — primitives (Section, SlideUp, SvgIcon, TechIcon, ButtonLink, SocialLinks, CopyEmailButton)
+- `src/components/ui/` — primitives (Section, PowerOn, Segmented, Expandable, SvgIcon, TechIcon, ButtonLink, SocialLinks, CopyEmailButton)
 - `src/components/projects/` — ProjectCard
 - `src/hooks/` — `useIsClient`, `useActiveSection`
 
-### Tailwind theme
+### Tailwind theme and motion
 
-Tailwind v4 — no `tailwind.config.js`. Theme tokens live in the `@theme` blocks of `src/app/globals.css` (`--color-primary-*`, `--color-secondary-*`, animations, shadows). Brand colors are not tokens: `TechIcon` sets `--brand` inline and uses `group-hover:fill-(--brand)`. `.reveal` content is only hidden when scripting is enabled, and all animations respect `prefers-reduced-motion`.
+Tailwind v4 — no `tailwind.config.js`. Theme tokens live in the `@theme` block of `src/app/globals.css`: surfaces `ground` / `panel` / `raised`, hairlines `line` / `line-strong`, text `ink` / `ink-muted` / `ink-faint`, `live` (cyan: live state or primary action only), `unstable` (amber: only an unstable reading), plus `--ease-out-expo`. Brand colors are not tokens: `TechIcon` sets `--brand` inline and uses `group-hover:text-(--brand)`.
+
+Motion is a "power-on" grammar, never slide-ins. `PowerOn` sets `data-power='off'` once JavaScript runs and switches it to `on` when the element enters the viewport; CSS then animates descendants (or the element itself) with `.boot` (blur to sharp, stagger with `--i` and `--step`), `.boot-led`, `.boot-rail` and `.boot-screen` (image scan). Without JavaScript or with `prefers-reduced-motion` content stays visible. Do not nest a `PowerOn` inside another one whose `.boot` children would match both. The hero uses its own `.plant` rules and `.power-rule` draws the section heading rule.
 
 ### Fonts
 
