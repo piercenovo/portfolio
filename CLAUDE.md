@@ -38,7 +38,7 @@ Entity data lives in **`src/content/`** (typed in `src/types/content.ts`). Local
 - **Name, email, CV paths, socials** → `src/content/profile.ts`
 - **About text and photo** → `src/content/about.ts` (photo at `src/assets/about.webp`)
 - **Section order / navigation** → `src/components/home/sections.ts`
-- **CV/Resume** → replace `public/curriculum-vitae.pdf` (ES) or `public/resume.pdf` (EN)
+- **CV/Resume** → replace `public/pierce-novoa-cv-es.pdf` (ES) or `public/pierce-novoa-cv-en.pdf` (EN)
 
 ### Images
 

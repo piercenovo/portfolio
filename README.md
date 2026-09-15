@@ -80,7 +80,7 @@
 
 - To change **UI texts**, edit `src/i18n/dictionaries/es.ts` and `src/i18n/dictionaries/en.ts`
 
-- To change the **CV/Resume**, replace `public/curriculum-vitae.pdf` (ES) or `public/resume.pdf` (EN)
+- To change the **CV/Resume**, replace `public/pierce-novoa-cv-es.pdf` (ES) or `public/pierce-novoa-cv-en.pdf` (EN)
 
 - To change the theme colors, edit the `@theme` block in `src/app/globals.css`
 
