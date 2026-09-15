@@ -1,42 +1,52 @@
-import { sfmono } from '@/app/font'
+import { PlantDiagram } from '@/components/hero/PlantDiagram'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { SocialLinks } from '@/components/ui/SocialLinks'
 import { profile } from '@/content/profile'
 import type { SectionProps } from '@/types/section'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDownRight, Download } from 'lucide-react'
 
 export function Hero({ lang, dict }: SectionProps) {
   const { hero } = dict
+  const [firstName, ...lastNames] = profile.name.split(' ')
 
   return (
-    <div id='top' className='flex min-h-screen w-full flex-col items-center justify-evenly px-2 sm:px-0'>
-      <div className='flex w-full max-w-3xl flex-col gap-1 px-2 pt-28 sm:px-8 md:px-6 lg:max-w-4xl xl:max-w-5xl'>
-        <p className={`${sfmono.className} mb-2 animate-fade-in text-sm text-secondary animation-delay-250 animation-duration-1000 lg:text-base`}>
-          {hero.greeting}{' '}
-          <span className='animate-fade-in animation-delay-500 animation-duration-1000'>{hero.intro}</span>
-        </p>
-
-        <h1 className='mt-1 animate-fade-in bg-gradient-to-br from-primary-lightest to-primary bg-clip-text text-4xl font-semibold capitalize leading-none text-transparent animation-delay-750 animation-duration-1000 sm:text-5xl md:text-6xl xl:text-7xl'>
-          {profile.name.toLowerCase()}.
+    <div
+      id='top'
+      className='mx-auto grid w-full max-w-6xl gap-14 px-5 pt-28 pb-8 sm:px-8 md:pt-32 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14 lg:pb-12'
+    >
+      <div className='flex flex-col'>
+        <h1 className='font-mono text-[clamp(3rem,9.5vw,6rem)] leading-[0.92] font-semibold tracking-[-0.04em] text-ink uppercase'>
+          <span className='block'>{firstName}</span>
+          <span className='block'>{lastNames.join(' ')}</span>
         </h1>
 
-        <p className='mt-2 animate-fade-in text-2xl font-semibold text-primary-light animation-delay-750 animation-duration-1000 sm:text-3xl md:text-4xl xl:text-5xl'>
+        <p className='mt-6 font-mono text-sm tracking-[0.08em] text-ink-muted uppercase'>Fullstack Software Engineer</p>
+
+        <p className='mt-8 max-w-[22ch] text-[clamp(1.625rem,3.2vw,2.25rem)] leading-[1.15] font-medium tracking-[-0.02em] text-balance text-ink'>
           {hero.tagline}
         </p>
 
-        <p className='mt-3 max-w-2xl animate-fade-in text-lg text-primary animation-delay-1000 animation-duration-1000'>
-          {hero.description}
-        </p>
+        <p className='mt-5 max-w-[60ch] text-lg text-ink-muted'>{hero.description}</p>
 
-        <div className='mt-6 flex animate-fade-in flex-wrap items-center gap-6 animation-delay-1000'>
-          <ButtonLink href={profile.cv[lang]} title={hero.cv.title}>{hero.cv.label}</ButtonLink>
+        <div className='mt-9 flex flex-wrap items-center gap-3'>
+          <ButtonLink href='#contact'>
+            {dict.header.contact}
+            <ArrowDownRight size={16} strokeWidth={2} aria-hidden />
+          </ButtonLink>
+          <ButtonLink href={profile.cv[lang]} variant='secondary' title={hero.cv.title} external>
+            <Download size={16} strokeWidth={2} aria-hidden />
+            {hero.cv.label}
+          </ButtonLink>
           <SocialLinks label={dict.contact.socialLabel} />
         </div>
+
+        <p className='mt-8 flex items-center gap-2.5 font-mono text-xs tracking-[0.08em] text-ink-muted uppercase'>
+          <span aria-hidden className='status-blink h-2 w-2 rounded-full bg-live' />
+          {hero.status}
+        </p>
       </div>
 
-      <a href='#projects' aria-label={hero.scrollLabel} className='mx-auto animate-arrow text-primary transition-colors duration-300 hover:text-secondary'>
-        <ArrowDown size={48} strokeWidth={1.5} className='fill-none' aria-hidden />
-      </a>
+      <PlantDiagram hero={hero} />
     </div>
   )
 }

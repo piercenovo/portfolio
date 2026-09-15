@@ -1,7 +1,6 @@
 'use client'
 
-import { sfmono } from '@/app/font'
-import { Check, Copy, Mail } from 'lucide-react'
+import { Check, Copy } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 type CopyEmailButtonProps = {
@@ -29,25 +28,25 @@ export function CopyEmailButton({ email, copyLabel, copiedLabel }: CopyEmailButt
   }
 
   return (
-    <div className='relative'>
-      <span
-        role='status'
-        className={`${sfmono.className} absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-secondary/30 bg-primary-darker px-2.5 py-1 text-xs text-secondary transition-opacity duration-200 ${isCopied ? 'opacity-100' : 'opacity-0'}`}
-      >
-        {isCopied ? copiedLabel : ''}
+    <button
+      type='button'
+      onClick={handleCopy}
+      title={isCopied ? copiedLabel : copyLabel}
+      className={`relative z-10 inline-flex shrink-0 items-center gap-2 rounded-[3px] border px-3 py-2 font-mono text-[0.6875rem] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 ${isCopied ? 'border-live bg-live-soft text-live' : 'border-line-strong text-ink-muted hover:border-live hover:text-live'}`}
+    >
+      <span className='relative grid h-3.5 w-3.5 place-items-center' aria-hidden>
+        <Copy
+          size={14}
+          strokeWidth={2}
+          className={`absolute transition-[opacity,transform] duration-300 ease-(--ease-out-expo) ${isCopied ? 'scale-50 opacity-0' : 'scale-100 opacity-100'}`}
+        />
+        <Check
+          size={14}
+          strokeWidth={2.25}
+          className={`absolute transition-[opacity,transform] duration-300 ease-(--ease-out-expo) ${isCopied ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`}
+        />
       </span>
-      <button
-        type='button'
-        onClick={handleCopy}
-        title={copyLabel}
-        className={`${sfmono.className} flex items-center gap-2.5 rounded-full border border-secondary/30 px-5 py-2.5 text-sm text-primary-light transition-all duration-200 hover:border-secondary hover:text-secondary`}
-      >
-        <Mail size={13} className='shrink-0 fill-none' aria-hidden />
-        <span>{email}</span>
-        {isCopied
-          ? <Check size={13} className='shrink-0 fill-none text-secondary' aria-hidden />
-          : <Copy size={13} className='shrink-0 fill-none' aria-hidden />}
-      </button>
-    </div>
+      <span aria-live='polite' className='sr-only sm:not-sr-only'>{isCopied ? copiedLabel : copyLabel}</span>
+    </button>
   )
 }

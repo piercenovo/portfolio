@@ -1,7 +1,10 @@
 'use client'
 
+import { PowerOn } from '@/components/ui/PowerOn'
+import { Segmented } from '@/components/ui/Segmented'
 import type { Project } from '@/types/content'
-import { useState, type ReactNode } from 'react'
+import { useState, type CSSProperties, type ReactNode } from 'react'
+import { flushSync } from 'react-dom'
 
 type ProjectFilter = 'all' | Project['kind']
 
@@ -24,42 +27,50 @@ export function ProjectsFilter({ items, labels, ariaLabel }: ProjectsFilterProps
 
   const countFor = (filter: ProjectFilter) =>
     filter === 'all' ? items.length : items.filter((item) => item.kind === filter).length
-  const filters = FILTERS.filter((filter) => countFor(filter) > 0)
+  const options = FILTERS
+    .filter((filter) => countFor(filter) > 0)
+    .map((filter) => ({ id: filter, label: labels[filter], count: countFor(filter) }))
+
+  const visibleItems = items.filter((item) => activeFilter === 'all' || item.kind === activeFilter)
+
+  // Cards regroup with a view transition where supported; otherwise the swap is instant
+  const changeFilter = (filter: ProjectFilter) => {
+    if (filter === activeFilter) return
+    const canTransition = typeof document.startViewTransition === 'function' &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (!canTransition) {
+      setActiveFilter(filter)
+      return
+    }
+    document.startViewTransition(() => {
+      flushSync(() => setActiveFilter(filter))
+    })
+  }
 
   return (
-    <div className='flex w-full flex-col items-center gap-8'>
-      <div role='tablist' aria-label={ariaLabel} className='flex w-full max-w-lg text-base font-medium sm:max-w-xl md:text-lg'>
-        {filters.map((filter) => {
-          const isActive = filter === activeFilter
+    <div className='flex flex-col gap-8'>
+      <Segmented
+        label={ariaLabel}
+        idPrefix='projects-tab'
+        panelId='projects-panel'
+        options={options}
+        value={activeFilter}
+        onChange={changeFilter}
+      />
 
-          return (
-            <button
-              key={filter}
-              type='button'
-              role='tab'
-              id={`projects-tab-${filter}`}
-              aria-selected={isActive}
-              aria-controls='projects-panel'
-              onClick={() => setActiveFilter(filter)}
-              className={`flex-1 border-b-2 pb-3 pt-4 transition-colors hover:text-secondary md:pb-4 ${isActive ? 'border-secondary text-secondary' : 'border-primary'}`}
+      <div id='projects-panel' role='tabpanel' aria-labelledby={`projects-tab-${activeFilter}`}>
+        <ul className='grid gap-5 md:grid-cols-2'>
+          {visibleItems.map(({ slug, card }, index) => (
+            <PowerOn
+              key={slug}
+              as='li'
+              className='boot'
+              style={{ viewTransitionName: `project-${slug}`, '--i': index % 2 } as CSSProperties}
             >
-              {labels[filter]} <span className='text-sm opacity-60'>({countFor(filter)})</span>
-            </button>
-          )
-        })}
-      </div>
-
-      <div id='projects-panel' role='tabpanel' aria-labelledby={`projects-tab-${activeFilter}`} className='w-full'>
-        <ul className='m-auto grid max-w-md gap-8 sm:max-w-xl md:gap-10 lg:max-w-3xl xl:max-w-6xl xl:grid-cols-2 2xl:max-w-7xl'>
-          {items.map(({ slug, kind, card }) => {
-            const isVisible = activeFilter === 'all' || kind === activeFilter
-
-            return (
-              <li key={slug} hidden={!isVisible} className={isVisible ? 'flex justify-center' : 'hidden'}>
-                {card}
-              </li>
-            )
-          })}
+              {card}
+            </PowerOn>
+          ))}
         </ul>
       </div>
     </div>

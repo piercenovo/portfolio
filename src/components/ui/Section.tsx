@@ -1,6 +1,5 @@
-import { sfmono } from '@/app/font'
 import type { ReactNode } from 'react'
-import { SlideUp } from './SlideUp'
+import { PowerOn } from './PowerOn'
 
 type SectionProps = {
   id: string
@@ -10,15 +9,13 @@ type SectionProps = {
 
 export function Section({ id, title, children }: SectionProps) {
   return (
-    <section
-      id={id}
-      className='flex w-full flex-col items-center justify-center gap-8 px-2 pb-[10rem] pt-28 sm:px-0'
-    >
-      <SlideUp>
-        <h2 className={`${sfmono.className} mb-4 flex gap-1 text-2xl font-semibold text-primary-lightest lg:text-3xl`}>
+    <section id={id} aria-labelledby={`${id}-title`} className='mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 md:py-28'>
+      <PowerOn className='mb-10 md:mb-14'>
+        <h2 id={`${id}-title`} className='font-mono text-2xl font-semibold uppercase tracking-[-0.02em] text-ink md:text-3xl'>
           {title}
         </h2>
-      </SlideUp>
+        <div aria-hidden className='power-rule mt-5 h-px bg-line-strong' />
+      </PowerOn>
       {children}
     </section>
   )

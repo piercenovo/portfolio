@@ -1,20 +1,26 @@
-import { sfmono } from '@/app/font'
 import type { ReactNode } from 'react'
 
 type ButtonLinkProps = {
   href: string
-  title: string
   children: ReactNode
+  variant?: 'primary' | 'secondary'
+  title?: string
+  external?: boolean
 }
 
-export function ButtonLink({ href, title, children }: ButtonLinkProps) {
+const variants = {
+  primary: 'bg-live text-ground hover:bg-live-strong',
+  secondary: 'border border-line-strong text-ink hover:border-live hover:text-live'
+}
+
+export function ButtonLink({ href, children, variant = 'primary', title, external = false }: ButtonLinkProps) {
   return (
     <a
       href={href}
       title={title}
-      target='_blank'
-      rel='noopener noreferrer'
-      className={`${sfmono.className} rounded border border-secondary px-3 py-2 text-sm text-secondary shadow-[0px_0px_2.5px_0px] shadow-secondary transition-colors duration-300 [text-shadow:0px_0px_2px_var(--color-secondary)] hover:bg-secondary-light`}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className={`inline-flex items-center gap-2.5 rounded-[3px] px-5 py-3 font-mono text-sm font-semibold uppercase tracking-[0.06em] transition-colors duration-200 ${variants[variant]}`}
     >
       {children}
     </a>

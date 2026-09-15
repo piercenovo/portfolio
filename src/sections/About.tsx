@@ -1,52 +1,66 @@
-import { sfmono } from '@/app/font'
+import { PowerOn } from '@/components/ui/PowerOn'
 import { Section } from '@/components/ui/Section'
-import { SlideUp } from '@/components/ui/SlideUp'
 import { about } from '@/content/about'
+import { profile } from '@/content/profile'
 import type { SectionProps } from '@/types/section'
 import Image from 'next/image'
+import type { CSSProperties } from 'react'
+
+const rowClassName = 'grid gap-3 border-b border-line py-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8'
+const termClassName = 'font-mono text-xs tracking-[0.08em] text-ink-muted uppercase sm:pt-1'
+const indexStyle = (index: number) => ({ '--i': index }) as CSSProperties
 
 export function About({ lang, dict }: SectionProps) {
   return (
     <Section id='about' title={dict.about.title}>
-      <SlideUp delay={120}>
-        <article className='flex w-full max-w-3xl flex-col items-center gap-8 px-0 sm:px-4 md:px-6 lg:max-w-4xl xl:max-w-5xl xl:flex-row'>
-          <div className='mx-auto flex max-w-xl flex-col gap-4 text-lg lg:max-w-2xl lg:text-xl xl:mx-0 xl:max-w-[39rem]'>
-            {about.paragraphs[lang].map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-
-            <div className='mt-2 flex flex-col gap-3 text-base'>
-              <h3 className={`${sfmono.className} text-sm text-secondary`}>{dict.about.education}</h3>
-              <ul className='flex flex-col gap-2'>
-                {about.education.map((entry) => (
-                  <li key={entry.institution} className='flex flex-col text-primary-light sm:flex-row sm:justify-between sm:gap-4'>
-                    <span>
-                      {entry.title[lang]} <span className='text-primary'>· {entry.institution}</span>
-                    </span>
-                    <span className={`${sfmono.className} shrink-0 text-xs text-primary sm:text-sm`}>{entry.period}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className='text-primary-light'>
-                <span className={`${sfmono.className} text-sm text-secondary`}>{dict.about.languages}:</span>{' '}
-                {about.languages[lang]}
-              </p>
+      <PowerOn className='grid gap-10 md:grid-cols-[15rem_minmax(0,1fr)] md:gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16'>
+        <figure className='boot group w-full max-w-[18rem] self-start rounded-[3px] border border-line bg-panel transition-colors duration-200 hover:border-line-strong'>
+          <div className='p-2'>
+            <div className='boot-screen overflow-hidden rounded-[2px]'>
+              <Image
+                src={about.photo}
+                alt={dict.about.photoAlt}
+                placeholder='blur'
+                className='aspect-[4/5] w-full object-cover object-[50%_35%] grayscale-[45%] transition-[filter,transform] duration-700 ease-(--ease-out-expo) group-hover:scale-[1.02] group-hover:grayscale-0'
+              />
             </div>
           </div>
+          <figcaption className='flex items-center justify-between gap-3 border-t border-line px-4 py-3 font-mono text-[0.6875rem] tracking-[0.08em] uppercase'>
+            <span className='text-ink'>{profile.name}</span>
+            <span className='text-ink-muted'>{dict.about.location}</span>
+          </figcaption>
+        </figure>
 
-          <div className='mx-auto shrink-0 xl:mx-0'>
-            <Image
-              src={about.photo}
-              alt={dict.about.photoAlt}
-              placeholder='blur'
-              width={300}
-              height={300}
-              className='mx-auto w-[18rem] animate-profile shadow-image'
-            />
+        <div className='flex flex-col gap-10'>
+          <div className='flex max-w-[65ch] flex-col gap-5 text-lg text-ink-muted'>
+            {about.paragraphs[lang].map((paragraph, index) => (
+              <p key={paragraph} className='boot' style={indexStyle(index + 1)}>{paragraph}</p>
+            ))}
           </div>
-        </article>
-      </SlideUp>
+
+          <dl className='boot border-t border-line' style={indexStyle(about.paragraphs[lang].length + 1)}>
+            <div className={rowClassName}>
+              <dt className={termClassName}>{dict.about.education}</dt>
+              <dd>
+                <ul className='flex flex-col gap-3'>
+                  {about.education.map((entry) => (
+                    <li key={entry.institution} className='flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6'>
+                      <span className='text-ink'>
+                        {entry.title[lang]} <span className='text-ink-muted'>· {entry.institution}</span>
+                      </span>
+                      <span className='shrink-0 font-mono text-xs text-ink-muted tabular'>{entry.period}</span>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+            <div className={rowClassName}>
+              <dt className={termClassName}>{dict.about.languages}</dt>
+              <dd className='text-ink'>{about.languages[lang]}</dd>
+            </div>
+          </dl>
+        </div>
+      </PowerOn>
     </Section>
   )
 }

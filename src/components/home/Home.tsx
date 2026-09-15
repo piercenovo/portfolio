@@ -15,7 +15,7 @@ export function Home({ lang }: { lang: Locale }) {
   return (
     <>
       <Header lang={lang} navItems={navItems} labels={dict.header} languageLabel={dict.language.switchTo} />
-      <main className='flex w-full flex-col items-center'>
+      <main className='w-full'>
         <Hero lang={lang} dict={dict} />
         {sections.map(({ id, Component }) => (
           <Component key={id} lang={lang} dict={dict} />

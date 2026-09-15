@@ -1,12 +1,12 @@
-import { sfmono } from '@/app/font'
 import { SvgIcon } from '@/components/ui/SvgIcon'
 import { TechIcon } from '@/components/ui/TechIcon'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries/types'
 import type { Project } from '@/types/content'
-import { ExternalLink, Smartphone } from 'lucide-react'
+import { ArrowUpRight, Lock } from 'lucide-react'
 import Image from 'next/image'
-import { siGithub } from 'simple-icons'
+import type { ReactNode } from 'react'
+import { siGithub, siGoogleplay } from 'simple-icons'
 
 type ProjectCardProps = {
   project: Project
@@ -14,63 +14,89 @@ type ProjectCardProps = {
   labels: Dictionary['projects']
 }
 
-const linkClassName = 'block text-primary transition-colors duration-200 hover:text-secondary'
+type CardLink = { href: string; label: string; icon: ReactNode }
+
+// Links share one fixed slot as icon buttons so every card keeps the same rhythm
+function IconLink({ href, label, icon }: CardLink) {
+  return (
+    <a
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+      aria-label={label}
+      className='group/link relative grid h-9 w-9 place-items-center rounded-[3px] border border-line text-ink-muted transition-colors duration-200 hover:border-live hover:text-live focus-visible:border-live focus-visible:text-live'
+    >
+      {icon}
+      <span
+        aria-hidden
+        className='pointer-events-none absolute right-0 bottom-full mb-2 translate-y-1 rounded-[2px] border border-line-strong bg-raised px-2 py-1 font-mono text-[0.625rem] tracking-[0.08em] whitespace-nowrap text-ink uppercase opacity-0 transition-[opacity,transform] duration-200 ease-(--ease-out-expo) group-hover/link:translate-y-0 group-hover/link:opacity-100 group-focus-visible/link:translate-y-0 group-focus-visible/link:opacity-100'
+      >
+        {label}
+      </span>
+    </a>
+  )
+}
 
 export function ProjectCard({ project, lang, labels }: ProjectCardProps) {
-  const { name, year, cover, links, techs, summary } = project
-  const primaryHref = links.live ?? links.store ?? links.repo
-
-  const image = (
-    <Image
-      src={cover}
-      alt={name}
-      placeholder='blur'
-      className='h-full w-full object-cover transition duration-300 ease-in-out group-hover:scale-[1.05] group-active:scale-[1.05]'
-    />
-  )
+  const { name, kind, year, cover, links, techs, summary } = project
+  const candidateLinks: (CardLink | null)[] = [
+    links.live ? { href: links.live, label: labels.live, icon: <ArrowUpRight size={16} strokeWidth={2} aria-hidden /> } : null,
+    links.repo ? { href: links.repo, label: labels.repo, icon: <SvgIcon icon={siGithub} className='h-4 w-4' /> } : null,
+    links.store ? { href: links.store, label: labels.store, icon: <SvgIcon icon={siGoogleplay} className='h-4 w-4' /> } : null
+  ]
+  const cardLinks = candidateLinks.filter((link): link is CardLink => link !== null)
 
   return (
-    <article className='group w-full max-w-[28rem] overflow-hidden rounded-md bg-primary-dark shadow-sm transition-all duration-200 hover:drop-shadow-white active:drop-shadow-white'>
-      <div className='h-[220px] overflow-hidden'>
-        {primaryHref
-          ? <a href={primaryHref} target='_blank' rel='noopener noreferrer'>{image}</a>
-          : image}
+    <article className='group flex h-full flex-col rounded-[3px] border border-line bg-panel transition-colors duration-200 hover:border-line-strong'>
+      <div className='rounded-t-[3px] border-b border-line bg-ground p-3 sm:p-4'>
+        <div className='boot-screen overflow-hidden rounded-[2px] border border-line'>
+          <Image
+            src={cover}
+            alt={name}
+            placeholder='blur'
+            className='aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-[1.03]'
+          />
+        </div>
       </div>
 
-      <div className='flex flex-col justify-center gap-1 p-4 py-3'>
-        <div className={`${sfmono.className} flex items-center justify-between`}>
-          <ul className='flex items-center gap-4' aria-label={labels.stack}>
-            {techs.map((techId) => (
-              <li key={techId}>
-                <TechIcon id={techId} className='w-6 group-hover:drop-shadow-white' />
-              </li>
-            ))}
-          </ul>
+      <div className='flex flex-1 flex-col gap-4 p-5 sm:p-6'>
+        <div className='flex min-h-9 items-center justify-between gap-4'>
+          <p className='flex items-center gap-3 font-mono text-[0.6875rem] tracking-[0.08em] text-ink-muted uppercase'>
+            <span className='tabular'>{year}</span>
+            <span aria-hidden className='h-3 w-px bg-line-strong' />
+            <span>{labels.filters[kind]}</span>
+          </p>
 
-          <div className='flex items-center gap-1.5'>
-            {links.repo && (
-              <a href={links.repo} target='_blank' rel='noopener noreferrer' aria-label={labels.repo} title={labels.repo} className={linkClassName}>
-                <SvgIcon icon={siGithub} className='h-5 w-5 fill-current' />
-              </a>
-            )}
-            {links.live && (
-              <a href={links.live} target='_blank' rel='noopener noreferrer' aria-label={labels.live} title={labels.live} className={linkClassName}>
-                <ExternalLink size={20} strokeWidth={1.75} className='fill-none' aria-hidden />
-              </a>
-            )}
-            {links.store && (
-              <a href={links.store} target='_blank' rel='noopener noreferrer' aria-label={labels.store} title={labels.store} className={linkClassName}>
-                <Smartphone size={20} strokeWidth={1.75} className='fill-none' aria-hidden />
-              </a>
-            )}
-          </div>
+          {cardLinks.length > 0
+            ? (
+              <ul className='flex items-center gap-2'>
+                {cardLinks.map((link) => (
+                  <li key={link.href}>
+                    <IconLink {...link} />
+                  </li>
+                ))}
+              </ul>
+              )
+            : (
+              <span className='inline-flex items-center gap-1.5 rounded-[2px] border border-line px-2 py-1 font-mono text-[0.625rem] tracking-[0.08em] text-ink-muted uppercase'>
+                <Lock size={11} strokeWidth={2} aria-hidden />
+                {labels.private}
+              </span>
+              )}
         </div>
 
-        <h3 className='mt-3 flex justify-between text-xl font-medium capitalize duration-200 group-hover:text-secondary group-active:text-secondary'>
-          <span>{name}</span>
-          <span className='mr-1'>{year}</span>
-        </h3>
-        <p className='text-lg'>{summary[lang]}</p>
+        <div>
+          <h3 className='text-2xl font-medium tracking-[-0.02em] text-ink'>{name}</h3>
+          <p className='mt-2 max-w-[65ch] text-[0.9875rem] leading-[1.55] text-ink-muted'>{summary[lang]}</p>
+        </div>
+
+        <ul aria-label={labels.stack} className='mt-auto flex flex-wrap items-center gap-3.5 border-t border-line pt-4'>
+          {techs.map((techId) => (
+            <li key={techId}>
+              <TechIcon id={techId} className='h-5 w-5' />
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   )

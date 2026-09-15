@@ -29,11 +29,9 @@ export function MobileMenu({ lang, navItems, labels, languageLabel }: MobileMenu
         aria-expanded={isOpen}
         aria-controls='mobile-menu'
         aria-label={isOpen ? labels.closeMenu : labels.openMenu}
-        className='p-1 text-primary-light transition-colors duration-200 hover:text-secondary'
+        className='flex h-10 w-10 items-center justify-center rounded-[3px] border border-line text-ink transition-colors duration-200 hover:border-live hover:text-live'
       >
-        {isOpen
-          ? <X size={26} strokeWidth={1.5} className='fill-none' aria-hidden />
-          : <MenuIcon size={26} strokeWidth={1.5} className='fill-none' aria-hidden />}
+        {isOpen ? <X size={20} strokeWidth={1.75} aria-hidden /> : <MenuIcon size={20} strokeWidth={1.75} aria-hidden />}
       </button>
 
       {isClient && createPortal(
@@ -41,33 +39,34 @@ export function MobileMenu({ lang, navItems, labels, languageLabel }: MobileMenu
           <div
             onClick={close}
             aria-hidden
-            className={`fixed inset-0 z-40 bg-primary-darkest/80 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
+            className={`fixed inset-0 z-40 bg-ground/80 transition-opacity duration-300 ${isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
           />
 
           <div
             id='mobile-menu'
             inert={!isOpen}
-            className={`fixed right-0 top-0 z-50 h-full w-4/6 max-w-xs bg-primary-darker text-white transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+            className={`fixed top-0 right-0 z-50 flex h-full w-[min(20rem,86vw)] flex-col border-l border-line bg-panel transition-transform duration-300 ease-(--ease-out-expo) ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
           >
-            <div className='flex h-20 items-center justify-end px-6'>
+            <div className='flex h-16 items-center justify-between border-b border-line px-5'>
+              <LanguageSwitcher currentLang={lang} label={languageLabel} />
               <button
                 type='button'
                 onClick={close}
                 aria-label={labels.closeMenu}
-                className='p-1 text-primary-light transition-colors duration-200 hover:text-secondary'
+                className='flex h-10 w-10 items-center justify-center rounded-[3px] border border-line text-ink transition-colors duration-200 hover:border-live hover:text-live'
               >
-                <X size={24} strokeWidth={1.5} className='fill-none' aria-hidden />
+                <X size={20} strokeWidth={1.75} aria-hidden />
               </button>
             </div>
 
-            <nav aria-label={labels.navLabel} className='flex flex-col items-center gap-10 px-8 pb-12 pt-8'>
-              <ul className='w-full'>
+            <nav aria-label={labels.navLabel} className='flex flex-1 flex-col px-5 py-6'>
+              <ul className='flex flex-col'>
                 {navItems.map(({ id, label }) => (
-                  <li key={id} className='border-b border-primary/10 last:border-0'>
+                  <li key={id} className='border-b border-line'>
                     <a
                       href={`#${id}`}
                       onClick={close}
-                      className='block px-4 py-4 text-center capitalize text-primary-light transition-colors duration-300 hover:text-secondary'
+                      className='block py-4 font-mono text-sm tracking-[0.08em] text-ink uppercase transition-colors duration-200 hover:text-live'
                     >
                       {label}
                     </a>
@@ -75,7 +74,13 @@ export function MobileMenu({ lang, navItems, labels, languageLabel }: MobileMenu
                 ))}
               </ul>
 
-              <LanguageSwitcher currentLang={lang} label={languageLabel} />
+              <a
+                href='#contact'
+                onClick={close}
+                className='mt-8 inline-flex justify-center rounded-[3px] bg-live px-5 py-3 font-mono text-sm font-semibold tracking-[0.06em] text-ground uppercase transition-colors duration-200 hover:bg-live-strong'
+              >
+                {labels.contact}
+              </a>
             </nav>
           </div>
         </>,

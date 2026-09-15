@@ -8,12 +8,12 @@ type SvgIconProps = {
   style?: CSSProperties
 }
 
-export function SvgIcon({ icon, className, title, style }: SvgIconProps) {
+export function SvgIcon({ icon, className = '', title, style }: SvgIconProps) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox={icon.viewBox ?? '0 0 24 24'}
-      className={className}
+      className={`fill-current ${className}`}
       style={style}
       role={title ? 'img' : undefined}
       aria-hidden={title ? undefined : true}

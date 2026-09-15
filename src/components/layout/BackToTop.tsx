@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronUp } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export function BackToTop({ label }: { label: string }) {
@@ -18,9 +18,9 @@ export function BackToTop({ label }: { label: string }) {
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label={label}
       tabIndex={isVisible ? 0 : -1}
-      className={`fixed bottom-8 right-6 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-secondary bg-primary-darker text-secondary shadow-lg transition-all duration-300 hover:scale-110 hover:bg-secondary-light ${isVisible ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'}`}
+      className={`fixed right-5 bottom-6 z-30 flex h-11 w-11 items-center justify-center rounded-[3px] border border-line-strong bg-panel text-ink transition-[opacity,transform,color,border-color] duration-300 ease-(--ease-out-expo) hover:border-live hover:text-live ${isVisible ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
     >
-      <ChevronUp size={18} strokeWidth={2} className='fill-none' aria-hidden />
+      <ArrowUp size={18} strokeWidth={2} aria-hidden />
     </button>
   )
 }

@@ -1,9 +1,7 @@
 'use client'
 
-import { sfmono } from '@/app/font'
-import { localePath, otherLocale, type Locale } from '@/i18n/config'
+import { localePath, locales, type Locale } from '@/i18n/config'
 import { goToLocale } from '@/i18n/preference'
-import { Languages } from 'lucide-react'
 import Link from 'next/link'
 
 type LanguageSwitcherProps = {
@@ -12,22 +10,30 @@ type LanguageSwitcherProps = {
 }
 
 export function LanguageSwitcher({ currentLang, label }: LanguageSwitcherProps) {
-  const targetLang = otherLocale(currentLang)
-
   return (
-    <Link
-      href={localePath(targetLang)}
-      hrefLang={targetLang}
-      aria-label={label}
-      title={label}
-      onClick={(event) => {
-        event.preventDefault()
-        goToLocale(targetLang)
-      }}
-      className={`${sfmono.className} flex items-center gap-1.5 text-primary-light hover:text-secondary transition-colors duration-200`}
-    >
-      <Languages size={18} strokeWidth={2} className='fill-none' aria-hidden />
-      <span className='text-[12px] tracking-wide'>{currentLang.toUpperCase()}</span>
-    </Link>
+    <div className='flex items-center rounded-[3px] border border-line font-mono text-[0.6875rem] tracking-[0.08em] uppercase'>
+      {locales.map((code) => code === currentLang
+        ? (
+          <span key={code} aria-current='true' className='rounded-[2px] bg-raised px-2.5 py-1.5 text-ink'>
+            {code}
+          </span>
+          )
+        : (
+          <Link
+            key={code}
+            href={localePath(code)}
+            hrefLang={code}
+            aria-label={label}
+            title={label}
+            onClick={(event) => {
+              event.preventDefault()
+              goToLocale(code)
+            }}
+            className='px-2.5 py-1.5 text-ink-muted transition-colors duration-200 hover:text-live'
+          >
+            {code}
+          </Link>
+          ))}
+    </div>
   )
 }

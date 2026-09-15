@@ -3,11 +3,11 @@ import { SvgIcon } from './SvgIcon'
 
 type SocialLinksProps = {
   label: string
+  showNames?: boolean
   className?: string
-  iconClassName?: string
 }
 
-export function SocialLinks({ label, className = 'flex flex-row flex-wrap gap-x-6 gap-y-4 md:gap-5', iconClassName = 'h-6 w-6' }: SocialLinksProps) {
+export function SocialLinks({ label, showNames = false, className = 'flex flex-wrap items-center gap-2' }: SocialLinksProps) {
   return (
     <ul className={className}>
       {profile.socials.map(({ name, href, icon }) => (
@@ -18,9 +18,10 @@ export function SocialLinks({ label, className = 'flex flex-row flex-wrap gap-x-
             rel='noopener noreferrer'
             aria-label={`${label} ${name}`}
             title={`${label} ${name}`}
-            className='group block transition-transform duration-300 hover:-translate-y-1'
+            className={`inline-flex items-center gap-2.5 rounded-[3px] font-mono text-sm uppercase tracking-[0.06em] text-ink-muted transition-colors duration-200 hover:text-live ${showNames ? 'border border-line px-4 py-3 hover:border-live' : 'p-2.5'}`}
           >
-            <SvgIcon icon={icon} className={`${iconClassName} transition-colors duration-300 group-hover:fill-secondary`} />
+            <SvgIcon icon={icon} className='h-5 w-5' />
+            {showNames && <span>{name}</span>}
           </a>
         </li>
       ))}

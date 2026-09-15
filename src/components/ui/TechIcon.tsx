@@ -10,7 +10,8 @@ type TechIconProps = {
   decorative?: boolean
 }
 
-export function TechIcon({ id, className = 'h-6 w-6', decorative = false }: TechIconProps) {
+// Idle icons sit in muted ink; a hovered or focused unit powers them in their brand color
+export function TechIcon({ id, className = 'h-5 w-5', decorative = false }: TechIconProps) {
   const { name, icon } = techs[id]
 
   return (
@@ -18,7 +19,7 @@ export function TechIcon({ id, className = 'h-6 w-6', decorative = false }: Tech
       icon={icon}
       title={decorative ? undefined : name}
       style={brandStyle(id)}
-      className={`fill-primary transition-all duration-300 group-hover:fill-(--brand) group-active:fill-(--brand) ${className}`}
+      className={`text-ink-muted transition-colors duration-200 group-hover:text-(--brand) group-focus-within:text-(--brand) ${className}`}
     />
   )
 }

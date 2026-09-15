@@ -18,7 +18,6 @@ export type Project = {
   slug: string
   name: string
   kind: 'web' | 'mobile'
-  featured?: boolean
   year: number
   cover: StaticImageData
   links: ProjectLinks
