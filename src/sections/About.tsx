@@ -21,7 +21,7 @@ export function About({ lang, dict }: SectionProps) {
                 src={about.photo}
                 alt={dict.about.photoAlt}
                 placeholder='blur'
-                className='aspect-[4/5] w-full object-cover object-[50%_35%] grayscale-[45%] transition-[filter,transform] duration-700 ease-(--ease-out-expo) group-hover:scale-[1.02] group-hover:grayscale-0'
+                className='aspect-[4/5] w-full object-cover object-[50%_35%] grayscale-[45%] transition-[filter] duration-500 ease-out group-hover:grayscale-0'
               />
             </div>
           </div>

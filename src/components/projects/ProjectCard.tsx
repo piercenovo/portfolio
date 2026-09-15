@@ -1,5 +1,7 @@
 import { SvgIcon } from '@/components/ui/SvgIcon'
 import { TechIcon } from '@/components/ui/TechIcon'
+import { Tooltip } from '@/components/ui/Tooltip'
+import { techs as techRegistry } from '@/content/techs'
 import type { Locale } from '@/i18n/config'
 import type { Dictionary } from '@/i18n/dictionaries/types'
 import type { Project } from '@/types/content'
@@ -24,15 +26,10 @@ function IconLink({ href, label, icon }: CardLink) {
       target='_blank'
       rel='noopener noreferrer'
       aria-label={label}
-      className='group/link relative grid h-9 w-9 place-items-center rounded-[3px] border border-line text-ink-muted transition-colors duration-200 hover:border-live hover:text-live focus-visible:border-live focus-visible:text-live'
+      className='group/tip relative grid h-9 w-9 place-items-center rounded-[3px] border border-line text-ink-muted transition-colors duration-200 hover:border-live hover:text-live focus-visible:border-live focus-visible:text-live'
     >
       {icon}
-      <span
-        aria-hidden
-        className='pointer-events-none absolute right-0 bottom-full mb-2 translate-y-1 rounded-[2px] border border-line-strong bg-raised px-2 py-1 font-mono text-[0.625rem] tracking-[0.08em] whitespace-nowrap text-ink uppercase opacity-0 transition-[opacity,transform] duration-200 ease-(--ease-out-expo) group-hover/link:translate-y-0 group-hover/link:opacity-100 group-focus-visible/link:translate-y-0 group-focus-visible/link:opacity-100'
-      >
-        {label}
-      </span>
+      <Tooltip label={label} align='end' />
     </a>
   )
 }
@@ -49,12 +46,12 @@ export function ProjectCard({ project, lang, labels }: ProjectCardProps) {
   return (
     <article className='group flex h-full flex-col rounded-[3px] border border-line bg-panel transition-colors duration-200 hover:border-line-strong'>
       <div className='rounded-t-[3px] border-b border-line bg-ground p-3 sm:p-4'>
-        <div className='boot-screen overflow-hidden rounded-[2px] border border-line'>
+        <div className='boot-warm overflow-hidden rounded-[2px] border border-line'>
           <Image
             src={cover}
             alt={name}
             placeholder='blur'
-            className='aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-[1.03]'
+            className='aspect-[16/10] w-full object-cover object-top transition-[scale] duration-500 ease-out will-change-[scale] group-hover:scale-[1.02]'
           />
         </div>
       </div>
@@ -90,10 +87,11 @@ export function ProjectCard({ project, lang, labels }: ProjectCardProps) {
           <p className='mt-2 max-w-[65ch] text-[0.9875rem] leading-[1.55] text-ink-muted'>{summary[lang]}</p>
         </div>
 
-        <ul aria-label={labels.stack} className='mt-auto flex flex-wrap items-center gap-3.5 border-t border-line pt-4'>
+        <ul aria-label={labels.stack} className='mt-auto flex flex-wrap items-center gap-1.5 border-t border-line pt-3'>
           {techs.map((techId) => (
-            <li key={techId}>
-              <TechIcon id={techId} className='h-5 w-5' />
+            <li key={techId} className='group/tip relative grid h-8 w-8 place-items-center rounded-[3px] transition-colors duration-200 hover:bg-raised'>
+              <TechIcon id={techId} className='h-5 w-5 transition-transform duration-300 ease-(--ease-out-expo) group-hover/tip:-translate-y-0.5' />
+              <Tooltip label={techRegistry[techId].name} />
             </li>
           ))}
         </ul>

@@ -53,15 +53,11 @@
   to { opacity: 1; filter: none; }
 }
 
+/* CRT power-on: a bright line opens from the center, then the picture settles */
 @keyframes screen-on {
-  from { clip-path: inset(0 0 100% 0); filter: brightness(1.5) saturate(0); }
-  to { clip-path: inset(0 0 0 0); filter: none; }
-}
-
-@keyframes scan {
-  from { top: 0; opacity: 1; }
-  80% { opacity: 1; }
-  to { top: 100%; opacity: 0; }
+  0% { clip-path: inset(50% 50% 50% 50%); filter: brightness(1.9) saturate(0); }
+  30% { clip-path: inset(calc(50% - 1px) 0 calc(50% - 1px) 0); filter: brightness(1.9) saturate(0); }
+  100% { clip-path: inset(0 0 0 0); filter: none; }
 }
 
 @keyframes led-on {
@@ -144,26 +140,29 @@ html::-webkit-scrollbar-thumb {
 }
 
 [data-power='off'] .boot-screen {
-  clip-path: inset(0 0 100% 0);
+  clip-path: inset(50% 50% 50% 50%);
 }
 
 [data-power='off'] .boot-rail {
   transform: scaleY(0);
 }
 
+/* Boot animations fill backwards only: they hold the first frame during the
+   stagger delay and leave nothing applied once they end, so no finished
+   filter, mask or transform keeps hover interactions on an expensive path. */
 :is([data-power='on'] .boot, .boot[data-power='on']) {
-  animation: power-in 700ms var(--ease-out-expo) both;
+  animation: power-in 700ms var(--ease-out-expo) backwards;
   animation-delay: calc(var(--i, 0) * var(--step, 90ms));
 }
 
 [data-power='on'] .boot-led {
-  animation: led-on 520ms var(--ease-out-expo) both;
+  animation: led-on 520ms var(--ease-out-expo) backwards;
   animation-delay: calc(var(--i, 0) * var(--step, 90ms) + 180ms);
 }
 
 [data-power='on'] .boot-rail {
   transform-origin: top;
-  animation: wire-grow-y 1100ms var(--ease-out-expo) both;
+  animation: wire-grow-y 1100ms var(--ease-out-expo) backwards;
   animation-delay: 200ms;
 }
 
@@ -172,20 +171,25 @@ html::-webkit-scrollbar-thumb {
 }
 
 [data-power='on'] .boot-screen {
-  animation: screen-on 1100ms var(--ease-out-expo) both;
+  animation: screen-on 950ms var(--ease-out-expo) backwards;
   animation-delay: calc(var(--i, 0) * 120ms + 120ms);
 }
 
-[data-power='on'] .boot-screen::after {
-  content: '';
-  position: absolute;
-  inset-inline: 0;
-  height: 1px;
-  margin-top: -1px;
-  background: var(--color-live);
-  pointer-events: none;
-  animation: scan 1100ms var(--ease-out-expo) both;
-  animation-delay: calc(var(--i, 0) * 120ms + 120ms);
+/* Project screenshots warm up like a monitor: dark and transparent to their
+   normal brightness. Only the frame animates, never the image, so the hover
+   zoom on the image is untouched. */
+@keyframes screen-warm {
+  from { opacity: 0; filter: brightness(0.45); }
+  to { opacity: 1; filter: brightness(1); }
+}
+
+[data-power='off'] .boot-warm {
+  opacity: 0;
+}
+
+[data-power='on'] .boot-warm {
+  animation: screen-warm 900ms ease-out backwards;
+  animation-delay: calc(var(--i, 0) * 120ms + 160ms);
 }
 
 /* ─── Plant diagram: stations boot in order, wiring grows, signal travels ─── */
