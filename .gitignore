@@ -40,3 +40,9 @@ next-env.d.ts
 
 # originales de imágenes (se versiona solo el WebP optimizado)
 /.images/
+
+# herramientas locales de diseño y pruebas (impeccable, Playwright MCP, Claude)
+/PRODUCT.md
+/.impeccable/
+/.playwright-mcp/
+/.claude/launch.json
