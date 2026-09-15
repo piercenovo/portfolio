@@ -15,7 +15,7 @@ export function Hero({ lang, dict }: SectionProps) {
       className='mx-auto grid w-full max-w-6xl gap-14 px-5 pt-28 pb-8 sm:px-8 md:pt-32 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14 lg:pb-12'
     >
       <div className='flex flex-col'>
-        <h1 className='font-mono text-[clamp(3rem,9.5vw,6rem)] leading-[0.92] font-semibold tracking-[-0.04em] text-ink uppercase'>
+        <h1 className='font-mono text-[clamp(3rem,7vw,4.5rem)] leading-[0.92] font-semibold tracking-[-0.04em] text-ink uppercase'>
           <span className='block'>{firstName}</span>
           <span className='block'>{lastNames.join(' ')}</span>
         </h1>
