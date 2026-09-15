@@ -32,13 +32,15 @@ export function buildMetadata(lang: Locale): Metadata {
       siteName: 'Pierce Novoa',
       locale: OPEN_GRAPH_LOCALE[lang],
       type: 'website',
-      images: [{ url: '/og.png', width: 1200, height: 630, alt: meta.title }]
+      // Same screenshot as the README; declared at its real size (16:9), so
+      // networks crop it slightly to 1.91:1
+      images: [{ url: '/images/portfolio-screen.png', width: 1920, height: 1080, alt: meta.title }]
     },
     twitter: {
       card: 'summary_large_image',
       title: meta.title,
       description: meta.description,
-      images: ['/og.png']
+      images: ['/images/portfolio-screen.png']
     }
   }
 }
