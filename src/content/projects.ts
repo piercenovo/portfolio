@@ -16,8 +16,8 @@ export const projects: Project[] = [
     links: {},
     techs: ['nextjs', 'nestjs', 'drizzle', 'postgresql'],
     summary: {
-      es: 'Sistema de gestión de almacén y pesaje industrial con módulos de operaciones, órdenes de despacho y tickets de balanza. Monorepo Turborepo con backend NestJS, backoffice Next.js y esquemas Zod compartidos; integra una balanza industrial HBM por RS-485 mediante un servicio local que expone el peso estabilizado.',
-      en: 'Warehouse and industrial weighing management system with modules for operations, dispatch orders and weighbridge tickets. Turborepo monorepo with a NestJS backend, a Next.js backoffice and shared Zod schemas; it integrates an HBM industrial scale over RS-485 through a local service that exposes stabilized weight readings.'
+      es: 'Sistema de gestión de almacén y pesaje industrial con módulos de operaciones, órdenes de despacho y tickets de balanza. Integra una balanza industrial para obtener el peso estabilizado.',
+      en: 'Industrial warehouse and weighing management system with operations, dispatch orders, and scale ticket modules. Integrates an industrial scale to capture stabilized weight.'
     }
   },
   {
